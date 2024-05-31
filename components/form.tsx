@@ -28,7 +28,7 @@ export default function Form() {
     return (
         <form onSubmit={handleSubmit} className='bg-red-300 w-full flex-col'>
             <label>
-                Name
+                Nom
                 <input
                 type="text"
                 value={name}
