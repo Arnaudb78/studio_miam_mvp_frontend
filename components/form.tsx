@@ -1,6 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 export default function Form() {
     const [name, setName] = useState('');
@@ -26,24 +28,28 @@ export default function Form() {
     };
     
     return (
-        <form onSubmit={handleSubmit} className='bg-red-300 w-full flex-col'>
+        <form onSubmit={handleSubmit} className='border border-solid border-gray-700 rounded-md w-fit flex flex-col justify-center items-center text-center gap-4 p-4'>
             <label>
-                Nom
+                <p>Nom</p>
                 <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                className='w-full p-2 border border-solid border-gray-700 rounded-md'
+
                 />
             </label>
             <label>
-                Email
-                <input
+                <p>Email</p>
+                <input 
                 type="mail"
                 value={mail}
                 onChange={(e) => setMail(e.target.value)}
+                className="w-full p-2 border border-solid border-gray-700 rounded-md"
                 />
             </label>
-            <button type="submit">Send</button>
+
+            <button className="w-full p-2 rounded-md hover:bg-gray-700 hover:text-white" type="submit">Envoyé <FontAwesomeIcon icon={faPaperPlane} /> </button>
         </form>
     );
     }
