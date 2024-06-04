@@ -24,12 +24,13 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
     const [mail, setMail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [rules, setRules] = useState(false);
     const [newsletter, setNewsletter] = useState(false);
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
 
-        if (!firstname || !lastname || !mail || !password || !confirmPassword) {
+        if (!firstname || !lastname || !mail || !password || !confirmPassword || !rules || !newsletter) {
             alert("Veuillez remplir tous les champs obligatoires.");
             return;
         }
@@ -39,7 +40,7 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
             return;
         }
 
-        const response = await fetch("http://localhost:5001/users", {
+        const response = await fetch("http://localhost:5001/users/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -84,7 +85,7 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
                 <label>
                     <p>Adresse mail</p>
                     <input
-                        type="mail"
+                        type="email"
                         value={mail}
                         onChange={(event) => setMail(event.target.value)}
                         className="p-2 border border-solid border-black rounded-md"
@@ -109,7 +110,7 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
                     />
                 </label>
                 <label>
-                    <input type="checkbox" className="mr-2" />
+                    <input type="checkbox" checked={rules} onChange={(event) => setRules(event.target.checked)} className="mr-2" />
                     J'accepte les conditions d'utilisation
                 </label>
                 <label>
