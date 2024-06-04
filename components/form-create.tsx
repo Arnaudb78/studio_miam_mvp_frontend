@@ -7,6 +7,15 @@ interface FormCreateProps {
     setShowSignup: Dispatch<SetStateAction<boolean>>;
 }
 
+interface User {
+    firstname: string;
+    lastname: string;
+    mail: string;
+    password: string;
+    confirmPassword: string;
+    newsletter: boolean;
+}
+
 const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
     const router = useRouter();
 
@@ -37,7 +46,7 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
             },
             body: JSON.stringify({ firstname, lastname, mail, password, confirmPassword, newsletter }),
         });
-
+        response.json().then((data) => sessionStorage.setItem("user", JSON.stringify(data)));
         if (response.ok) {
             alert("Compte créé !");
             setFirstname("");

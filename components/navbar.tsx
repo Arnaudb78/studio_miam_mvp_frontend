@@ -7,12 +7,20 @@ export default function Navbar() {
     const [menu, setMenu] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [isConnected, setIsConnected] = useState(false);
 
     function toggleMenu() {
         setMenu(!menu);
     }
 
+    function handleConnect() {
+        if (sessionStorage.getItem("user")) {
+            setIsConnected(true);
+        }
+    }
+
     useEffect(() => {
+        handleConnect();
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
 
@@ -55,9 +63,7 @@ export default function Navbar() {
                     <li>
                         <a href="/">Notre histoire</a>
                     </li>
-                    <li>
-                        <a href="/connect">Mon compte</a>
-                    </li>
+                    <li>{isConnected ? <a href="/account">Mon Compte</a> : <a href="/connect">Connexion</a>}</li>
                 </ul>
             </div>
         </nav>
