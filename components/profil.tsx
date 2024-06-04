@@ -16,7 +16,7 @@ export default function Profil() {
             </label>
             <label>
                 <input type="checkbox" className="mr-2" />
-                Conditions d'utilisation
+                Conditions d&apos;utilisation
             </label>
             <label>
                 <input type="checkbox" className="mr-2" />

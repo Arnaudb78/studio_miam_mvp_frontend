@@ -7,14 +7,14 @@ interface FormCreateProps {
     setShowSignup: Dispatch<SetStateAction<boolean>>;
 }
 
-interface User {
-    firstname: string;
-    lastname: string;
-    mail: string;
-    password: string;
-    confirmPassword: string;
-    newsletter: boolean;
-}
+// interface User {
+//     firstname: string;
+//     lastname: string;
+//     mail: string;
+//     password: string;
+//     confirmPassword: string;
+//     newsletter: boolean;
+// }
 
 const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
     const router = useRouter();
@@ -111,11 +111,11 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
                 </label>
                 <label>
                     <input type="checkbox" checked={rules} onChange={(event) => setRules(event.target.checked)} className="mr-2" />
-                    J'accepte les conditions d'utilisation
+                    J&apos;accepte les conditions d&apos;utilisation
                 </label>
                 <label>
                     <input type="checkbox" checked={newsletter} onChange={(event) => setNewsletter(event.target.checked)} className="mr-2" />
-                    Je souhaite m'abonner à la newsletter
+                    Je souhaite m&apos;abonner à la newsletter
                 </label>
                 <button className="bg-yellow-300 p-2 rounded-lg" type="submit">
                     Créer un compte
