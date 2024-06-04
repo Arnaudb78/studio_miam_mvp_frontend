@@ -1,36 +1,66 @@
-export default function Card(){
+interface Equipements {
+    wifi: boolean;
+    tv: boolean;
+    clim: boolean;
+    parking: boolean;
+    breakfast: boolean;
+}
 
-    const MAX_CHARACTERS = 100; // Définir la limite de caractères souhaitée
+interface Accessories {
+    chain: boolean;
+    cage: boolean;
+    jacuzzi: boolean;
+}
 
-    // Fonction utilitaire pour tronquer le texte
-    const truncateText = (text: string, maxLength: number) => {
-    if (text.length <= maxLength) {
-        return text;
-    }
-  return text.substring(0, maxLength) + '...';
-};
+interface CardProps {
+    title: string;
+    description: string;
+    price: number;
+    date: string;
+    localisation: string;
+    hote: string;
+    people_number: number;
+    room_number: number;
+    equipements: Equipements;
+    accessories: Accessories;
+}
 
-const description = "À quelques minutes de Paris et de La Défense, cette maison avec piscine vous ouvre ses portes pour vos vacances Parisienne dans cadre champêtre. Cette superbe maison ouverte vers l'extérieur équipée d'une cuisine ouverte saura charmer les plus exigeants.";
-
+const Card: React.FC<CardProps> = ({ title, description, price, date, localisation, hote, people_number, room_number, equipements, accessories }) => {
     return (
-        <div className="w-screen flex justify-center mt-10">
-            <div className="w-[80%] rounded overflow-hidden shadow-lg">
-                <img src="https://source.unsplash.com/random" alt="Random" className="w-full h-60"/>
-                <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2">Paris, France</div>
-                    <p className="text-gray-700 text-base">
-                    {truncateText(description, MAX_CHARACTERS)}
-                    </p>
-                </div>
-                <div className="px-6 py-4">
-                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 my-1">#Roleplay</span>
-                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 my-1">#Accessoires</span>
-                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 my-1">#Jacuzzi</span>
-                </div>
-                <div className="my-4">
-                    <a className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-4">Voir plus</a>
-                </div>
+        <div className="bg-red-200 m-8 p-4 border border-solid border-black">
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <p>Prix: {price}€</p>
+            <p>Date: {date}</p>
+            <p>Localisation: {localisation}</p>
+            <p>Hôte: {hote}</p>
+            <p>Nombre de personnes: {people_number}</p>
+            <p>Nombre de chambres: {room_number}</p>
+            <div>
+                <h3>Équipements:</h3>
+                <ul>
+                    <li>WiFi: {equipements.wifi ? "Oui" : "Non"}</li>
+                    <li>TV: {equipements.tv ? "Oui" : "Non"}</li>
+                    <li>Climatisation: {equipements.clim ? "Oui" : "Non"}</li>
+                    <li>Parking: {equipements.parking ? "Oui" : "Non"}</li>
+                    <li>Petit déjeuner: {equipements.breakfast ? "Oui" : "Non"}</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Accessoires:</h3>
+                <ul>
+                    <li>Chaîne: {accessories.chain ? "Oui" : "Non"}</li>
+                    <li>Cage: {accessories.cage ? "Oui" : "Non"}</li>
+                    <li>Jacuzzi: {accessories.jacuzzi ? "Oui" : "Non"}</li>
+                </ul>
+            </div>
+            <div className="w-full flex justify-end">
+                <a className="bg-yellow-300 p-2 rounded-lg" href="/">
+                    En savoir plus
+                </a>
             </div>
         </div>
-    )
+    );
 };
+
+export default Card;

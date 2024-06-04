@@ -1,30 +1,61 @@
+"use client";
+
 import Navbar from "../components/navbar";
-import Form from "../components/form";
 import Card from "@/components/card";
 import Footer from "@/components/footer";
+import { useEffect, useState } from "react";
 
-export default function Home() {
-  return (
-    <>
-      <Navbar />
-      <main className="h-screen w-screen" >
-        <section className="">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </section>
-        <Footer />
-      </main>
-    </>
-  );
+interface Equipements {
+    wifi: boolean;
+    tv: boolean;
+    clim: boolean;
+    parking: boolean;
+    breakfast: boolean;
 }
 
+interface Accessories {
+    chain: boolean;
+    cage: boolean;
+    jacuzzi: boolean;
+}
 
-/*
-<div className="flex-col m-4">
-          <h2 className="mb-4">Inscrivez vous à la newsletter !</h2>
-          <Form />
-        </div>
-*/
+interface Location {
+    title: string;
+    description: string;
+    price: number;
+    date: string;
+    localisation: string;
+    hote: string;
+    people_number: number;
+    room_number: number;
+    equipements: Equipements;
+    accessories: Accessories;
+}
+
+export default function Home() {
+    const [locations, setLocations] = useState<Location[]>([]);
+
+    const getData = async () => {
+        const response = await fetch("http://localhost:5001/locations");
+        const data = await response.json();
+        setLocations(data);
+    };
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    return (
+        <>
+            <Navbar />
+            <main className="h-screen w-screen">
+                <section>
+                    {locations.map((location, index) => (
+                        <Card key={index} {...location} />
+                    ))}
+                </section>
+                <Footer />
+            </main>
+        </>
+    );
+}
