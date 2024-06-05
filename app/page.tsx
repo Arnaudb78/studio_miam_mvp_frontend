@@ -36,7 +36,7 @@ export default function Home() {
     const [locations, setLocations] = useState<Location[]>([]);
 
     const getData = async () => {
-        const response = await fetch("http://localhost:5001/locations");
+        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/locations");
         const data = await response.json();
         setLocations(data);
     };
