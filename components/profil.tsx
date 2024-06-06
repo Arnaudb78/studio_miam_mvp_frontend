@@ -14,7 +14,6 @@ export default function Profil() {
   });
 
   useEffect(() => {
-    // Récupérer l'objet user depuis le sessionStorage
     const userSession = sessionStorage.getItem('user');
     if (userSession) {
       try {
@@ -25,7 +24,7 @@ export default function Profil() {
             firstname: userObject.user.firstname || '',
             lastname: userObject.user.lastname || '',
             isNewsletter: userObject.user.isNewsletter || false,
-            rulesAccepted: false // Par défaut, met false si tu n'as pas cette info
+            rulesAccepted: false 
           });
         }
       } catch (error) {
@@ -40,10 +39,9 @@ export default function Profil() {
     if (!confirm("Voulez-vous vraiment supprimer votre compte ?")) {
       return;
     }
-
-    console.log(user.mail); // Affiche le mail pour vérifier
-
-    const response = await fetch("http://localhost:5001/users/delete", {
+    //http://localhost:5001
+    //https://pacific-reaches-55510-1cc818501846.herokuapp.com
+    const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/users/delete", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

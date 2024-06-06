@@ -19,8 +19,9 @@ const FormConnect: React.FC<FormConnectProps> = ({ setShowSignup }) => {
             alert("Veuillez remplir tous les champs obligatoires.");
             return;
         }
+        //http://localhost:5001
         //https://pacific-reaches-55510-1cc818501846.herokuapp.com/users
-        const response = await fetch("http://localhost:5001/users", {
+        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
