@@ -53,12 +53,12 @@ export default function Account() {
             <div className="flex flex-col justify-center items-center p-8">
                 <h2>Mes Appart&apos; :</h2>
                 <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
-                <a className="bg-[#C2C2C2] p-4 rounded-full" href="/appart">Gérer mes appart'</a>
+                <a className="bg-[#C2C2C2] p-4 rounded-full" href="/appart">Gérer mes appart&apos;</a>
             </div>
             <div className="flex flex-col justify-center items-center p-8">
                 <h2>Mes Loc&apos; :</h2>
                 <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
-                <a className="bg-[#C2C2C2] p-4 rounded-full" href="/location">Gérer mes loc'</a>
+                <a className="bg-[#C2C2C2] p-4 rounded-full" href="/location">Gérer mes loc&apos;</a>
             </div>
             <div className="flex flex-col justify-center items-center p-8">
                 <h2>Mes informations :</h2>

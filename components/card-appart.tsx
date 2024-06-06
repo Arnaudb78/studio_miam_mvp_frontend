@@ -35,12 +35,12 @@ export default function CardAppart() {
     return (
         <div className="w-full flex flex-col justify-center items-center p-8">
             {!appart ? (
-                <p className=""> Pas encore d'appart ? Créez en un vitfesse!</p>
+                <p className=""> Pas encore d&apos;appart ? Créez en un vitfesse!</p>
             ) : (
-                <a className="bg-[#C2C2C2] p-4 rounded-full" href="/">Gérer mes appart'</a>
+                <a className="bg-[#C2C2C2] p-4 rounded-full" href="/">Gérer mes appart&apos;</a>
             )}
             {!appart ? (
-                <a className="bg-[#C2C2C2] p-4 rounded-full mt-10" href="/create">Créer un appart'</a>
+                <a className="bg-[#C2C2C2] p-4 rounded-full mt-10" href="/create">Créer un appart&apos;</a>
             ) : (
                <p>Ici il y aura les apparts du client.</p>
             )}

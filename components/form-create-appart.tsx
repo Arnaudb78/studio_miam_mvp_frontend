@@ -6,7 +6,7 @@ export default function FormCreateAppart() {
             <h2>Créer un appart'</h2>
             <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
             <form className="flex flex-col justify-center items-center p-8">
-                <label htmlFor="name">Nom de l'appart'</label>
+                <label htmlFor="name">Nom de l&apos;appart&apos;</label>
                 <input
                     type="text"
                     id="name"
@@ -14,14 +14,14 @@ export default function FormCreateAppart() {
                     placeholder="Nom de l'appart'"
                     className="border-2 border-gray-500 rounded-lg p-2 m-2"
                 />
-                <label htmlFor="description">Description de l'appart'</label>
+                <label htmlFor="description">Description de l&apos;appart&apos;</label>
                 <textarea
                     id="description"
                     name="description"
                     placeholder="Description de l'appart'"
                     className="border-2 border-gray-500 rounded-lg p-2 m-2"
                 />
-                <label htmlFor="price">Prix de l'appart'</label>
+                <label htmlFor="price">Prix de l&apos;appart&apos;</label>
                 <input
                     type="number"
                     id="price"
@@ -29,7 +29,7 @@ export default function FormCreateAppart() {
                     placeholder="Prix de l'appart'"
                     className="border-2 border-gray-500 rounded-lg p-2 m-2"
                 />
-                <label htmlFor="surface">Surface de l'appart'</label>
+                <label htmlFor="surface">Surface de l&apos;appart&apos;</label>
                 <input
                     type="number"
                     id="surface"
@@ -37,7 +37,7 @@ export default function FormCreateAppart() {
                     placeholder="Surface de l'appart'"
                     className="border-2 border-gray-500 rounded-lg p-2 m-2"
                 />
-                <label htmlFor="rooms">Nombre de pièces de l'appart'</label>
+                <label htmlFor="rooms">Nombre de pièces de l&apos;appart&apos;</label>
                 <input
                     type="number"
                     id="rooms"
@@ -45,7 +45,7 @@ export default function FormCreateAppart() {
                     placeholder="Nombre de pièces de l'appart'"
                     className="border-2 border-gray-500 rounded-lg p-2 m-2"
                 />
-                <label htmlFor="bedrooms">Nombre de chambres de l'appart'</label>
+                <label htmlFor="bedrooms">Nombre de chambres de l&apos;appart&apos;</label>
                 <input
                     type="number"
                     id="bedrooms"
@@ -53,7 +53,7 @@ export default function FormCreateAppart() {
                     placeholder="Nombre de chambres de l'appart'"
                     className="border-2 border-gray-500 rounded-lg p-2 m-2"
                 />
-                <label htmlFor="bathrooms">Nombre de salles de bain de l'appart'</label>
+                <label htmlFor="bathrooms">Nombre de salles de bain de l&apos;appart&apos;</label>
                 <input
                     type="number"
                     id="bathrooms"
@@ -61,7 +61,7 @@ export default function FormCreateAppart() {
                     placeholder="Nombre de salles de bain de l'appart'"
                     className="border-2 border-gray-500 rounded-lg p-2 m-2"
                 />
-                <label htmlFor="address">Adresse de l'appart'</label>
+                <label htmlFor="address">Adresse de l&apos;appart&apos;</label>
                 <input
                     type="text"
                     id="address"
@@ -69,7 +69,7 @@ export default function FormCreateAppart() {
                     placeholder="Adresse de l'appart'"
                     className="border-2 border-gray-500 rounded-lg p-2 m-2"
                 />
-                <label htmlFor="city">Ville de l'appart'</label>
+                <label htmlFor="city">Ville de l&apos;appart&apos;</label>
                 <input
                     type="text"
                     id="city"
@@ -77,7 +77,7 @@ export default function FormCreateAppart() {
                     placeholder="Ville de l'appart'"
                     className="border-2 border-gray-500 rounded-lg p-2 m-2"
                 />
-                <label htmlFor="zip">Code postal de l'appart'</label>
+                <label htmlFor="zip">Code postal de l&apos;appart&apos;</label>
                 <input
                     type="text"
                     id="zip"
@@ -85,7 +85,7 @@ export default function FormCreateAppart() {
                     placeholder="Code postal de l'appart'"
                     className="border-2 border-gray-500 rounded-lg p-2 m-2"
                 />
-                <label htmlFor="country">Pays de l'appart'</label>
+                <label htmlFor="country">Pays de l&apos;appart&apos;</label>
                 <input
                     type="text"
                     id="country"
@@ -93,7 +93,7 @@ export default function FormCreateAppart() {
                     placeholder="Pays de l'appart'"
                     className="border-2 border-gray-500 rounded-lg p-2 m-2"
                 />
-                <label htmlFor="type">Type de l'appart'</label>
+                <label htmlFor="type">Type de l&apos;appart&apos;</label>
                 <select
                     id="type"
                     name="type"
@@ -105,7 +105,7 @@ export default function FormCreateAppart() {
                     <option value="duplex">Duplex</option>
                     <option value="studio">Studio</option>
                 </select>
-                <label htmlFor="equipements">Equipements de l'appart'</label>
+                <label htmlFor="equipements">Equipements de l&apos;appart&apos;</label>
                 <div className="flex flex-col">
                     <label>
                         <input type="checkbox" name="wifi" />
@@ -128,7 +128,7 @@ export default function FormCreateAppart() {
                         Petit déjeuner
                     </label>
                 </div>
-                <label htmlFor="accessories">Accessoires de l'appart'</label>
+                <label htmlFor="accessories">Accessoires de l&apos;appart&apos;</label>
                 <div className="flex flex-col">
                     <label>
                         <input type="checkbox" name="chain" />
@@ -143,7 +143,7 @@ export default function FormCreateAppart() {
                         Jacuzzi
                     </label>
                 </div>
-                <label htmlFor="date">Date de disponibilité de l'appart'</label>
+                <label htmlFor="date">Date de disponibilité de l&apos;appart&apos;</label>
                 <input
                     type="date"
                     id="date"
@@ -154,7 +154,7 @@ export default function FormCreateAppart() {
                     type="submit"
                     className="bg-[#C2C2C2] p-4 rounded-full"
                 >
-                    Créer l'appart'
+                    Créer l&apos;appart&apos;
                 </button>
             </form>
         </div>
