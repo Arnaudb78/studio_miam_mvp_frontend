@@ -24,7 +24,7 @@ export default function Profil() {
             firstname: userObject.user.firstname || '',
             lastname: userObject.user.lastname || '',
             isNewsletter: userObject.user.isNewsletter || false,
-            rulesAccepted: false 
+            rulesAccepted: userObject.user.rules || false 
           });
         }
       } catch (error) {
