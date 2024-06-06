@@ -3,7 +3,7 @@
 export default function FormCreateAppart() {
     return (
         <div className="flex flex-col justify-center items-center p-8">
-            <h2>Créer un appart'</h2>
+            <h2>Créer un appart&apos;</h2>
             <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
             <form className="flex flex-col justify-center items-center p-8">
                 <label htmlFor="name">Nom de l&apos;appart&apos;</label>
