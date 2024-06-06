@@ -1,3 +1,5 @@
+"use client";
+
 import FormCreateAppart from "@/components/form-create-appart";
 import Navbar from "@/components/navbar"
 import { useEffect } from "react";
