@@ -15,19 +15,21 @@ const FormConnect: React.FC<FormConnectProps> = ({ setShowSignup }) => {
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
-        console.log(mail, password);
         if (!mail || !password) {
             alert("Veuillez remplir tous les champs obligatoires.");
             return;
         }
-
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/users", {
+        //https://pacific-reaches-55510-1cc818501846.herokuapp.com/users
+        const response = await fetch("http://localhost:5001/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ mail, password }),
         });
+        if(response.status === 404) return alert("Utilisateur non trouvé.");
+        if(response.status === 409) return alert("Mot de passe incorrect.");
+
         response.json().then((data) => sessionStorage.setItem("user", JSON.stringify(data)));
 
         if (!response.ok) return alert("Adresse mail ou mot de passe incorrect.");

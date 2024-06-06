@@ -7,15 +7,6 @@ interface FormCreateProps {
     setShowSignup: Dispatch<SetStateAction<boolean>>;
 }
 
-// interface User {
-//     firstname: string;
-//     lastname: string;
-//     mail: string;
-//     password: string;
-//     confirmPassword: string;
-//     newsletter: boolean;
-// }
-
 const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
     const router = useRouter();
 
@@ -39,14 +30,15 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
             alert("Les mots de passe ne correspondent pas.");
             return;
         }
-
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/users/create", {
+        //https://pacific-reaches-55510-1cc818501846.herokuapp.com
+        const response = await fetch("http://localhost:5001/users/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ firstname, lastname, mail, password, confirmPassword, newsletter }),
+            body: JSON.stringify({ firstname, lastname, mail, password, rules, newsletter }),
         });
+        if(response.status === 400) return alert("Adresse mail déjà utilisée.");
         response.json().then((data) => sessionStorage.setItem("user", JSON.stringify(data)));
         if (response.ok) {
             alert("Compte créé !");
