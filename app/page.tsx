@@ -33,13 +33,13 @@ interface Location {
 }
 
 export default function Home() {
-    const [locations, setLocations] = useState<Location[]>([]);
+    const [apparts, setapparts] = useState<Location[]>([]);
     //http://localhost:5001
     //https://pacific-reaches-55510-1cc818501846.herokuapp.com
     const getData = async () => {
         const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts");
         const data = await response.json();
-        setLocations(data);
+        setapparts(data);
     };
 
     useEffect(() => {
@@ -51,8 +51,8 @@ export default function Home() {
             <Navbar />
             <main className="h-screen w-screen">
                 <section>
-                    {locations.map((location, index) => (
-                        <Card key={index} {...location} />
+                    {apparts.map((apparts, index) => (
+                        <Card key={index} {...apparts} />
                     ))}
                 </section>
                 <Footer />

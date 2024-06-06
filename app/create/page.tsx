@@ -1,4 +1,4 @@
-import FormCreateAppat from "@/components/form-create-appat";
+import FormCreateAppart from "@/components/form-create-appart";
 import Navbar from "@/components/navbar"
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -15,7 +15,7 @@ export default function Create(){
     return (
         <>
             <Navbar />
-            <FormCreateAppat />
+            <FormCreateAppart />
         </>
     );
 }

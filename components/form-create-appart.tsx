@@ -1,6 +1,6 @@
 "use client";
 
-export default function FormCreateAppat() {
+export default function FormCreateAppart() {
     return (
         <div className="flex flex-col justify-center items-center p-8">
             <h2>Créer un appart'</h2>
