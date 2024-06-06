@@ -31,7 +31,6 @@ export default function Account() {
     }, [isClient, router]);
 
     function getInformationsProfil(session: string) {
-        console.log("ici ------>", session);
     }
 
     function clearStorage() {
@@ -46,12 +45,24 @@ export default function Account() {
         <>
             <Navbar />
             <div className="w-full flex justify-between p-4 ">
-                <p>Mon Compte</p>
-                <a className="bg-red-300 p-4" onClick={clearStorage} href="/">
+                <h1 className="font-bold">Mon Compte</h1>
+                <a className="bg-red-300 p-4 rounded-full" onClick={clearStorage} href="/">
                     Déconnexion
                 </a>
             </div>
-            <div className="flex justify-center">
+            <div className="flex flex-col justify-center items-center p-8">
+                <h2>Mes Appart&apos; :</h2>
+                <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
+                <a className="bg-[#C2C2C2] p-4 rounded-full" href="/appart">Gérer mes appart'</a>
+            </div>
+            <div className="flex flex-col justify-center items-center p-8">
+                <h2>Mes Loc&apos; :</h2>
+                <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
+                <a className="bg-[#C2C2C2] p-4 rounded-full" href="/location">Gérer mes loc'</a>
+            </div>
+            <div className="flex flex-col justify-center items-center p-8">
+                <h2>Mes informations :</h2>
+                <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
                 <Profil />
             </div>
         </>

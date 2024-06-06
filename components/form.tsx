@@ -11,8 +11,10 @@ export default function Form() {
     const handleSubmit = async (e: FormEvent) => {
         console.log(name, "= ", mail ,'=');
         e.preventDefault();
-    
-        const response = await fetch('https://pacific-reaches-55510-1cc818501846.herokuapp.com/users', {
+        
+        //http://localhost:5001
+        //https://pacific-reaches-55510-1cc818501846.herokuapp.com
+        const response = await fetch('http://localhost:5001/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

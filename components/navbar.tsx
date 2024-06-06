@@ -57,12 +57,8 @@ export default function Navbar() {
                     <li>
                         <a href="/">Accueil</a>
                     </li>
-                    <li>
-                        <a href="/">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/">Notre histoire</a>
-                    </li>
+                    <li>{isConnected ? <a href="/location">Mes Loc&apos;</a> : <a href="/connect">Contact</a>}</li>
+                    <li>{isConnected ? <a href="/appart">Mes Appart&apos;</a> : <a href="/connect">Notre histoire</a>}</li>
                     <li>{isConnected ? <a href="/account">Mon Compte</a> : <a href="/connect">Connexion</a>}</li>
                 </ul>
             </div>
