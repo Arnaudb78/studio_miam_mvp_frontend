@@ -13,6 +13,7 @@ export default function Location() {
             router.push("/connect");
         }
     }, []);
+    
     return (
         <>
             <Navbar />
