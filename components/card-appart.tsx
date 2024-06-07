@@ -18,7 +18,7 @@ export default function CardAppart() {
     const checkIfUserHaveAppart = async (userId: string) => {
         //http://localhost:5001
         //https://pacific-reaches-55510-1cc818501846.herokuapp.com
-        const response = await fetch(`http://localhost:5001/apparts/getAppart?user_id=${userId}`, {
+        const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/getAppart?user_id=${userId}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
