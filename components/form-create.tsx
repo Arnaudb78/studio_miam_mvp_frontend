@@ -31,7 +31,7 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
             return;
         }
         //https://pacific-reaches-55510-1cc818501846.herokuapp.com
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/users/create", {
+        const response = await fetch("http://localhost:5001/users/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -1,16 +1,31 @@
 "use client";
 
+import { useState } from "react";
+
 export default function FormCreateAppart() {
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [price, setPrice] = useState(0);
+    const [time, setTime] = useState({});
+    const [localisation, setLocalisation] = useState({});
+    const [hotel, setHotel] = useState('');
+    const [peopleNumber, setPeopleNumber] = useState(0);
+    const [roomNumber, setRoomNumber] = useState(0);
+    const [equipements, setEquipements] = useState({});
+    const [accessories, setAccessories] = useState({});
+
+
+
     return (
         <div className="flex flex-col justify-center items-center p-8">
             <h2>Créer un appart&apos;</h2>
             <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
             <form className="flex flex-col justify-center items-center p-8">
-                <label htmlFor="name">Nom de l&apos;appart&apos;</label>
+                <label htmlFor="title">Titre de l&apos;appart&apos;</label>
                 <input
                     type="text"
-                    id="name"
-                    name="name"
+                    id="title"
+                    name="title"
                     placeholder="Nom de l'appart'"
                     className="border-2 border-gray-500 rounded-lg p-2 m-2"
                 />

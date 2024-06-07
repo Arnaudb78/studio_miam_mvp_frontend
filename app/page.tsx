@@ -19,12 +19,29 @@ interface Accessories {
     jacuzzi: boolean;
 }
 
-interface Location {
+interface Time {
+    "10-12": boolean;
+    "12-14": boolean;
+    "14-16": boolean;
+    "16-18": boolean;
+    "18-20": boolean;
+    "20-22": boolean;
+}
+
+interface Localisation {
+    address: string;
+    complementary_address: string;
+    city: string;
+    zip_code: number;
+    country: string;
+}
+
+interface AppartsProps {
     title: string;
     description: string;
     price: number;
-    date: string;
-    localisation: string;
+    time: Time;
+    localisation: Localisation;
     hote: string;
     people_number: number;
     room_number: number;
@@ -33,11 +50,11 @@ interface Location {
 }
 
 export default function Home() {
-    const [apparts, setapparts] = useState<Location[]>([]);
+    const [apparts, setapparts] = useState<AppartsProps[]>([]);
     //http://localhost:5001
     //https://pacific-reaches-55510-1cc818501846.herokuapp.com
     const getData = async () => {
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts");
+        const response = await fetch("http://localhost:5001/apparts");
         const data = await response.json();
         setapparts(data);
     };
