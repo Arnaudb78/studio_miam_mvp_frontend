@@ -6,7 +6,7 @@ export default function CardAppart() {
     const [appart, setAppart] = useState(false);
 
     useEffect(() => {
-        const userSession = sessionStorage.getItem('user');
+        const userSession = sessionStorage.getItem("user");
         if (userSession) {
             const userObject = JSON.parse(userSession);
             if (userObject && userObject.user) {
@@ -18,7 +18,7 @@ export default function CardAppart() {
     const checkIfUserHaveAppart = async (userId: string) => {
         //http://localhost:5001
         //https://pacific-reaches-55510-1cc818501846.herokuapp.com
-        const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/getAppart?user_id=${userId}`, {
+        const response = await fetch(`http://localhost:5001/apparts/getAppart?user_id=${userId}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -30,19 +30,23 @@ export default function CardAppart() {
             // alert("Vous n'avez pas encore d'appartement.");
             // router.push("/appart/create");
         }
-    }
+    };
 
     return (
         <div className="w-full flex flex-col justify-center items-center p-8">
             {!appart ? (
                 <p className=""> Pas encore d&apos;appart ? Créez en un vitfesse!</p>
             ) : (
-                <a className="bg-[#C2C2C2] p-4 rounded-full" href="/">Gérer mes appart&apos;</a>
+                <a className="bg-[#C2C2C2] p-4 rounded-full" href="/">
+                    Gérer mes appart&apos;
+                </a>
             )}
             {!appart ? (
-                <a className="bg-[#C2C2C2] p-4 rounded-full mt-10" href="/create">Créer un appart&apos;</a>
+                <a className="bg-[#C2C2C2] p-4 rounded-full mt-10" href="/create">
+                    Créer un appart&apos;
+                </a>
             ) : (
-               <p>Ici il y aura les apparts du client.</p>
+                <p>Ici il y aura les apparts du client.</p>
             )}
         </div>
     );

@@ -31,14 +31,14 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
             return;
         }
         //https://pacific-reaches-55510-1cc818501846.herokuapp.com
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/users/create", {
+        const response = await fetch("http://localhost:5001/users/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ firstname, lastname, mail, password, rules, newsletter }),
         });
-        if(response.status === 400) return alert("Adresse mail déjà utilisée.");
+        if (response.status === 400) return alert("Adresse mail déjà utilisée.");
         response.json().then((data) => sessionStorage.setItem("user", JSON.stringify(data)));
         if (response.ok) {
             alert("Compte créé !");
