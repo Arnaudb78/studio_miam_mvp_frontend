@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "../components/navbar";
-import Card from "@/components/card";
+import CardHome from "@/components/card-home";
 import Footer from "@/components/footer";
 import { useEffect, useState } from "react";
 
@@ -44,6 +44,7 @@ interface AppartsProps {
     localisation: Localisation;
     hote: string;
     people_number: number;
+    type: string;
     room_number: number;
     equipements: Equipements;
     accessories: Accessories;
@@ -66,10 +67,10 @@ export default function Home() {
     return (
         <>
             <Navbar />
-            <main className="h-screen w-screen">
-                <section>
+            <main className="h-full w-full bg-primary">
+                <section className="p-8">
                     {apparts.map((apparts, index) => (
-                        <Card key={index} {...apparts} />
+                        <CardHome key={index} {...apparts} />
                     ))}
                 </section>
                 <Footer />

@@ -37,15 +37,38 @@ interface AppartsProps {
     localisation: Localisation;
     hote: string;
     people_number: number;
+    type: string;
     room_number: number;
     equipements: Equipements;
     accessories: Accessories;
 }
 
-const Card: React.FC<AppartsProps> = ({title, description, price, time, localisation, hote, people_number, room_number, equipements, accessories}) => {
+const CardHome: React.FC<AppartsProps> = ({
+    title,
+    description,
+    price,
+    time,
+    localisation,
+    hote,
+    people_number,
+    type,
+    room_number,
+    equipements,
+    accessories,
+}) => {
     return (
-        <div className="bg-red-200 m-8 p-4 border border-solid border-black">
-            <h2>{title}</h2>
+        <div className="bg-secondary-200 flex flex-col gap-8 p-4 border border-solid border-black font-semibold">
+            <div className="flex flex-col gap-4">
+                <h2 className="font-semibold">
+                    {localisation.city}, {localisation.country}
+                </h2>
+                <p className="font-normal">{description}</p>
+            </div>
+            <div className="flex justify-between">
+                <p>{hote}</p>
+                <p>{price} $</p>
+            </div>
+            {/* <h2>{title}</h2>
             <p>{description}</p>
             <p>Prix: {price}€</p>
             <div>
@@ -70,6 +93,7 @@ const Card: React.FC<AppartsProps> = ({title, description, price, time, localisa
                 </ul>
             </div>
             <p>Hôte: {hote}</p>
+            <p>Type: {type}</p>
             <p>Nombre de personnes: {people_number}</p>
             <p>Nombre de chambres: {room_number}</p>
             <div>
@@ -94,9 +118,9 @@ const Card: React.FC<AppartsProps> = ({title, description, price, time, localisa
                 <a className="bg-yellow-300 p-2 rounded-lg" href="/">
                     En savoir plus
                 </a>
-            </div>
+            </div> */}
         </div>
     );
 };
 
-export default Card;
+export default CardHome;

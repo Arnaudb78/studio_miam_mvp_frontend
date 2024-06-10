@@ -42,7 +42,7 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-full  flex items-start justify-between p-4 bg-gray-800 text-white transition-all duration-300 ${
+            className={`fixed top-0 left-0 w-full  flex items-start justify-between p-4 bg-primary text-white transition-all duration-300 ${
                 isVisible ? "" : "-translate-y-full"
             }`}>
             <h1 className=" text-2xl font-bold">VitFesse</h1>

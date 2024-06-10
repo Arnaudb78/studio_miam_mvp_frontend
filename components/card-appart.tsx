@@ -26,9 +26,9 @@ export default function CardAppart() {
         });
 
         const data = await response.json();
-        if (response.status === 404 || data.length === 0) {
-            // alert("Vous n'avez pas encore d'appartement.");
-            // router.push("/appart/create");
+        if (response.ok && data.length > 0) {
+            setAppart(true);
+            console.log(data);
         }
     };
 
@@ -37,8 +37,8 @@ export default function CardAppart() {
             {!appart ? (
                 <p className=""> Pas encore d&apos;appart ? Créez en un vitfesse!</p>
             ) : (
-                <a className="bg-[#C2C2C2] p-4 rounded-full" href="/">
-                    Gérer mes appart&apos;
+                <a className="bg-[#C2C2C2] p-4 rounded-full mt-10" href="/create">
+                    Créer un appart&apos;
                 </a>
             )}
             {!appart ? (

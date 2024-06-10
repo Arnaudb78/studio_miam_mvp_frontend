@@ -9,7 +9,6 @@ export default function Form() {
     const [mail, setMail] = useState("");
 
     const handleSubmit = async (e: FormEvent) => {
-        console.log(name, "= ", mail, "=");
         e.preventDefault();
 
         //http://localhost:5001

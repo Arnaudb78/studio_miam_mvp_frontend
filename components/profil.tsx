@@ -62,16 +62,16 @@ export default function Profil() {
     return (
         <form className="flex flex-col gap-4">
             <label>
-                <p>Prénom</p>
-                <input type="text" className="p-2 border border-solid border-black rounded-md" value={user.firstname} readOnly />
+                <p>Prénom :</p>
+                <p className="font-semibold">{user.firstname}</p>
             </label>
             <label>
-                <p>Nom</p>
-                <input type="text" className="p-2 border border-solid border-black rounded-md" value={user.lastname} readOnly />
+                <p>Nom :</p>
+                <p className="font-semibold">{user.lastname}</p>
             </label>
             <label>
-                <p>Adresse mail</p>
-                <input type="email" className="p-2 border border-solid border-black rounded-md" value={user.mail} readOnly />
+                <p>Adresse mail :</p>
+                <p className="font-semibold">{user.mail}</p>
             </label>
             <label>
                 <input type="checkbox" className="mr-2" checked={user.rulesAccepted} readOnly />
