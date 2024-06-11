@@ -1,11 +1,11 @@
 "use client";
 
 import FormCreateAppart from "@/components/form-create-appart";
-import Navbar from "@/components/navbar"
+import Navbar from "@/components/navbar";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export default function Create(){
+export default function Create() {
     const router = useRouter();
 
     useEffect(() => {
@@ -14,6 +14,7 @@ export default function Create(){
             router.push("/connect");
         }
     }, []);
+
     return (
         <>
             <Navbar />

@@ -1,53 +1,49 @@
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function CardAppart() {
+interface Localisation {
+    address: string;
+    complementary_address: string;
+    city: string;
+    zip_code: number;
+    country: string;
+}
+
+interface AppartsProps {
+    _id: string;
+    title: string;
+    description: string;
+    price: number;
+    localisation: Localisation;
+    hote: string;
+    type: string;
+}
+
+const CardAppart: React.FC<AppartsProps> = ({ _id, description, price, localisation, hote }) => {
     const router = useRouter();
-    const [appart, setAppart] = useState(false);
 
-    useEffect(() => {
-        const userSession = sessionStorage.getItem("user");
-        if (userSession) {
-            const userObject = JSON.parse(userSession);
-            if (userObject && userObject.user) {
-                checkIfUserHaveAppart(userObject.user._id);
-            }
-        }
-    }, []);
-
-    const checkIfUserHaveAppart = async (userId: string) => {
-        //http://localhost:5001
-        //https://pacific-reaches-55510-1cc818501846.herokuapp.com
-        const response = await fetch(`http://localhost:5001/apparts/getAppart?user_id=${userId}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-
-        const data = await response.json();
-        if (response.ok && data.length > 0) {
-            setAppart(true);
-            console.log(data);
-        }
+    const handleClick = () => {
+        console.log("click", _id);
+        router.push(`/details/${_id}`);
     };
-
     return (
-        <div className="w-full flex flex-col justify-center items-center p-8">
-            {!appart ? (
-                <p className=""> Pas encore d&apos;appart ? Créez en un vitfesse!</p>
-            ) : (
-                <a className="bg-[#C2C2C2] p-4 rounded-full mt-10" href="/create">
-                    Créer un appart&apos;
-                </a>
-            )}
-            {!appart ? (
-                <a className="bg-[#C2C2C2] p-4 rounded-full mt-10" href="/create">
-                    Créer un appart&apos;
-                </a>
-            ) : (
-                <p>Ici il y aura les apparts du client.</p>
-            )}
+        <div className="bg-secondary-200 flex flex-col gap-8 p-4 border border-solid border-black font-semibold rounded-lg">
+            <div className="flex flex-col gap-4">
+                <h2 className="font-semibold">
+                    {localisation.city}, {localisation.country}
+                </h2>
+                <p className="font-normal">{description}</p>
+            </div>
+            <div className="flex justify-between">
+                <p>{hote}</p>
+                <p>{price} $</p>
+            </div>
+            <div className="flex justify-center">
+                <button onClick={handleClick} className="text-secondary-200 bg-secondary-100 py-2 px-4 rounded-full cursor-pointer">
+                    Réserver en vitfesse
+                </button>
+            </div>
         </div>
     );
-}
+};
+
+export default CardAppart;

@@ -1,7 +1,7 @@
 "use client";
 
+import CardAppart from "@/components/card-appart";
 import Navbar from "../components/navbar";
-import CardHome from "@/components/card-home";
 import Footer from "@/components/footer";
 import { useEffect, useState } from "react";
 
@@ -37,6 +37,7 @@ interface Localisation {
 }
 
 interface AppartsProps {
+    _id: string;
     title: string;
     description: string;
     price: number;
@@ -57,6 +58,7 @@ export default function Home() {
     const getData = async () => {
         const response = await fetch("http://localhost:5001/apparts");
         const data = await response.json();
+        console.log(data);
         setapparts(data);
     };
 
@@ -68,9 +70,9 @@ export default function Home() {
         <>
             <Navbar />
             <main className="h-full w-full bg-primary">
-                <section className="p-8">
+                <section className="p-8 flex flex-col gap-8">
                     {apparts.map((apparts, index) => (
-                        <CardHome key={index} {...apparts} />
+                        <CardAppart key={index} {...apparts} />
                     ))}
                 </section>
                 <Footer />
