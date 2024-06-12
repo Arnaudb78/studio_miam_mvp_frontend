@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/navbar";
 
@@ -51,28 +51,28 @@ interface AppartsProps {
 
 export default function Details() {
     const router = useRouter();
-    const { id } = router.query;
+    // const { id } = router.query;
     const [appart, setAppart] = useState<AppartsProps | null>(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            if (id) {
-                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/${id}`);
-                const data = await response.json();
-                setAppart(data);
-            }
-        };
-        fetchData();
-    }, [id]);
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         if (id) {
+    //             const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/${id}`);
+    //             const data = await response.json();
+    //             setAppart(data);
+    //         }
+    //     };
+    //     fetchData();
+    // }, [id]);
 
-    if (!appart) {
-        return <div>Loading...</div>;
-    }
+    // if (!appart) {
+    //     return <div>Loading...</div>;
+    // }
 
     return (
         <div>
             <Navbar />
-            <div className="container mx-auto p-4">
+            {/* <div className="container mx-auto p-4">
                 <h1 className="text-3xl font-bold mb-4">{appart.title}</h1>
                 <p className="mb-2">
                     <strong>Description:</strong> {appart.description}
@@ -105,7 +105,7 @@ export default function Details() {
                 <p className="mb-2">
                     <strong>Time:</strong> {JSON.stringify(appart.time)}
                 </p>
-            </div>
+            </div> */}
         </div>
     );
 }
