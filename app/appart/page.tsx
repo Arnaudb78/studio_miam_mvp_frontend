@@ -60,22 +60,26 @@ export default function Appart() {
         const userSession = sessionStorage.getItem("user");
         if (userSession) {
             const userObject = JSON.parse(userSession);
+            console.log(userObject.user);
+            console.log(userObject.user._id);
+
             if (userObject && userObject.user) {
-                checkIfUserHaveAppart(userObject.user._id);
+                checkIfUserHaveAppart(userObject.user);
             }
         } else {
             router.push("/connect");
         }
     }, []);
 
-    const checkIfUserHaveAppart = async (userId: string) => {
+    const checkIfUserHaveAppart = async (user: object) => {
         //http://localhost:5001
         //https://pacific-reaches-55510-1cc818501846.herokuapp.com
-        const response = await fetch(`http://localhost:5001/apparts/getAppart?user_id=${userId}`, {
-            method: "GET",
+        const response = await fetch(`http://localhost:5001/apparts/userAppart`, {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
+            body: JSON.stringify(user),
         });
 
         const data = await response.json();

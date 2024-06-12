@@ -58,7 +58,6 @@ export default function Home() {
     const getData = async () => {
         const response = await fetch("http://localhost:5001/apparts");
         const data = await response.json();
-        console.log(data);
         setapparts(data);
     };
 
