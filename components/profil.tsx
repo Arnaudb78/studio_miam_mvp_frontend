@@ -39,9 +39,9 @@ export default function Profil() {
         if (!confirm("Voulez-vous vraiment supprimer votre compte ?")) {
             return;
         }
-        //http://localhost:5001
         //https://pacific-reaches-55510-1cc818501846.herokuapp.com
-        const response = await fetch("http://localhost:5001/users/delete", {
+        //https://pacific-reaches-55510-1cc818501846.herokuapp.com
+        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/users/delete", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
