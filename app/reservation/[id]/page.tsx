@@ -2,6 +2,7 @@ import CardShop from "@/components/card-shop";
 
 
 export async function generateStaticParams() {
+    
     const response = await fetch('http://localhost:5001/apparts');
     const apparts = await response.json();
 
