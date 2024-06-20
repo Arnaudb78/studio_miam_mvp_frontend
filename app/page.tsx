@@ -52,6 +52,7 @@ interface AppartsProps {
 }
 
 export default function Home() {
+    const [isProfil, setIsProfil] = useState(false);
     const [apparts, setapparts] = useState<AppartsProps[]>([]);
     //http://localhost:5001
     //https://pacific-reaches-55510-1cc818501846.herokuapp.com
@@ -71,7 +72,7 @@ export default function Home() {
             <main className="h-full w-full bg-primary">
                 <section className="p-8 flex flex-col gap-8">
                     {apparts.map((apparts, index) => (
-                        <CardAppart key={index} {...apparts} />
+                        <CardAppart key={index} {...apparts} isProfil={isProfil} />
                     ))}
                 </section>
                 <Footer />

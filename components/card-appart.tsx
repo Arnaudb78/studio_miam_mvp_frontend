@@ -16,14 +16,18 @@ interface AppartsProps {
     localisation: Localisation;
     hote: string;
     type: string;
+    isProfil: boolean;
 }
 
-const CardAppart: React.FC<AppartsProps> = ({ _id, description, price, localisation, hote }) => {
+const CardAppart: React.FC<AppartsProps> = ({ _id, description, price, localisation, hote, isProfil }) => {
     const router = useRouter();
 
     const handleClick = () => {
-        console.log("click", _id);
-        router.push(`/details/${_id}`);
+        if (isProfil) {
+            router.push(`/edit-profile`);
+        } else {
+            router.push(`/details/${_id}`);
+        }
     };
     return (
         <div className="bg-secondary-200 flex flex-col gap-8 p-4 border border-solid border-black font-semibold rounded-lg">
@@ -39,7 +43,7 @@ const CardAppart: React.FC<AppartsProps> = ({ _id, description, price, localisat
             </div>
             <div className="flex justify-center">
                 <button onClick={handleClick} className="text-secondary-200 bg-secondary-100 py-2 px-4 rounded-full cursor-pointer">
-                    Réserver en vitfesse
+                {isProfil ? "Éditer mon appart'" : "Réserver en vitfesse"}
                 </button>
             </div>
         </div>

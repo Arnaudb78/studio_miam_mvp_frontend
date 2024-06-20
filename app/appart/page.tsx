@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import CardAppart from "@/components/card-appart";
+import { isPromise } from "util/types";
 
 interface Equipements {
     wifi: boolean;
@@ -53,6 +54,7 @@ interface AppartsProps {
 
 export default function Appart() {
     const router = useRouter();
+    const [isProfil, setIsProfil] = useState(true);
     const [apparts, setapparts] = useState<AppartsProps[]>([]);
     const [appart, setAppart] = useState(false);
 
@@ -99,7 +101,7 @@ export default function Appart() {
                 ) : (
                     <section className="w-full">
                         {apparts.map((apparts, index) => (
-                            <CardAppart key={index} {...apparts} />
+                            <CardAppart key={index} {...apparts} isProfil={isProfil} />
                         ))}
                     </section>
                 )}
