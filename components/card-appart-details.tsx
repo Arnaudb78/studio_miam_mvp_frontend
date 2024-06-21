@@ -61,7 +61,7 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
     useEffect(() => {
         const fetchData = async () => {
             if (id) {
-                const response = await fetch(`http://localhost:5001/apparts/${id}`);
+                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/${id}`);
                 const data = await response.json();
                 setAppart(data);
             }
