@@ -69,14 +69,14 @@ export default function Home() {
     return (
         <>
             <Navbar />
-            <main className="h-full w-full bg-primary">
+            <section className="h-full w-full bg-primary">
                 <section className="p-8 flex flex-col gap-8">
                     {apparts.map((apparts, index) => (
                         <CardAppart key={index} {...apparts} isProfil={isProfil} />
                     ))}
                 </section>
                 <Footer />
-            </main>
+            </section>
         </>
     );
 }
