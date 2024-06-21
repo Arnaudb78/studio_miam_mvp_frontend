@@ -55,11 +55,11 @@ export default function Navbar() {
                 </div>
                 <ul className="text-end">
                     <li>
-                        <a href="/">Accueil</a>
+                        <a href="/room">Chambres</a>
                     </li>
-                    <li>{isConnected ? <a href="/location">Mes Loc&apos;</a> : <a href="/articles">Blog</a>}</li>
-                    <li>{isConnected ? <a href="/appart">Mes Appart&apos;</a> : <a href="/connect">Notre histoire</a>}</li>
-                    <li>{isConnected ? <a href="/account">Mon Compte</a> : <a href="/connect">Connexion</a>}</li>
+                    <li><a href="/reservation">Shop</a></li>
+                    <li><a href="/articles">Blog</a></li>
+                    <li><a href="/account">Mon Profil</a></li>
                 </ul>
             </div>
         </nav>
