@@ -121,7 +121,7 @@ export default function CardShop({ id }: DetailsClientProps) {
         <div className="bg-primary w-full min-h-screen">
             <Navbar />
             <div className="mx-auto px-4 flex flex-col gap-6">
-                <h3 className="text-3xl font-bold text-secondary-200 text-center">Plus qu'une étape et l'appart est à toi !</h3>
+                <h3 className="text-3xl font-bold text-secondary-200 text-center">Plus qu&apos;une étape et l&apos;appart est à toi !</h3>
                 <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
                     <h4 className="text-2xl font-bold mb-2">{title}</h4>
                     <p className="text-gray-700 mb-4">{description}</p>
