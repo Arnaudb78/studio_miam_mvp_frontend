@@ -1,6 +1,6 @@
 "use client";
 
-import FormCreateAppart from "@/components/form-create-appart";
+import FormCreateAppart from "@/components/form/form-create-appart";
 import Navbar from "@/components/navbar";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";

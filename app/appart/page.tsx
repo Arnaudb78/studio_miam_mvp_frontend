@@ -3,8 +3,7 @@
 import Navbar from "@/components/navbar";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import CardAppart from "@/components/card-appart";
-import { isPromise } from "util/types";
+import CardAppart from "@/components/appart/card-appart";
 
 interface Equipements {
     wifi: boolean;

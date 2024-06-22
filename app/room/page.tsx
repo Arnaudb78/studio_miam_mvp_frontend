@@ -1,6 +1,6 @@
 "use client";
 
-import CardAppart from "@/components/card-appart";
+import CardAppart from "@/components/appart/card-appart";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { useEffect, useState } from "react";

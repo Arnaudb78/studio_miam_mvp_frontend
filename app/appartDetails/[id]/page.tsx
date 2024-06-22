@@ -1,5 +1,5 @@
+import CardAppartDetails from '@/components/appart/card-appart-details';
 import { Suspense } from 'react';
-import CardAppartDetails from '@/components/card-appart-details';
 
 export async function generateStaticParams() {
     const response = await fetch('https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts');

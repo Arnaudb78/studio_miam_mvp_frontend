@@ -1,7 +1,7 @@
 "use client";
 
-import FormConnect from "@/components/form-connect";
-import FormCreate from "@/components/form-create";
+import FormConnect from "@/components/form/form-connect";
+import FormCreate from "@/components/form/form-create";
 import Navbar from "@/components/navbar";
 import { useState } from "react";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import CardArticle from "@/components/card-article";
+import CardArticle from "@/components/article/card-article";
 import Navbar from "@/components/navbar"
 import { useEffect, useState } from "react";
 

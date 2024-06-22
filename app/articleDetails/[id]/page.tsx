@@ -1,4 +1,4 @@
-import CardArticleDetails from "@/components/card-article-details";
+import CardArticleDetails from "@/components/article/card-article-details";
 
 
 export async function generateStaticParams() {

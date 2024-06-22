@@ -1,4 +1,4 @@
-import CardShop from "@/components/card-shop";
+import CardShop from "@/components/shop/card-shop";
 
 
 export async function generateStaticParams() {
