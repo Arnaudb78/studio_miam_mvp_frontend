@@ -1,4 +1,3 @@
-import CardAppartDetails from "@/components/card-appart-details";
 import CardArticleDetails from "@/components/card-article-details";
 
 

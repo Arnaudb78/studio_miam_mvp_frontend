@@ -1,5 +1,5 @@
-import CardAppartDetails from "@/components/card-appart-details";
-
+import { Suspense } from 'react';
+import CardAppartDetails from '@/components/card-appart-details';
 
 export async function generateStaticParams() {
     const response = await fetch('https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts');
@@ -10,5 +10,9 @@ export async function generateStaticParams() {
 }
 
 export default function DetailsPage({ params }: { params: { id: string } }) {
-    return <CardAppartDetails id={params.id} />;
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <CardAppartDetails id={params.id} />
+        </Suspense>
+    );
 }
