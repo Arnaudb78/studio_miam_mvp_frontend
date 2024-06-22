@@ -73,7 +73,7 @@ export default function CardShop({ id }: DetailsClientProps) {
     useEffect(() => {
         const fetchData = async () => {
             if (id) {
-                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/${id}`);
+                const response = await fetch(`http://localhost:5001/apparts/${id}`);
                 const data = await response.json();
                 setAppart(data);
             }
@@ -98,7 +98,6 @@ export default function CardShop({ id }: DetailsClientProps) {
         console.log("Date:", selectedDate);
         console.log("Time Slot:", selectedTimeSlot);
         console.log("Number of People:", numberOfPeople);
-        // router.push(`/payment/${id}`);
     };
 
     if (!appart) {

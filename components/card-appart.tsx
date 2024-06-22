@@ -26,7 +26,7 @@ const CardAppart: React.FC<AppartsProps> = ({ _id, description, price, localisat
         if (isProfil) {
             router.push(`/edit-profile`);
         } else {
-            router.push(`/details/${_id}`);
+            router.push(`/appartDetails/${_id}`);
         }
     };
     return (
@@ -43,7 +43,7 @@ const CardAppart: React.FC<AppartsProps> = ({ _id, description, price, localisat
             </div>
             <div className="flex justify-center">
                 <button onClick={handleClick} className="text-secondary-200 bg-secondary-100 py-2 px-4 rounded-full cursor-pointer">
-                {isProfil ? "Éditer mon appart'" : "Réserver en vitfesse"}
+                    {isProfil ? "Éditer mon appart'" : "Réserver en vitfesse"}
                 </button>
             </div>
         </div>

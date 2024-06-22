@@ -76,7 +76,7 @@ export default function Appart() {
     const checkIfUserHaveAppart = async (user: object) => {
         //http://localhost:5001
         //https://pacific-reaches-55510-1cc818501846.herokuapp.com
-        const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/userAppart`, {
+        const response = await fetch(`http://localhost:5001/apparts/userAppart`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
