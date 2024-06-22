@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar"
 import { useEffect, useState } from "react";
 
 interface ArticlesProps {
-    id: number;
+    _id: string;
     title: string;
     description: string;
     content: string;
