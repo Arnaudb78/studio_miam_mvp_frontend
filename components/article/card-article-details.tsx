@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import Navbar from "./navbar";
+import Navbar from "../navbar";
 
 const CardArticleDetails: React.FC<{ id: string }> = ({ id }) => {
     const [article, setArticle] = useState<any>(null);

@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import Navbar from "@/components/navbar";
+import Navbar from "../navbar";
 
 interface Equipements {
     wifi: boolean;
