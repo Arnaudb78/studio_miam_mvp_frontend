@@ -21,7 +21,7 @@ export default function Section1(){
                                     <p>Quand ?</p>
                                 </div>
                             </div>
-                            <a className="bg-secondary-300 p-2 rounded-full" href="/">Chercher</a>
+                            <a className="bg-secondary-300 p-2 rounded-full" href="/room">Chercher</a>
                         </div>
                     </div>  
                 </div>
