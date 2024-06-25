@@ -73,7 +73,7 @@ export default function CardShop({ id }: DetailsClientProps) {
     useEffect(() => {
         const fetchData = async () => {
             if (id) {
-                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/${id}`);
+                const response = await fetch(`http://localhost:5001/apparts/${id}`);
                 const data = await response.json();
                 setAppart(data);
             }
@@ -103,7 +103,7 @@ export default function CardShop({ id }: DetailsClientProps) {
     if (!appart) {
         return (
             <>
-                <Navbar/>
+                <Navbar />
                 <div className="flex justify-center items-center h-screen">
                     <div className="text-center">
                         <p className="text-2xl font-bold mb-4">Chargement...</p>
@@ -124,17 +124,31 @@ export default function CardShop({ id }: DetailsClientProps) {
                 <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
                     <h4 className="text-2xl font-bold mb-2">{title}</h4>
                     <p className="text-gray-700 mb-4">{description}</p>
-                    <p className="text-lg mb-2"><strong>Prix:</strong> {price}€ / nuit</p>
-                    <p className="text-lg mb-2"><strong>Adresse:</strong> {localisation.address}, {localisation.city}, {localisation.zip_code}, {localisation.country}</p>
-                    <p className="text-lg mb-2"><strong>Hôte:</strong> {hote}</p>
-                    <p className="text-lg mb-2"><strong>Nombre de personnes:</strong> {people_number}</p>
-                    <p className="text-lg mb-2"><strong>Type:</strong> {type}</p>
-                    <p className="text-lg mb-2"><strong>Nombre de chambres:</strong> {room_number}</p>
+                    <p className="text-lg mb-2">
+                        <strong>Prix:</strong> {price}€ / nuit
+                    </p>
+                    <p className="text-lg mb-2">
+                        <strong>Adresse:</strong> {localisation.address}, {localisation.city}, {localisation.zip_code}, {localisation.country}
+                    </p>
+                    <p className="text-lg mb-2">
+                        <strong>Hôte:</strong> {hote}
+                    </p>
+                    <p className="text-lg mb-2">
+                        <strong>Nombre de personnes:</strong> {people_number}
+                    </p>
+                    <p className="text-lg mb-2">
+                        <strong>Type:</strong> {type}
+                    </p>
+                    <p className="text-lg mb-2">
+                        <strong>Nombre de chambres:</strong> {room_number}
+                    </p>
                 </div>
                 <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-6 mb-6">
                     <h4 className="text-xl font-bold mb-4">Réservez votre créneau</h4>
                     <div className="mb-4">
-                        <label htmlFor="date" className="block text-lg font-medium text-gray-700">Date</label>
+                        <label htmlFor="date" className="block text-lg font-medium text-gray-700">
+                            Date
+                        </label>
                         <input
                             type="date"
                             id="date"
@@ -146,23 +160,28 @@ export default function CardShop({ id }: DetailsClientProps) {
                         />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="timeSlot" className="block text-lg font-medium text-gray-700">Créneau horaire</label>
+                        <label htmlFor="timeSlot" className="block text-lg font-medium text-gray-700">
+                            Créneau horaire
+                        </label>
                         <select
                             id="timeSlot"
                             name="timeSlot"
                             value={selectedTimeSlot || ""}
                             onChange={handleTimeSlotChange}
                             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
-                            required
-                        >
+                            required>
                             <option value="">Sélectionner un créneau</option>
                             {timeSlots.map((slot) => (
-                                <option key={slot} value={slot}>{slot}</option>
+                                <option key={slot} value={slot}>
+                                    {slot}
+                                </option>
                             ))}
                         </select>
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="numberOfPeople" className="block text-lg font-medium text-gray-700">Nombre de personnes</label>
+                        <label htmlFor="numberOfPeople" className="block text-lg font-medium text-gray-700">
+                            Nombre de personnes
+                        </label>
                         <input
                             type="number"
                             id="numberOfPeople"
@@ -174,10 +193,7 @@ export default function CardShop({ id }: DetailsClientProps) {
                             required
                         />
                     </div>
-                    <button
-                        type="submit"
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-                    >
+                    <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
                         Procéder au paiement
                     </button>
                 </form>

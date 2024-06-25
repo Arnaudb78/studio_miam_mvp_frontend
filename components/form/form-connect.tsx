@@ -21,7 +21,7 @@ const FormConnect: React.FC<FormConnectProps> = ({ setShowSignup }) => {
         }
         //http://localhost:5001
         //https://pacific-reaches-55510-1cc818501846.herokuapp.com/users
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/users", {
+        const response = await fetch("http://localhost:5001/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -41,16 +41,16 @@ const FormConnect: React.FC<FormConnectProps> = ({ setShowSignup }) => {
     };
 
     return (
-        <div className="bg-red-200 m-8 p-4 border border-solid border-black">
-            <h2>Connexion</h2>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div className="bg-filter bg-opacity-75 backdrop-blur-md m-8 p-8 border border-solid border-secondary-200 text-secondary-200 rounded-2xl text-[12px]">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-8 items-center">
+            <h2 className="font-bold">Connexion</h2>
                 <label>
-                    <p>Adresse mail</p>
+                    <p>Mail :</p>
                     <input
                         value={mail}
                         onChange={(event) => setMail(event.target.value)}
                         type="email"
-                        className="p-2 border border-solid border-black rounded-md"
+                        className="p-2 border border-solid border-secondary-200 rounded-full bg-transparent"
                     />
                 </label>
                 <label>
@@ -59,17 +59,20 @@ const FormConnect: React.FC<FormConnectProps> = ({ setShowSignup }) => {
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                         type="password"
-                        className="p-2 border border-solid border-black rounded-md"
+                        className="p-2 border border-solid border-secondary-200 rounded-full bg-transparent"
                     />
                 </label>
-                <button className="bg-yellow-300 p-2 rounded-lg" type="submit">
-                    Se connecter
-                </button>
-                <a className="underline" href="#" onClick={() => setShowSignup(true)}>
-                    Pas de compte ? Cliquez ici !
-                </a>
+                <div className="flex flex-col w-full items-center gap-4">
+                    <button className="bg-secondary-200 p-3 rounded-full text-primary font-bold w-3/5 " type="submit">
+                        Se connecter
+                    </button>
+                    <a className="underline" href="#" onClick={() => setShowSignup(true)}>
+                        Pas de compte ? Cliquez ici !
+                    </a>
+                </div>
             </form>
         </div>
+
     );
 };
 

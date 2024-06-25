@@ -6,7 +6,7 @@ const CardArticleDetails: React.FC<{ id: string }> = ({ id }) => {
     const [article, setArticle] = useState<any>(null);
 
     useEffect(() => {
-        fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/articles/${id}`)
+        fetch(`http://localhost:5001/articles/${id}`)
             .then((response) => response.json())
             .then((data) => setArticle(data));
     }, [id]);
@@ -17,7 +17,7 @@ const CardArticleDetails: React.FC<{ id: string }> = ({ id }) => {
 
     return (
         <>
-        <Navbar />
+            <Navbar />
             <div className="bg-secondary-200 p-4 border border-solid border-black font-semibold rounded-lg">
                 <h2 className="font-semibold">{article.title}</h2>
                 <p className="font-normal">{article.content}</p>

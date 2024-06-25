@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <>
             <Navbar />
-                <section className="W-full h-screen bg-primary text-secondary-200">
+                <section className="W-full h-screen bg-secondary-200 text-secondary-200">
                     <p>Bienvenu sur Vitfesse.</p>
                 </section>
             <Footer />
