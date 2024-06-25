@@ -1,16 +1,17 @@
 "use client";
 
+import Section1 from "@/components/home/section1";
 import Navbar from "../components/navbar";
 import Footer from "@/components/footer";
+import Section2 from "@/components/home/section2";
 
 export default function Home() {
 
     return (
         <>
             <Navbar />
-                <section className="W-full h-screen bg-secondary-200 text-secondary-200">
-                    <p>Bienvenu sur Vitfesse.</p>
-                </section>
+               <Section1 />
+               <Section2 />
             <Footer />
         </>
     );

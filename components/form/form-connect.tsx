@@ -43,7 +43,7 @@ const FormConnect: React.FC<FormConnectProps> = ({ setShowSignup }) => {
     return (
         <div className="bg-filter bg-opacity-75 backdrop-blur-md m-8 p-8 border border-solid border-secondary-200 text-secondary-200 rounded-2xl text-[12px]">
             <form onSubmit={handleSubmit} className="flex flex-col gap-8 items-center">
-            <h2 className="font-bold">Connexion</h2>
+            <h2 className="font-bold text-[24px]">Connexion</h2>
                 <label>
                     <p>Mail :</p>
                     <input

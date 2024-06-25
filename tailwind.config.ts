@@ -12,6 +12,12 @@ const config: Config = {
                     300: "#FF6419",
                 },
             },
+            fontFamily: {
+                satoshi: ["Satoshi", "sans-serif"],
+            },
+            rotate: {
+                '3': '-3deg',    // Ajoute une rotation positive (si besoin)
+              },
         },
     },
     plugins: [],
