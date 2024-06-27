@@ -37,7 +37,7 @@ export default function Section4(){
            <section className="w-full h-full p-2">
                 <div className="w-full p-6 text-center flex flex-col gap-2">
                     <h2 className="text-[24px]">Du chaos familial au <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">paradis</span> romantique.</h2>
-                    <p className="text-[16px]">Découvrez ce qu'ils en disent !</p>
+                    <p className="text-[16px]">Découvrez ce qu&apos;ils en disent !</p>
                 </div>
                 <div className="flex flex-col gap-1">
                     {comments}
