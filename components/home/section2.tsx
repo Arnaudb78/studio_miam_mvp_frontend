@@ -20,9 +20,15 @@ export default function Section2(){
                         <p className="text-[16px] px-8">Faites une pause des réunions Zoom 
                         et des cris d&apos;enfants ?</p>
                     </div>
-                    <div className="">
-                        <a href="/room" className="bg-[url('/images/room1.png')] w-full h-[298px] bg-no-repeat bg-center flex flex-col justify-end items-center cursor-pointer">
-                        </a>
+                    <div className="flex overflow-x-auto whitespace-nowrap w-full">
+                        <div className="w-full h-w-full mr-1 flex-zero-zero-auto"><a href="/room" className="bg-[url('/images/room1.png')] w-full h-[298px] bg-no-repeat bg-center flex flex-col justify-end items-center cursor-pointer">
+                        </a></div>
+                        <div className="w-full h-w-full mr-1 flex-zero-zero-auto"><a href="/room" className="bg-[url('/images/room1.png')] w-full h-[298px] bg-no-repeat bg-center flex flex-col justify-end items-center cursor-pointer">
+                        </a></div>
+                        <div className="w-full h-w-full mr-1 flex-zero-zero-auto"><a href="/room" className="bg-[url('/images/room1.png')] w-full h-[298px] bg-no-repeat bg-center flex flex-col justify-end items-center cursor-pointer">
+                        </a></div>
+                        <div className="w-full h-w-full mr-1 flex-zero-zero-auto"><a href="/room" className="bg-[url('/images/room1.png')] w-full h-[298px] bg-no-repeat bg-center flex flex-col justify-end items-center cursor-pointer">
+                        </a></div>
                     </div>
                     <div className="w-full flex justify-center text-secondary-200 text-[14px]">
                         <a className="bg-secondary-300 p-2 rounded-full cursor-pointer" href="/room">En savoir plus</a>

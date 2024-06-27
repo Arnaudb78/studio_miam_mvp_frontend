@@ -18,6 +18,9 @@ const config: Config = {
             rotate: {
                 '3': '-3deg',    // Ajoute une rotation positive (si besoin)
               },
+              flex: {
+                "zero-zero-auto": "0 0 auto",
+              },
         },
     },
     plugins: [],
