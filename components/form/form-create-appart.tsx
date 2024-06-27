@@ -1,7 +1,8 @@
 "use client";
 
-import { FormEvent, useState, useEffect } from "react";
+import { FormEvent, useState, useEffect, FormEventHandler } from "react";
 import { useRouter } from "next/navigation";
+import { uploadFile } from "@/app/create/upload.action";
 
 export default function FormCreateAppart() {
     const router = useRouter();
@@ -51,39 +52,24 @@ export default function FormCreateAppart() {
         cage: false,
         jacuzzi: false,
     });
-    const [images, setImages] = useState<File[]>([]);
 
-    const handleSubmit = async (e: FormEvent) => {
+    const[imageUrl, setImageUrl] = useState<string | null>(null);
+
+    const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
-        if (
-            !title ||
-            !description ||
-            !price ||
-            !time.length ||
-            !localisation ||
-            !peopleNumber ||
-            !type ||
-            !roomNumber ||
-            !equipements ||
-            !accessories
-        )
-            return alert("Veuillez remplir tous les champs obligatoires.");
-
-        // Upload images
-        const formData = new FormData();
-        images.forEach((image) => formData.append("files", image));
-
-        const uploadResponse = await fetch("/api/upload", {
-            method: "POST",
-            body: formData,
-        });
-
-        if (!uploadResponse.ok) {
-            return alert("Erreur lors de l'upload des images");
+    
+        const formDate = new FormData(e.currentTarget);
+        const file = formDate.get("file") as File;
+    
+        const url = await uploadFile(formDate);
+    
+        if (!url) {
+            return alert("Erreur lors de l'upload de l'image");
         }
-
-        const { filePaths } = await uploadResponse.json();
-
+    
+        
+        setImageUrl(url);
+    
         const appart = {
             title,
             description,
@@ -95,29 +81,35 @@ export default function FormCreateAppart() {
             room_number: roomNumber,
             equipements,
             accessories,
-            images: filePaths,
+            images: url, 
         };
-
+    
         try {
-            const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts", {
+            const response = await fetch("http://localhost:5001/apparts", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ mail: user.mail, appart }),
             });
+    
             if (response.status === 400) return alert("Erreur lors de la création de l'appartement");
             if (response.status === 404) {
                 alert("Utilisateur non trouvé");
                 router.push("/connect");
             }
+    
             const data = await response.json();
-            if (response.ok) alert("Appart créé avec succès");
-            router.push("/appart");
+    
+            if (response.ok) {
+                alert("Appart créé avec succès");
+                router.push("/appart");
+            }
         } catch (error: any) {
             alert(`Erreur: ${error.message}`);
         }
     };
+    
 
     const handleLocalisationChange = (e: any) => {
         setLocalisation({
@@ -147,10 +139,7 @@ export default function FormCreateAppart() {
         }));
     };
 
-    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const files = Array.from(e.target.files || []);
-        setImages(files);
-    };
+    
 
     return (
         <>
@@ -311,8 +300,11 @@ export default function FormCreateAppart() {
                     ))}
 
                     <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
-                    <h3 className="font-bold">Images de l&apos;appart&apos;</h3>
-                    <input type="file" multiple onChange={handleImageChange} className="border-2 border-gray-500 rounded-lg p-2 m-2" />
+                        <h3 className="font-bold">Images de l&apos;appart&apos;</h3>
+                        <input type="file" name="file" className="border-2 border-gray-500 rounded-lg p-2 m-2" />
+                    {imageUrl ? (
+                            <img src={imageUrl} alt="uploaded file" className="m-2" />
+                    ): null}
 
                     <button type="submit" className="bg-blue-500 text-white rounded-lg p-2 m-2">
                         Créer
