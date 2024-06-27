@@ -2,7 +2,6 @@
 
 import CardAppart from "@/components/appart/card-appart";
 import Footer from "@/components/footer";
-import Section1 from "@/components/home/section1";
 import Navbar from "@/components/navbar";
 import { useEffect, useState } from "react";
 
@@ -70,8 +69,7 @@ export default function Room() {
     return (
         <>
             <Navbar />
-            <section className="h-full w-full bg-secondary-200">
-                <Section1 />
+            <section className="h-full w-full bg-primary">
                 <section className="p-8 flex flex-col gap-8">
                     {apparts.map((apparts, index) => (
                         <CardAppart key={index} {...apparts} isProfil={isProfil} />

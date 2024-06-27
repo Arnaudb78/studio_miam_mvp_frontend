@@ -46,16 +46,43 @@ export default function FormCreateAppart() {
         parking: false,
         breakfast: false,
     });
-    const [accessories, setAccessories] = useState({
+    const [accessories, setAccessories] = useState<{ [key: string]: boolean }>({
         chain: false,
         cage: false,
         jacuzzi: false,
     });
+    const [images, setImages] = useState<File[]>([]);
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        if (!title || !description || !price || !time || !localisation || !peopleNumber || !type || !roomNumber || !equipements || !accessories)
+        if (
+            !title ||
+            !description ||
+            !price ||
+            !time.length ||
+            !localisation ||
+            !peopleNumber ||
+            !type ||
+            !roomNumber ||
+            !equipements ||
+            !accessories
+        )
             return alert("Veuillez remplir tous les champs obligatoires.");
+
+        // Upload images
+        const formData = new FormData();
+        images.forEach((image) => formData.append("files", image));
+
+        const uploadResponse = await fetch("/api/upload", {
+            method: "POST",
+            body: formData,
+        });
+
+        if (!uploadResponse.ok) {
+            return alert("Erreur lors de l'upload des images");
+        }
+
+        const { filePaths } = await uploadResponse.json();
 
         const appart = {
             title,
@@ -68,8 +95,9 @@ export default function FormCreateAppart() {
             room_number: roomNumber,
             equipements,
             accessories,
+            images: filePaths,
         };
-        console.log(appart);
+
         try {
             const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts", {
                 method: "POST",
@@ -117,6 +145,11 @@ export default function FormCreateAppart() {
             ...prevState,
             [name]: checked,
         }));
+    };
+
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const files = Array.from(e.target.files || []);
+        setImages(files);
     };
 
     return (
@@ -204,11 +237,11 @@ export default function FormCreateAppart() {
 
                     <label htmlFor="zip_code">Code postal de l&apos;appart&apos;</label>
                     <input
-                        type="text"
+                        type="number"
                         id="zip_code"
                         name="zip_code"
                         value={localisation.zip_code}
-                        onChange={handleLocalisationChange}
+                        onChange={(e) => setLocalisation({ ...localisation, zip_code: Number(e.target.value) })}
                         placeholder="Code postal de l'appart'"
                         className="border-2 border-gray-500 rounded-lg p-2 m-2"
                     />
@@ -223,86 +256,66 @@ export default function FormCreateAppart() {
                         placeholder="Pays de l'appart'"
                         className="border-2 border-gray-500 rounded-lg p-2 m-2"
                     />
+
                     <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
-                    <h3 className="font-bold">Détails de l&apos;appart&apos;</h3>
-                    <label htmlFor="people_number">Nombre de personnes de l&apos;appart&apos;</label>
+                    <h3 className="font-bold">Informations supplémentaires de l&apos;appart&apos;</h3>
+                    <label htmlFor="peopleNumber">Nombre de personnes</label>
                     <input
                         type="number"
-                        id="people_number"
-                        name="people_number"
+                        id="peopleNumber"
+                        name="peopleNumber"
                         value={peopleNumber}
                         onChange={(e) => setPeopleNumber(Number(e.target.value))}
-                        placeholder="Nombre de personnes de l'appart'"
+                        placeholder="Nombre de personnes"
                         className="border-2 border-gray-500 rounded-lg p-2 m-2"
                     />
 
-                    <label htmlFor="type">Type de l&apos;appart&apos;</label>
+                    <label htmlFor="type">Type d&apos;appart&apos;</label>
                     <select
                         id="type"
                         name="type"
                         value={type}
                         onChange={(e) => setType(e.target.value)}
                         className="border-2 border-gray-500 rounded-lg p-2 m-2">
-                        <option value="appart">Appartement</option>
-                        <option value="house">Maison</option>
-                        <option value="loft">Loft</option>
-                        <option value="duplex">Duplex</option>
-                        <option value="studio">Studio</option>
+                        <option value="appart">Appart</option>
+                        <option value="house">House</option>
                     </select>
 
-                    <label htmlFor="room_number">Nombre de pièces de l&apos;appart&apos;</label>
+                    <label htmlFor="roomNumber">Nombre de chambres</label>
                     <input
                         type="number"
-                        id="room_number"
-                        name="room_number"
+                        id="roomNumber"
+                        name="roomNumber"
                         value={roomNumber}
                         onChange={(e) => setRoomNumber(Number(e.target.value))}
-                        placeholder="Nombre de pièces de l'appart'"
+                        placeholder="Nombre de chambres"
                         className="border-2 border-gray-500 rounded-lg p-2 m-2"
                     />
 
-                    <label htmlFor="equipements">Equipements de l&apos;appart&apos;</label>
-                    <div className="flex flex-col">
-                        <label>
-                            <input type="checkbox" name="wifi" checked={equipements["wifi"]} onChange={handleEquipementsChange} />
-                            Wifi
+                    <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
+                    <h3 className="font-bold">Equipements de l&apos;appart&apos;</h3>
+                    {Object.keys(equipements).map((equipement) => (
+                        <label key={equipement}>
+                            <input type="checkbox" name={equipement} checked={equipements[equipement]} onChange={handleEquipementsChange} />
+                            {equipement}
                         </label>
-                        <label>
-                            <input type="checkbox" name="tv" checked={equipements["tv"]} onChange={handleEquipementsChange} />
-                            TV
-                        </label>
-                        <label>
-                            <input type="checkbox" name="clim" checked={equipements["clim"]} onChange={handleEquipementsChange} />
-                            Climatisation
-                        </label>
-                        <label>
-                            <input type="checkbox" name="parking" checked={equipements["parking"]} onChange={handleEquipementsChange} />
-                            Parking
-                        </label>
-                        <label>
-                            <input type="checkbox" name="breakfast" checked={equipements["breakfast"]} onChange={handleEquipementsChange} />
-                            Petit déjeuner
-                        </label>
-                    </div>
+                    ))}
 
-                    <label htmlFor="accessories">Accessoires de l&apos;appart&apos;</label>
-                    <div className="flex flex-col">
-                        <label>
-                            <input type="checkbox" name="chain" checked={accessories["chain"]} onChange={handleAccessoriesChange} />
-                            Chaine Hi-Fi
+                    <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
+                    <h3 className="font-bold">Accessoires de l&apos;appart&apos;</h3>
+                    {Object.keys(accessories).map((accessory) => (
+                        <label key={accessory}>
+                            <input type="checkbox" name={accessory} checked={accessories[accessory]} onChange={handleAccessoriesChange} />
+                            {accessory}
                         </label>
-                        <label>
-                            <input type="checkbox" name="cage" checked={accessories["cage"]} onChange={handleAccessoriesChange} />
-                            Cage de danse
-                        </label>
-                        <label>
-                            <input type="checkbox" name="jacuzzi" checked={accessories["jacuzzi"]} onChange={handleAccessoriesChange} />
-                            Jacuzzi
-                        </label>
-                    </div>
+                    ))}
 
-                    <button type="submit" className="bg-[#C2C2C2] p-4 rounded-full">
-                        Créer l&apos;appart&apos;
+                    <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
+                    <h3 className="font-bold">Images de l&apos;appart&apos;</h3>
+                    <input type="file" multiple onChange={handleImageChange} className="border-2 border-gray-500 rounded-lg p-2 m-2" />
+
+                    <button type="submit" className="bg-blue-500 text-white rounded-lg p-2 m-2">
+                        Créer
                     </button>
                 </form>
             </div>
