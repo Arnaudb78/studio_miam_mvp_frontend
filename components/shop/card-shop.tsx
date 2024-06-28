@@ -75,7 +75,7 @@ export default function CardShop({ id }: DetailsClientProps) {
     useEffect(() => {
         const fetchData = async () => {
             if (id) {
-                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/${id}`);
+                const response = await fetch(`http://localhost:5001/apparts/${id}`);
                 const data = await response.json();
                 setAppart(data);
             }
@@ -172,16 +172,16 @@ const handleTimeDepartureChange = (e: any) => {
                         <h2 className="font-bold">{title}</h2>
                         <p>A partir de <span className="font-bold">{price}€</span></p>
                     </div>
-                    <div className="w-full flex border border-primary border-solid rounded-xl">
-                        <div className="w-1/3 flex flex-col justify-center items-center gap-1 p-4 border-solid border-primary border-r-0">
+                    <div className="w-full h-full flex border border-primary border-solid rounded-xl">
+                        <div className="w-1/3 h-full flex flex-col justify-center items-center gap-1 p-4 border-solid border-primary border-r-0">
                             <p className="font-bold">Date</p>
                             <input onChange={handleDateChange} type="date" name="arrivalDate" id="arrivalDate" className="w-full border bg-transparent"/>
                         </div>
-                        <div className="w-1/3 flex flex-col justify-center items-center gap-1 p-4 border-r border-l border-solid border-primary border-r-1">
+                        <div className="w-1/3 h-full flex flex-col justify-center items-center gap-1 p-4 border-r border-l border-solid border-primary border-r-1">
                             <p className="font-bold">Arrivée</p>
                             <input onChange={handleTimeArrivalChange} type="time" name="arrivalTime" id="arrivalTime" className="w-full border bg-transparent"/>
                         </div>
-                        <div className="w-1/3 flex flex-col justify-center items-center gap-1 p-4">
+                        <div className="w-1/3 h-full flex flex-col justify-center items-center gap-1 p-4">
                             <p className="font-bold">Départ</p>
                             <input onChange={handleTimeDepartureChange} type="time" name="departureTime" id="departureTime" className="w-full border bg-transparent"/>
                         </div>
