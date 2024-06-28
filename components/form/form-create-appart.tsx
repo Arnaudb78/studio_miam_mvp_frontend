@@ -53,23 +53,22 @@ export default function FormCreateAppart() {
         jacuzzi: false,
     });
 
-    const[imageUrl, setImageUrl] = useState<string | null>(null);
+    const [imageUrl, setImageUrl] = useState<string | null>(null);
 
     const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
-    
+
         const formDate = new FormData(e.currentTarget);
         const file = formDate.get("file") as File;
-    
+
         const url = await uploadFile(formDate);
-    
+
         if (!url) {
             return alert("Erreur lors de l'upload de l'image");
         }
-    
-        
+
         setImageUrl(url);
-    
+
         const appart = {
             title,
             description,
@@ -81,26 +80,26 @@ export default function FormCreateAppart() {
             room_number: roomNumber,
             equipements,
             accessories,
-            images: url, 
+            images: url,
         };
-    
+
         try {
-            const response = await fetch("http://localhost:5001/apparts", {
+            const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ mail: user.mail, appart }),
             });
-    
+
             if (response.status === 400) return alert("Erreur lors de la création de l'appartement");
             if (response.status === 404) {
                 alert("Utilisateur non trouvé");
                 router.push("/connect");
             }
-    
+
             const data = await response.json();
-    
+
             if (response.ok) {
                 alert("Appart créé avec succès");
                 router.push("/appart");
@@ -109,7 +108,6 @@ export default function FormCreateAppart() {
             alert(`Erreur: ${error.message}`);
         }
     };
-    
 
     const handleLocalisationChange = (e: any) => {
         setLocalisation({
@@ -138,8 +136,6 @@ export default function FormCreateAppart() {
             [name]: checked,
         }));
     };
-
-    
 
     return (
         <>
@@ -300,11 +296,9 @@ export default function FormCreateAppart() {
                     ))}
 
                     <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
-                        <h3 className="font-bold">Images de l&apos;appart&apos;</h3>
-                        <input type="file" name="file" className="border-2 border-gray-500 rounded-lg p-2 m-2" />
-                    {imageUrl ? (
-                            <img src={imageUrl} alt="uploaded file" className="m-2" />
-                    ): null}
+                    <h3 className="font-bold">Images de l&apos;appart&apos;</h3>
+                    <input type="file" name="file" className="border-2 border-gray-500 rounded-lg p-2 m-2" />
+                    {imageUrl ? <img src={imageUrl} alt="uploaded file" className="m-2" /> : null}
 
                     <button type="submit" className="bg-blue-500 text-white rounded-lg p-2 m-2">
                         Créer
