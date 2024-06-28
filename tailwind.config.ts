@@ -21,6 +21,7 @@ const config: Config = {
               flex: {
                 "zero-zero-auto": "0 0 auto",
               },
+              
         },
     },
     plugins: [],

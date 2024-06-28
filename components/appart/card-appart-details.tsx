@@ -93,7 +93,7 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
 
         const fetchUserInfo = async (userId: string) => {
             try {
-                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/users/${userId}`);
+                const response = await fetch(`http://localhost:5001/users/${userId}`);
                 if (!response.ok) {
                     throw new Error("Erreur lors de la récupération des informations de l'utilisateur");
                 }
@@ -185,8 +185,9 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
                         désirs !
                     </h2>
                     <p className="opacity-75">
-                        Ce charmant appartement fonctionnel disposant d&apos;un balcon donnant côté cour est parfait pour découvrir Paris. Dans un quartier
-                        animé (nombreux bars proches du canal) et avec de nombreux commerces, l&apos;appartement est pourtant parfaitement au calme.
+                        Ce charmant appartement fonctionnel disposant d&apos;un balcon donnant côté cour est parfait pour découvrir Paris. Dans un
+                        quartier animé (nombreux bars proches du canal) et avec de nombreux commerces, l&apos;appartement est pourtant parfaitement au
+                        calme.
                     </p>
                     <p className="text-[16px]">
                         {data.localisation.address} {data.localisation.zip_code} {data.localisation.city}
