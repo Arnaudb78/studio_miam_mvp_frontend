@@ -49,6 +49,7 @@ interface AppartsProps {
     room_number: number;
     equipements: Equipements;
     accessories: Accessories;
+    images: string[];
 }
 
 export default function Appart() {
