@@ -12,7 +12,7 @@ import Section6 from "@/components/home/section6";
 export default function Home() {
 
     return (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 ">
             <Navbar />
             <Section1 />
             <Section2 />
