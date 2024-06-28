@@ -57,7 +57,7 @@ export default function Section2() {
     const [apparts, setapparts] = useState<AppartsProps[]>([]);
 
     const getData = async () => {
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts");
+        const response = await fetch("http://localhost:5001/apparts");
         const data = await response.json();
         setapparts(data);
     };
@@ -95,11 +95,9 @@ export default function Section2() {
                         <p className="text-[16px] px-8">Faites une pause des réunions Zoom et des cris d&apos;enfants ?</p>
                     </div>
                     <div className="flex overflow-x-auto whitespace-nowrap w-full">
-                        <div className="w-full h-w-full mr-1 flex-zero-zero-auto">
                             {apparts.map((apparts, index) => (
                                 <CardAppart key={index} {...apparts} isProfil={isProfil} />
                             ))}
-                        </div>
                     </div>
                     <div className="w-full flex justify-center text-secondary-200 text-[14px]">
                         <a className="bg-secondary-300 p-2 rounded-full cursor-pointer" href="/room">

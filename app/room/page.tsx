@@ -60,7 +60,7 @@ export default function Room() {
     //http://localhost:5001
     //https://pacific-reaches-55510-1cc818501846.herokuapp.com
     const getData = async () => {
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts");
+        const response = await fetch("http://localhost:5001/apparts");
         const data = await response.json();
         setapparts(data);
     };

@@ -1,4 +1,4 @@
-import CardAppartDetails from "@/components/appart/card-appart-details";
+import CardPayementDetails from "@/components/shop/card-payement-details";
 import { Suspense } from "react";
 
 export async function generateStaticParams() {
@@ -9,10 +9,10 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function DetailsPage({ params }: { params: { id: string } }) {
+export default function Payment({ params }: { params: { id: string } }) {
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            <CardAppartDetails id={params.id} />
+            <CardPayementDetails id={params.id} />
         </Suspense>
     );
 }

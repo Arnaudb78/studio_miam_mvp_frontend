@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/navbar";
+import Footer from "../footer";
+import Extra from "./extra";
 
 interface Equipements {
     wifi: boolean;
@@ -50,6 +52,7 @@ interface AppartsProps {
     room_number: number;
     equipements: Equipements;
     accessories: Accessories;
+    images: string[];
 }
 
 interface DetailsClientProps {
@@ -59,10 +62,9 @@ interface DetailsClientProps {
 export default function CardShop({ id }: DetailsClientProps) {
     const router = useRouter();
     const [appart, setAppart] = useState<AppartsProps | null>(null);
-    const [selectedDate, setSelectedDate] = useState<string>("");
-    const [selectedTimeSlot, setSelectedTimeSlot] = useState<TimeSlot | null>(null);
-    const [numberOfPeople, setNumberOfPeople] = useState<number>(1);
-
+    const[selectedDate, setSelectedDate] = useState<string | null>(null);
+    const[timeArrival, setTimeArrival] = useState<string | null>(null);
+    const[timeDeparture, setTimeDeparture] = useState<string | null>(null);
     useEffect(() => {
         const session = sessionStorage.getItem("user");
         if (!session) {
@@ -73,7 +75,7 @@ export default function CardShop({ id }: DetailsClientProps) {
     useEffect(() => {
         const fetchData = async () => {
             if (id) {
-                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/${id}`);
+                const response = await fetch(`http://localhost:5001/apparts/${id}`);
                 const data = await response.json();
                 setAppart(data);
             }
@@ -81,24 +83,61 @@ export default function CardShop({ id }: DetailsClientProps) {
         fetchData();
     }, [id]);
 
-    const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSelectedDate(event.target.value);
-    };
+    const extras = [
+        {
+        name: "Champagne",
+        price: 30,
+        icon: "/images/champagne.png",
+    },
+    {
+        name: "Bouquet de fleurs",
+        price: 50,
+        icon: "/images/bouquet.png",
+    },
+    {
+        name: "Pétales de roses",
+        price: 10,
+        icon: "/images/rose.png",    },
+    {
+        name: "Petit déjeuner",
+        price: 13,
+        icon: "/images/coffee.png",    },
+    {
+        name: "Objets surprises",
+        price: 25,
+        icon: "/images/cadeau.png",
+    },
+    {
+        name: "Huile de massage",
+        price: 15,
+        icon: "/images/oil.png",
+    },
+];
 
-    const handleTimeSlotChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedTimeSlot(event.target.value as TimeSlot);
-    };
+const extrasList = extras.map((extra, index) => {
+    return <Extra key={index} name={extra.name} price={extra.price} icon={extra.icon} />;
+});
 
-    const handlePeopleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setNumberOfPeople(parseInt(event.target.value));
-    };
+const handlePayement = () => {
+    if (!selectedDate || !timeArrival || !timeDeparture) {
+        alert("Veuillez sélectionner une date et un créneau horaire");
+        return;
+    }
+    router.push(`/payment/${id}`);
+};
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        console.log("Date:", selectedDate);
-        console.log("Time Slot:", selectedTimeSlot);
-        console.log("Number of People:", numberOfPeople);
-    };
+const handleDateChange = (e: any) => {
+    setSelectedDate(e.target.value);
+};
+
+const handleTimeArrivalChange = (e: any) => {
+    setTimeArrival(e.target.value);
+}
+
+const handleTimeDepartureChange = (e: any) => {
+    setTimeDeparture(e.target.value);
+}
+    
 
     if (!appart) {
         return (
@@ -113,91 +152,46 @@ export default function CardShop({ id }: DetailsClientProps) {
         );
     }
 
-    const { title, description, price, time, localisation, hote, people_number, type, room_number, equipements, accessories } = appart;
-    const timeSlots: TimeSlot[] = ["10h - 12h", "12h - 14h", "14h - 16h", "16h - 18h", "18h - 20h", "20h - 22h"];
+    const { title, price,  images } = appart;
 
     return (
-        <div className="bg-primary w-full min-h-screen">
+        <>
             <Navbar />
-            <div className="mx-auto px-4 flex flex-col gap-6">
-                <h3 className="text-3xl font-bold text-secondary-200 text-center">Plus qu&apos;une étape et l&apos;appart est à toi !</h3>
-                <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-                    <h4 className="text-2xl font-bold mb-2">{title}</h4>
-                    <p className="text-gray-700 mb-4">{description}</p>
-                    <p className="text-lg mb-2">
-                        <strong>Prix:</strong> {price}€ / nuit
-                    </p>
-                    <p className="text-lg mb-2">
-                        <strong>Adresse:</strong> {localisation.address}, {localisation.city}, {localisation.zip_code}, {localisation.country}
-                    </p>
-                    <p className="text-lg mb-2">
-                        <strong>Hôte:</strong> {hote}
-                    </p>
-                    <p className="text-lg mb-2">
-                        <strong>Nombre de personnes:</strong> {people_number}
-                    </p>
-                    <p className="text-lg mb-2">
-                        <strong>Type:</strong> {type}
-                    </p>
-                    <p className="text-lg mb-2">
-                        <strong>Nombre de chambres:</strong> {room_number}
-                    </p>
+            <section className="p-2 w-full h-full flex flex-col gap-8 font-satoshi">
+                <div className="w-full h-full">
+                    <div className="w-full flex justify-start items-center gap-2 p-4">
+                        <svg className="w-6 h-6 bg-[#F4F3EB] p-1 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+                        <h2 className="text-[20px] font-bold">Tentez par des petits extras ?</h2>
+                    </div>
+                    <div className="w-full h-full flex flex-col gap-2">
+                        {extrasList}
+                    </div>
                 </div>
-                <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-6 mb-6">
-                    <h4 className="text-xl font-bold mb-4">Réservez votre créneau</h4>
-                    <div className="mb-4">
-                        <label htmlFor="date" className="block text-lg font-medium text-gray-700">
-                            Date
-                        </label>
-                        <input
-                            type="date"
-                            id="date"
-                            name="date"
-                            value={selectedDate}
-                            onChange={handleDateChange}
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
-                            required
-                        />
+                <div className="w-full h-full bg-[#F4F3EB] p-4 rounded-2xl flex flex-col gap-4">
+                    <div className="w-full flex flex-col gap-4">
+                        <h2 className="font-bold">{title}</h2>
+                        <p>A partir de <span className="font-bold">{price}€</span></p>
                     </div>
-                    <div className="mb-4">
-                        <label htmlFor="timeSlot" className="block text-lg font-medium text-gray-700">
-                            Créneau horaire
-                        </label>
-                        <select
-                            id="timeSlot"
-                            name="timeSlot"
-                            value={selectedTimeSlot || ""}
-                            onChange={handleTimeSlotChange}
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
-                            required>
-                            <option value="">Sélectionner un créneau</option>
-                            {timeSlots.map((slot) => (
-                                <option key={slot} value={slot}>
-                                    {slot}
-                                </option>
-                            ))}
-                        </select>
+                    <div className="w-full flex border border-primary border-solid rounded-xl">
+                        <div className="w-1/3 flex flex-col justify-center items-center gap-1 p-4 border-solid border-primary border-r-0">
+                            <p className="font-bold">Date</p>
+                            <input onChange={handleDateChange} type="date" name="arrivalDate" id="arrivalDate" className="w-full border bg-transparent"/>
+                        </div>
+                        <div className="w-1/3 flex flex-col justify-center items-center gap-1 p-4 border-r border-l border-solid border-primary border-r-1">
+                            <p className="font-bold">Arrivée</p>
+                            <input onChange={handleTimeArrivalChange} type="time" name="arrivalTime" id="arrivalTime" className="w-full border bg-transparent"/>
+                        </div>
+                        <div className="w-1/3 flex flex-col justify-center items-center gap-1 p-4">
+                            <p className="font-bold">Départ</p>
+                            <input onChange={handleTimeDepartureChange} type="time" name="departureTime" id="departureTime" className="w-full border bg-transparent"/>
+                        </div>
                     </div>
-                    <div className="mb-4">
-                        <label htmlFor="numberOfPeople" className="block text-lg font-medium text-gray-700">
-                            Nombre de personnes
-                        </label>
-                        <input
-                            type="number"
-                            id="numberOfPeople"
-                            name="numberOfPeople"
-                            value={numberOfPeople}
-                            onChange={handlePeopleChange}
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
-                            min="1"
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-                        Procéder au paiement
-                    </button>
-                </form>
-            </div>
-        </div>
+                    <img className="rounded-2xl" src={images[0]} alt={`image de ${title}`} />
+                    <div className="w-full flex h-[0.5px] bg-primary"></div>
+                    <button onClick={handlePayement} className="w-full p-2 bg-secondary-300 text-secondary-200 rounded-2xl">Payer {price}€</button>
+                </div>
+            </section>
+            <Footer />
+        </>
     );
 }
