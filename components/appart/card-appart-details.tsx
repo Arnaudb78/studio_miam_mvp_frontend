@@ -77,7 +77,7 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
     useEffect(() => {
         const fetchAppartDetails = async () => {
             try {
-                const response = await fetch(`http://localhost:5001/apparts/${id}`);
+                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/${id}`);
                 if (!response.ok) {
                     throw new Error("Erreur lors de la récupération des détails de l'appartement");
                 }
@@ -93,7 +93,7 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
 
         const fetchUserInfo = async (userId: string) => {
             try {
-                const response = await fetch(`http://localhost:5001/users/${userId}`);
+                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/users/${userId}`);
                 if (!response.ok) {
                     throw new Error("Erreur lors de la récupération des informations de l'utilisateur");
                 }
