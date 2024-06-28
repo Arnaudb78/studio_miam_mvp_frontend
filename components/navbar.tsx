@@ -44,7 +44,9 @@ export default function Navbar() {
         <nav
             className={`fixed top-0 left-0 w-full  flex items-start justify-between p-4 bg-secondary-200 text-primary transition-all duration-300 ${
                 isVisible ? "" : "-translate-y-full"
-            }`}>
+            }`}
+            
+            style={{ zIndex: 1000 }}>
             <a href="/" className=" text-2xl font-bold flex items-center">
                 <img src="/icon.png" alt="logo" className="w-10 h-10" />
                 <p>Vitfesse</p>

@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import CardAppart from "@/components/appart/card-appart";
+import Footer from "@/components/footer";
 
 interface Equipements {
     wifi: boolean;
@@ -76,7 +77,7 @@ export default function Appart() {
     const checkIfUserHaveAppart = async (user: object) => {
         //http://localhost:5001
         //https://pacific-reaches-55510-1cc818501846.herokuapp.com
-        const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/userAppart`, {
+        const response = await fetch(`http://localhost:5001/apparts/userAppart`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -95,26 +96,36 @@ export default function Appart() {
     return (
         <>
             <Navbar />
-            <div className="bg-primary w-full h-screen flex flex-col justify-start items-center p-8">
+            <div className="bg-secondary-200 w-full h-full flex flex-col justify-start items-center p-4 gap-4 font-satoshi">
                 {!appart ? (
                     <p className=""> Pas encore d&apos;appart ? Créez en un vitfesse!</p>
                 ) : (
-                    <section className="w-full">
+                    <section className="w-full flex flex-col gap-8">
+                        <div className="flex justify-between items-center">
+                            <p className="text-[24px]">Voici vos <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block">annonces</span></p>
+                            <div className="border border-secondary-300 rounded-full p-2 text-[10px] flex items-center gap-2">
+                                <svg className="bg-secondary-300 w-3 h-3 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#FFFFFF" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+                                <a className="" href="/create">
+                                Nouvelle annonce
+                                </a>
+                            </div>
+                        </div>
+                       <div className="bg-[#F4F3EB] p-8 rounded-2xl">
                         {apparts.map((apparts, index) => (
-                            <CardAppart key={index} {...apparts} isProfil={isProfil} />
-                        ))}
+                                <CardAppart key={index} {...apparts} isProfil={isProfil} />
+                            ))}
+                       </div>
                     </section>
                 )}
                 {!appart ? (
-                    <a className="bg-secondary-200 p-4 rounded-full mt-10" href="/create">
+                    <a className="bg-secondary-200 p-4 rounded-full" href="/create">
                         Créer un appart&apos;
                     </a>
                 ) : (
-                    <a className="bg-secondary-200 p-4 rounded-full mt-10" href="/create">
-                        Créer un appart&apos;
-                    </a>
+                    null
                 )}
             </div>
+            <Footer />
         </>
     );
 }

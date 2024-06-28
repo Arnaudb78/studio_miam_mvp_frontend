@@ -3,7 +3,6 @@
 import { FormEvent, useState, useEffect, FormEventHandler } from "react";
 import { useRouter } from "next/navigation";
 import { uploadFile } from "@/app/create/upload.action";
-import { url } from "inspector";
 
 export default function FormCreateAppart() {
     const router = useRouter();
@@ -54,25 +53,21 @@ export default function FormCreateAppart() {
         jacuzzi: false,
     });
 
-    const [imageUrl, setImageUrl] = useState<string[] | null>([]);
+    const [imageUrl, setImageUrl] = useState<string | null>(null);
 
     const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
 
-        const formData = new FormData(e.currentTarget);
-        const files = formData.getAll('file') as File[];
-      
-        const urls = await Promise.all(files.map(file => {
-          const fileData = new FormData();
-          fileData.append('file', file);
-          return uploadFile(fileData);
-        }));
+        const formDate = new FormData(e.currentTarget);
+        const file = formDate.get("file") as File;
 
-        if (!urls) {
+        const url = await uploadFile(formDate);
+
+        if (!url) {
             return alert("Erreur lors de l'upload de l'image");
         }
 
-        setImageUrl(urls);
+        setImageUrl(url);
 
         const appart = {
             title,
@@ -89,7 +84,7 @@ export default function FormCreateAppart() {
         };
 
         try {
-            const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts", {
+            const response = await fetch("http://localhost:5001/apparts", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -302,8 +297,8 @@ export default function FormCreateAppart() {
 
                     <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
                     <h3 className="font-bold">Images de l&apos;appart&apos;</h3>
-                    <input type="file" name="file" multiple className="border-2 border-gray-500 rounded-lg p-2 m-2" />
-                    {imageUrl ? <img src={imageUrl[0]} alt="uploaded file" className="m-2" /> : null}
+                    <input type="file" name="file" className="border-2 border-gray-500 rounded-lg p-2 m-2" />
+                    {imageUrl ? <img src={imageUrl} alt="uploaded file" className="m-2" /> : null}
 
                     <button type="submit" className="bg-blue-500 text-white rounded-lg p-2 m-2">
                         Créer
