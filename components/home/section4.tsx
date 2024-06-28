@@ -28,10 +28,7 @@ export default function Section4(){
     const comments = data.map((comment, index) => {
         return <CardComment className="flex flex-col gap-4" key={index} pic={comment.pic} name={comment.name} description={comment.description} date={comment.date} />
     })
-
-
-
-
+    
     return (
         <>
            <section className="w-full h-full p-2">

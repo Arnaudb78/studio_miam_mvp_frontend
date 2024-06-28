@@ -1,7 +1,8 @@
 "use client";
 
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, FormEventHandler, SetStateAction, use, useState } from "react";
 import { useRouter } from "next/navigation";
+import { uploadFile } from "@/app/create/upload.action";
 
 interface FormCreateProps {
     setShowSignup: Dispatch<SetStateAction<boolean>>;
@@ -17,9 +18,21 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [rules, setRules] = useState(false);
     const [newsletter, setNewsletter] = useState(false);
+    const [picUrl, setPicUrl] = useState("");
 
-    const handleSubmit = async (event: React.FormEvent) => {
-        event.preventDefault();
+    const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
+        console.log("weshhhh");
+        const formDate = new FormData(e.currentTarget);
+        const file = formDate.get("file") as File;
+
+        const url = await uploadFile(formDate);
+
+        if (!url) {
+            return alert("Erreur lors de l'upload de l'image");
+        }
+
+        setPicUrl(url);
+        console.log(picUrl);
 
         if (!firstname || !lastname || !mail || !password || !confirmPassword || !rules || !newsletter) {
             alert("Veuillez remplir tous les champs obligatoires.");
@@ -31,12 +44,12 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
             return;
         }
         //http://localhost:5001
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/users/create", {
+        const response = await fetch("http://localhost:5001/users/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ firstname, lastname, mail, password, rules, newsletter }),
+            body: JSON.stringify({ firstname, lastname, mail, password, rules, newsletter, picUrl }),
         });
         if (response.status === 400) return alert("Adresse mail déjà utilisée.");
         response.json().then((data) => sessionStorage.setItem("user", JSON.stringify(data)));
@@ -109,6 +122,7 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
                     <input type="checkbox" checked={newsletter} onChange={(event) => setNewsletter(event.target.checked)} className="mr-2" />
                     Je souhaite m&apos;abonner à la newsletter
                 </label>
+                <input type="file" name="file" className="border-2 border-gray-500 rounded-lg p-2 m-2" />
                 <button className="bg-secondary-200 text-primary font-bold p-3 rounded-full" type="submit">
                     Créer un compte
                 </button>
