@@ -185,8 +185,8 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
                         désirs !
                     </h2>
                     <p className="opacity-75">
-                        Ce charmant appartement fonctionnel disposant d'un balcon donnant côté cour est parfait pour découvrir Paris. Dans un quartier
-                        animé (nombreux bars proches du canal) et avec de nombreux commerces, l'appartement est pourtant parfaitement au calme.
+                        Ce charmant appartement fonctionnel disposant d&apos;un balcon donnant côté cour est parfait pour découvrir Paris. Dans un quartier
+                        animé (nombreux bars proches du canal) et avec de nombreux commerces, l&apos;appartement est pourtant parfaitement au calme.
                     </p>
                     <p className="text-[16px]">
                         {data.localisation.address} {data.localisation.zip_code} {data.localisation.city}
@@ -196,7 +196,7 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
                 <div className="w-full h-full bg-[#F4F3EB] p-4 flex flex-col gap-1 rounded-2xl">
                     <p className="text-[20px] my-10">
                         Du chaos familial au <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">paradis</span> romantique,
-                        découvrez ce qu'ils en disent !
+                        découvrez ce qu&apos;ils en disent !
                     </p>
                     {comments}
                 </div>
