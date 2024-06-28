@@ -102,7 +102,7 @@ export default function Room() {
                     </h2>
                     <p className="font-extralight text-[14px]">
                         Faites une pause des réunions Zoom<br></br>
-                        et des cris d'enfants ?{" "}
+                        et des cris d&apos;enfants ?{" "}
                     </p>
                 </div>
                 <div className="flex justify-center items-center gap-4 ">
