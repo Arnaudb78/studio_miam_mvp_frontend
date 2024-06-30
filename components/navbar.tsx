@@ -41,18 +41,30 @@ export default function Navbar() {
     }, [lastScrollY]);
 
     return (
+        <>
         <nav
-            className={`fixed top-0 left-0 w-full  flex items-start justify-between p-4 bg-secondary-200 text-primary transition-all duration-300 ${
+            className={`fixed top-0 left-0 w-full  flex items-start justify-between p-4 bg-secondary-200 text-primary transition-all duration-300 lg:p-8 ${
                 isVisible ? "" : "-translate-y-full"
             }`}
             
             style={{ zIndex: 1000 }}>
-            <a href="/" className=" text-2xl font-bold flex items-center">
+            <a href="/" className=" text-2xl font-bold flex items-center lg:hidden">
                 <img src="/icon.png" alt="logo" className="w-10 h-10" />
                 <p>Vitfesse</p>
             </a>
+            <a href="/" className="hidden lg:block">
+                <img src="/images/logo_nav_desk.png" alt="logo" className="" />
+            </a>
+            <div>
+                <ul className="hidden lg:w-full lg:flex lg:gap-10 lg:font-bold">
+                    <li><a className="cursor-pointer" href="/room">Chambres</a></li>
+                    <li><a className="cursor-pointer" href="/articles">Blog</a></li>
+                    <li><a className="cursor-pointer" href="/create">Mettre en Location</a></li>
+                    <li><a className="lg:bg-secondary-300 lg:py-2 lg:px-4 lg:text-secondary-200 lg:rounded-full cursor-pointer" href="/account">Connexion</a></li>
+                </ul>
+            </div>
             <div
-                className={`w-fit  text-primary  flex flex-col justify-start items-end gap-2 overflow-hidden transition-all duration-300 ${
+                className={`w-fit  text-primary  flex flex-col justify-start items-end gap-2 overflow-hidden transition-all duration-300 lg:hidden ${
                     menu ? "h-36" : "h-10"
                 }`}>
                 <div onClick={toggleMenu}>
@@ -62,11 +74,13 @@ export default function Navbar() {
                     <li>
                         <a href="/room">Chambres</a>
                     </li>
-                    <li><a href="/reservation">Shop</a></li>
                     <li><a href="/articles">Blog</a></li>
-                    <li><a href="/account">Mon Profil</a></li>
+                    <li><a href="/articles">Mettre en Location</a></li>
+                    <li><a href="/account">Connexion</a></li>
                 </ul>
             </div>
+           
         </nav>
+        </>
     );
 }

@@ -1,30 +1,61 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 export default function Section1(){
+    const router = useRouter();
+
+    const handleClick = () => {
+        router.push("/room")
+    }
+
     return (
         <>
-            <section className="W-full h-screen bg-secondary-200 text-secondary-200 flex flex-col justify-center items-center">
-                <div className="w-full h-full bg-[url('/images/Union.png')] bg-center bg-no-repeat flex flex-col  items-center font-satoshi pt-10">
-                    <div className="max-w-[380px] h-[400px] p-8 bg-[url('/images/blur.png')] bg-center bg-no-repeat">
-                        <h2 className="text-[20px] font-bold">VIVEZ L&apos;EXPERIENCE D&apos;UNE INTIMITE RETROUVEE</h2>
-                        <p className="text-[14px]">La première plateforme qui permet aux couples de se reconnecter à travers leurs désirs grâce à nos réservations à l’heure.</p>
-                    </div>
-                    <div className="w-full h-full flex flex-col justify-end items-center mb-28">
-                        <div className="w-5/6 h-fit flex bg-secondary-200 justify-between items-center p-2 rounded-full text-[12px]">
-                            <div className="w-full flex gap-2 text-primary font-bold">
-                                <div className="w-full flex gap-2 items-center">
-                                    <svg className="w-8 h-8 bg-primary p-2 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="#FFFFFF" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
-                                    <p>Où ?</p>
-                                </div>
-                                <div className="w-full flex gap-2 items-center">
-                                    <svg className="w-8 h-8 bg-primary p-2 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#FFFFFF" d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>
-                                    <p>Quand ?</p>
-                                </div>
-                            </div>
-                            <a className="bg-secondary-300 p-2 rounded-full" href="/room">Chercher</a>
+            <section className="w-full h-full relative p-2 font-satoshi text-secondary-200 lg:hidden">
+                <img src="/images/Union.png" alt="Union" />
+                <div className="w-[375px] absolute top-2 left-2 backdrop-blur-md p-6 flex flex-col gap-4 rounded-2xl">
+                    <h2 className="text-[20px] font-bold">VIVEZ L&apos;EXPERIENCE D&apos;UNE INTIMITE RETROUVEE</h2>
+                    <p className="text-[14px]">La première plateforme qui permet aux couples de se reconnecter.</p>
+                    <div className="w-full flex justify-between items-center bg-secondary-200 p-2 rounded-full text-[11px]">
+                        <div className="flex justify-start w-full gap-2">
+                            <svg className="w-6 h-6 bg-primary p-2 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    fill="#FFFFFF"
+                                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+                                />
+                            </svg>
+                            <input
+                                type="text"
+                                placeholder="Rechercher un appart"
+                                className="w-full text-start bg-transparent text-primary font-satoshi"
+                            />
                         </div>
-                    </div>  
+                        <button onClick={handleClick} className="bg-secondary-300 py-2 px-4 rounded-full text-secondary-200">Chercher</button>
+                    </div>
                 </div>
+            </section>
+            <section className="hidden lg:relative lg:flex lg:w-full lg:h-full lg:mt-10 lg:p-8 lg:text-secondary-200">
+                <img className="w-full" src="/images/bg_home_desk.png" alt="Union" />
+                <div className="lg:absolute lg:top-8 lg:left-10 lg:w-3/6 lg:h-1/2 p-10">
+                    <h2 className="text-[40px] font-bold">VIVEZ L&apos;EXPERIENCE D&apos;UNE INTIMITE RETROUVEE</h2>
+                    <p className="text-[24px]">La première plateforme qui permet aux couples de se reconnecter à travers leurs désirs grâce à nos réservations à l’heure.</p>
+                </div>
+                <div className="lg:absolute w-1/3 bottom-40 left-20 flex justify-between items-center bg-secondary-200 p-2 rounded-full text-[14px]">
+                        <div className="flex justify-start w-full gap-2">
+                            <svg className="w-8 h-8 bg-primary p-2 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    fill="#FFFFFF"
+                                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+                                />
+                            </svg>
+                            <input
+                                type="text"
+                                placeholder="Rechercher un appart"
+                                className="w-full text-start bg-transparent text-primary font-satoshi"
+                            />
+                        </div>
+                        <button onClick={handleClick} className="bg-secondary-300 py-2 px-4 rounded-full text-secondary-200">Chercher</button>
+                    </div>
             </section>
         </>
     );
