@@ -44,7 +44,7 @@ export default function Section1() {
                         La première plateforme qui permet aux couples de se reconnecter à travers leurs désirs grâce à nos réservations à l’heure.
                     </p>
                 </div>
-                <div className="lg:absolute w-1/3 bottom-40 left-20 flex justify-between items-center bg-secondary-200 p-2 rounded-full text-[14px]">
+                <div className="lg:absolute w-2/5 bottom-40 left-20 flex justify-between items-center bg-secondary-200 p-4 rounded-full text-[14px]">
                     <div className="flex justify-start w-full gap-2">
                         <svg className="w-8 h-8 bg-primary p-2 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <path

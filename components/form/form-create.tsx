@@ -21,7 +21,6 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
     const [picUrl, setPicUrl] = useState("");
 
     const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-        console.log("weshhhh");
         const formDate = new FormData(e.currentTarget);
         const file = formDate.get("file") as File;
 
@@ -43,8 +42,7 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
             alert("Les mots de passe ne correspondent pas.");
             return;
         }
-        //http://localhost:5001
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/users/create", {
+        const response = await fetch("http://localhost:5001/users/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -66,9 +64,9 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
     };
 
     return (
-        <div className="bg-filter bg-opacity-75 backdrop-blur-md m-8 p-4 border border-solid border-secondary-200 text-secondary-200 text-[12px] rounded-2xl flex flex-col items-center">
+        <div className="bg-filter bg-opacity-75 backdrop-blur-md m-8 p-4 border border-solid border-secondary-200 text-secondary-200 text-[12px] rounded-2xl flex flex-col items-center lg:h-[565px] lg:m-0 ">
             <h2 className="font-bold p-4 text-[24px]">Création de compte</h2>
-            <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4">
+            <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 lg:gap-0">
                 <label className="flex flex-col gap-2">
                     <p>Prénom</p>
                     <input

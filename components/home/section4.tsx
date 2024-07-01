@@ -20,7 +20,7 @@ export default function Section4(){
         {
             pic: "images/profil3.png",
             name: "Julie",
-            description: "Cette plateforme est une vraie pépite pour les couples cherchant à se retrouver. La chambre était sublime, avec des installations de qualité.",
+            description: "Cette plateforme est une vraie pépite pour les couples cherchant à se retrouver. La chambre était sublime, avec des installations de qualité. L'accueil était chaleureux et discret.",
             date: "10h20 - 14 / 06 / 2024"
         },
     ];

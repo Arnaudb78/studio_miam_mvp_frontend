@@ -84,7 +84,7 @@ export default function FormCreateAppart() {
         };
 
         try {
-            const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts", {
+            const response = await fetch("http://localhost:5001/apparts", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
