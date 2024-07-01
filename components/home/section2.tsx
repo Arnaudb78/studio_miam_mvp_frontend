@@ -109,12 +109,15 @@ export default function Section2() {
                     </div>
                     <div className="hidden lg:flex lg:flex-col lg:w-full lg:justify-center lg:items-center lg:text-[36px]">
                         <p className="px-4">Vous voulez faire une pause des réunions Zoom ?</p>
-                        <p className=""><span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">Remplacez</span>  les “Tu es mute” à “Fais plus de bruit !”</p>
+                        <p className="">
+                            <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">Remplacez</span> les “Tu es mute” à “Fais plus
+                            de bruit !”
+                        </p>
                     </div>
                     <div className="flex overflow-x-auto whitespace-nowrap w-full lg:hidden">
-                            {apparts.map((apparts, index) => (
-                                <CardAppart key={index} {...apparts} isProfil={isProfil} />
-                            ))}
+                        {apparts.map((apparts, index) => (
+                            <CardAppart key={index} {...apparts} isProfil={isProfil} />
+                        ))}
                     </div>
                     <div className="hidden lg:flex lg:w-full bg-[url('/images/form_desk.png')]">
                         <div className="w-1/3 flex gap-8">

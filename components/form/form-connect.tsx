@@ -44,8 +44,8 @@ const FormConnect: React.FC<FormConnectProps> = ({ setShowSignup }) => {
         <div className="bg-filter bg-opacity-75 backdrop-blur-md m-8 p-8 border border-solid border-secondary-200 text-secondary-200 rounded-2xl text-[12px]">
             <form onSubmit={handleSubmit} className="flex flex-col gap-8 items-center">
                 <h2 className="font-bold text-[24px]">Connexion</h2>
-                <label>
-                    <p>Mail :</p>
+                <label className="w-full flex flex-col justify-center items-center gap-2">
+                    <p>Mail</p>
                     <input
                         value={mail}
                         onChange={(event) => setMail(event.target.value)}
@@ -53,7 +53,7 @@ const FormConnect: React.FC<FormConnectProps> = ({ setShowSignup }) => {
                         className="p-2 border border-solid border-secondary-200 rounded-full bg-transparent"
                     />
                 </label>
-                <label>
+                <label className="w-full flex flex-col justify-center items-center gap-2">
                     <p>Mot de passe</p>
                     <input
                         value={password}
@@ -66,9 +66,14 @@ const FormConnect: React.FC<FormConnectProps> = ({ setShowSignup }) => {
                     <button className="bg-secondary-200 p-3 rounded-full text-primary font-bold w-3/5 " type="submit">
                         Se connecter
                     </button>
-                    <a className="underline" href="#" onClick={() => setShowSignup(true)}>
-                        Pas de compte ? Cliquez ici !
-                    </a>
+
+                    <p>
+                        Je souhaite{" "}
+                        <a className="underline cursor-pointer" href="#" onClick={() => setShowSignup(true)}>
+                            créer un compte
+                        </a>{" "}
+                        en vitfesse
+                    </p>
                 </div>
             </form>
         </div>
