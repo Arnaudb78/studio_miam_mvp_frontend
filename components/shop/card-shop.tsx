@@ -65,17 +65,11 @@ export default function CardShop({ id }: DetailsClientProps) {
     const [selectedDate, setSelectedDate] = useState<string | null>(null);
     const [timeArrival, setTimeArrival] = useState<string | null>(null);
     const [timeDeparture, setTimeDeparture] = useState<string | null>(null);
-    useEffect(() => {
-        const session = sessionStorage.getItem("user");
-        if (!session) {
-            router.push("/connect");
-        }
-    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
             if (id) {
-                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/${id}`);
+                const response = await fetch(`http://localhost:5001/apparts/${id}`);
                 const data = await response.json();
                 setAppart(data);
             }
@@ -156,10 +150,10 @@ export default function CardShop({ id }: DetailsClientProps) {
     const { title, price, images, localisation } = appart;
 
     return (
-        <>  
-        <div className="lg:hidden">
-            <Navbar />
-        </div>
+        <>
+            <div className="lg:hidden">
+                <Navbar />
+            </div>
             <section className="p-2 w-full h-full flex flex-col gap-8 font-satoshi">
                 <div className="w-full h-full lg:hidden ">
                     <div className="w-full flex justify-start items-center gap-2 p-4">
@@ -172,7 +166,9 @@ export default function CardShop({ id }: DetailsClientProps) {
                 </div>
                 <div className="w-full h-full bg-[#F4F3EB] p-4 rounded-2xl flex flex-col gap-4 lg:w-4/5 lg:h-auto lg:p-8">
                     <div className="w-full flex flex-col gap-4">
-                        <h2 className="font-bold lg:text-[20px]">{title} - {localisation.city}</h2>
+                        <h2 className="font-bold lg:text-[20px]">
+                            {title} - {localisation.city}
+                        </h2>
                         <p className="lg:text-[16px]">
                             A partir de <span className="font-bold">{price}€</span>
                         </p>
@@ -211,10 +207,14 @@ export default function CardShop({ id }: DetailsClientProps) {
                     </div>
                     <img className="rounded-2xl" src={images[0]} alt={`image de ${title}`} />
                     <div className="w-full flex h-[0.5px] bg-primary lg:hidden"></div>
-                    <button onClick={handlePayement} className="w-full p-2 bg-secondary-300 text-secondary-200 rounded-2xl lg:hidden lg:p-4 lg:rounded-">
+                    <button
+                        onClick={handlePayement}
+                        className="w-full p-2 bg-secondary-300 text-secondary-200 rounded-2xl lg:hidden lg:p-4 lg:rounded-">
                         Payer {price}€
                     </button>
-                    <button onClick={handlePayement} className="hidden lg:w-full lg:block bg-secondary-300 text-secondary-200 rounded-2xl lg:p-4 lg:rounded-lg lg:text-[20px]">
+                    <button
+                        onClick={handlePayement}
+                        className="hidden lg:w-full lg:block bg-secondary-300 text-secondary-200 rounded-2xl lg:p-4 lg:rounded-lg lg:text-[20px]">
                         Continuer
                     </button>
                 </div>

@@ -6,6 +6,7 @@ import Navbar from "../navbar";
 import Footer from "../footer";
 import CardComment from "../commentary/card-comment";
 import CardComment2 from "../commentary/card-comment2";
+import Extra from "./extra";
 
 interface Equipements {
     wifi: boolean;
@@ -77,9 +78,16 @@ export default function CardPayementDetails({ id }: DetailsClientProps) {
     const [saveCard, setSaveCard] = useState(false);
 
     useEffect(() => {
+        const session = sessionStorage.getItem("user");
+        if (!session) {
+            router.push("/connect");
+        }
+    }, []);
+
+    useEffect(() => {
         const fetchAppartDetails = async () => {
             try {
-                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/${id}`);
+                const response = await fetch(`http://localhost:5001/apparts/${id}`);
                 if (!response.ok) {
                     throw new Error("Erreur lors de la récupération des détails de l'appartement");
                 }
@@ -95,7 +103,7 @@ export default function CardPayementDetails({ id }: DetailsClientProps) {
 
         const fetchUserInfo = async (userId: string) => {
             try {
-                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/users/${userId}`);
+                const response = await fetch(`http://localhost:5001/users/${userId}`);
                 if (!response.ok) {
                     throw new Error("Erreur lors de la récupération des informations de l'utilisateur");
                 }
@@ -121,6 +129,43 @@ export default function CardPayementDetails({ id }: DetailsClientProps) {
         router.push(`/endPayement`);
     };
 
+    const extras = [
+        {
+            name: "Champagne",
+            price: 30,
+            icon: "/images/champagne.png",
+        },
+        {
+            name: "Bouquet de fleurs",
+            price: 50,
+            icon: "/images/bouquet.png",
+        },
+        {
+            name: "Pétales de roses",
+            price: 10,
+            icon: "/images/rose.png",
+        },
+        {
+            name: "Petit déjeuner",
+            price: 13,
+            icon: "/images/coffee.png",
+        },
+        {
+            name: "Objets surprises",
+            price: 25,
+            icon: "/images/cadeau.png",
+        },
+        {
+            name: "Huile de massage",
+            price: 15,
+            icon: "/images/oil.png",
+        },
+    ];
+
+    const extrasList = extras.map((extra, index) => {
+        return <Extra key={index} name={extra.name} price={extra.price} icon={extra.icon} />;
+    });
+
     const handleSaveCardChange = (event: any) => {
         setSaveCard(event.target.checked);
     };
@@ -138,39 +183,45 @@ export default function CardPayementDetails({ id }: DetailsClientProps) {
     return (
         <div>
             <Navbar />
-            <section className="p-2 w-full h-full flex flex-col gap-8 font-satoshi">
+            <section className="p-2 w-full h-full flex flex-col gap-8 font-satoshi lg:p-8">
                 <div className="w-full flex justify-start items-center gap-2 p-4">
                     <svg className="w-6 h-6 bg-[#F4F3EB] p-1 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
                     </svg>
                     <h2 className="text-[20px] font-bold">Confirmation et paiement</h2>
                 </div>
-                <div className="w-full h-full bg-[#F4F3EB] p-4 rounded-2xl flex flex-col gap-4">
-                    <div className="w-full flex flex-col gap-4">
-                        <h2 className="font-bold">{data.title}</h2>
-                        <p>
-                            A partir de <span className="font-bold">{data.price}€</span>
-                        </p>
+                <div className="lg:w-full lg:flex lg:justify-evenly">
+                    <div className="hidden lg:flex lg:flex-col lg:gap-8 lg:w-1/2 lg:text-[20px]">
+                        {extrasList}
+                        <div className="w-full flex h-[0.5px] bg-primary font-satoshi font-[13px] lg:text-[20px]"></div>
                     </div>
-                    <div className="w-full flex border border-primary border-solid rounded-xl">
-                        <div className="w-1/3 flex flex-col justify-center items-center gap-1 p-4 border-solid border-primary border-r-0">
-                            <p className="font-bold">Date</p>
-                            <input type="date" name="arrivalDate" id="arrivalDate" className="w-full border bg-transparent" />
+                    <div className="w-full h-full bg-[#F4F3EB] p-4 rounded-2xl flex flex-col gap-4 lg:w-2/5">
+                        <div className="w-full flex flex-col gap-4">
+                            <h2 className="font-bold">{data.title}</h2>
+                            <p>
+                                A partir de <span className="font-bold">{data.price}€</span>
+                            </p>
                         </div>
-                        <div className="w-1/3 flex flex-col justify-center items-center gap-1 p-4 border-r border-l border-solid border-primary border-r-1">
-                            <p className="font-bold">Arrivée</p>
-                            <input type="time" name="arrivalTime" id="arrivalTime" className="w-full border bg-transparent" />
+                        <div className="w-full flex border border-primary border-solid rounded-xl">
+                            <div className="w-1/3 flex flex-col justify-center items-center gap-1 p-4 border-solid border-primary border-r-0">
+                                <p className="font-bold">Date</p>
+                                <input type="date" name="arrivalDate" id="arrivalDate" className="w-full border bg-transparent" />
+                            </div>
+                            <div className="w-1/3 flex flex-col justify-center items-center gap-1 p-4 border-r border-l border-solid border-primary border-r-1">
+                                <p className="font-bold">Arrivée</p>
+                                <input type="time" name="arrivalTime" id="arrivalTime" className="w-full border bg-transparent" />
+                            </div>
+                            <div className="w-1/3 flex flex-col justify-center items-center gap-1 p-4">
+                                <p className="font-bold">Départ</p>
+                                <input type="time" name="departureTime" id="departureTime" className="w-full border bg-transparent" />
+                            </div>
                         </div>
-                        <div className="w-1/3 flex flex-col justify-center items-center gap-1 p-4">
-                            <p className="font-bold">Départ</p>
-                            <input type="time" name="departureTime" id="departureTime" className="w-full border bg-transparent" />
+                        <img className="rounded-2xl" src={data.images[0]} alt={`image de ${data.title}`} />
+                        <div className="w-full flex h-[0.5px] bg-primary"></div>
+                        <div className="w-full flex justify-between font-bold">
+                            <p>TOTAL</p>
+                            <p>{data.price}€</p>
                         </div>
-                    </div>
-                    <img className="rounded-2xl" src={data.images[0]} alt={`image de ${data.title}`} />
-                    <div className="w-full flex h-[0.5px] bg-primary"></div>
-                    <div className="w-full flex justify-between font-bold">
-                        <p>TOTAL</p>
-                        <p>{data.price}€</p>
                     </div>
                 </div>
                 <div className="w-full h-full bg-[#F4F3EB] p-8 rounded-2xl flex flex-col gap-4">

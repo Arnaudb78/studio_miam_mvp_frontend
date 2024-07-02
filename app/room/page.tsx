@@ -60,7 +60,7 @@ export default function Room() {
     //http://localhost:5001
     //https://pacific-reaches-55510-1cc818501846.herokuapp.com
     const getData = async () => {
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts");
+        const response = await fetch("http://localhost:5001/apparts");
         const data = await response.json();
         setapparts(data);
     };
@@ -94,7 +94,9 @@ export default function Room() {
                                 className="w-full text-start bg-transparent text-primary font-satoshi"
                             />
                         </div>
-                        <button onClick={handleClick} className="bg-secondary-300 py-2 px-4 rounded-full text-secondary-200">Chercher</button>
+                        <button onClick={handleClick} className="bg-secondary-300 py-2 px-4 rounded-full text-secondary-200">
+                            Chercher
+                        </button>
                     </div>
                     <div className="hidden lg:w-2/5 lg:absolute lg:bg-secondary-200 lg:rounded-full lg:bottom-10 lg:left-10 lg:flex lg:p-2 lg:text-[14px]">
                         <div className="flex justify-start w-full gap-2 p-2">
@@ -115,15 +117,15 @@ export default function Room() {
                     <div className="hidden lg:block lg:absolute lg:backdrop-blur-md lg:top-0 lg:right-0 lg:w-[545px] lg:h-[305px] rounded-2xl"></div>
                 </div>
                 <div className="flex flex-col gap-2 text-center text-[24px] lg:text-[36px]">
-                <p className="px-4">Vous voulez faire une pause des réunions Zoom ?</p>
-                        <p className="text-[16px] lg:hidden">
-                            <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">Remplacez</span> les “Tu es mute” à<br></br> “Fais plus
-                            de bruit !”
-                        </p>
-                        <p className="hidden lg:block lg:text-[36px]">
-                            <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">Remplacez</span> les “Tu es mute” à “Fais plus
-                            de bruit !”
-                        </p>
+                    <p className="px-4">Vous voulez faire une pause des réunions Zoom ?</p>
+                    <p className="text-[16px] lg:hidden">
+                        <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">Remplacez</span> les “Tu es mute” à<br></br> “Fais
+                        plus de bruit !”
+                    </p>
+                    <p className="hidden lg:block lg:text-[36px]">
+                        <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">Remplacez</span> les “Tu es mute” à “Fais plus de
+                        bruit !”
+                    </p>
                 </div>
                 <div className="flex justify-center items-center gap-4 ">
                     <div className="w-fit bg-gray-100 flex justify-center items-center gap-4 px-4 py-2 rounded-full border border-solid border-primary lg:hidden">
@@ -133,12 +135,42 @@ export default function Room() {
                         </svg>
                     </div>
                     <div className="hidden lg:flex lg:w-full justify-center gap-6 text-[14px]">
-                       <button className="border border-solid border-primary py-3 rounded-full w-40 bg-[#f0efee] flex justify-between px-3 items-center cursor-pointer">Heure d&apos;arrivée <svg className="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg></button>
-                       <button className="border border-solid border-primary py-3 rounded-full w-40 bg-[#f0efee] flex justify-between px-3 items-center cursor-pointer">Durée <svg className="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg></button>
-                       <button className="border border-solid border-primary py-3 rounded-full w-40 bg-[#f0efee] flex justify-between px-3 items-center cursor-pointer">Prix <svg className="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg></button>
-                       <button className="border border-solid border-primary py-3 rounded-full w-40 bg-[#f0efee] flex justify-between px-3 items-center cursor-pointer">Nombres d&apos;étoiles <svg className="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg></button>
-                       <button className="border border-solid border-primary py-3 rounded-full w-40 bg-[#f0efee] flex justify-between px-3 items-center cursor-pointer">Equipements <svg className="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg></button>
-                       <button className="border border-solid border-primary py-3 rounded-full w-40 bg-[#f0efee] flex justify-between px-3 items-center cursor-pointer">Thèmes <svg className="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg></button>
+                        <button className="border border-solid border-primary py-3 rounded-full w-40 bg-[#f0efee] flex justify-between px-3 items-center cursor-pointer">
+                            Heure d&apos;arrivée{" "}
+                            <svg className="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+                            </svg>
+                        </button>
+                        <button className="border border-solid border-primary py-3 rounded-full w-40 bg-[#f0efee] flex justify-between px-3 items-center cursor-pointer">
+                            Durée{" "}
+                            <svg className="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+                            </svg>
+                        </button>
+                        <button className="border border-solid border-primary py-3 rounded-full w-40 bg-[#f0efee] flex justify-between px-3 items-center cursor-pointer">
+                            Prix{" "}
+                            <svg className="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+                            </svg>
+                        </button>
+                        <button className="border border-solid border-primary py-3 rounded-full w-40 bg-[#f0efee] flex justify-between px-3 items-center cursor-pointer">
+                            Nombres d&apos;étoiles{" "}
+                            <svg className="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+                            </svg>
+                        </button>
+                        <button className="border border-solid border-primary py-3 rounded-full w-40 bg-[#f0efee] flex justify-between px-3 items-center cursor-pointer">
+                            Equipements{" "}
+                            <svg className="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+                            </svg>
+                        </button>
+                        <button className="border border-solid border-primary py-3 rounded-full w-40 bg-[#f0efee] flex justify-between px-3 items-center cursor-pointer">
+                            Thèmes{" "}
+                            <svg className="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
                 <div className="p-4 flex flex-col gap-4 lg:flex-row lg:px-20 lg:w-[40%] lg:relative lg:left-16">

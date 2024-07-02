@@ -4,7 +4,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Navbar from "../navbar";
 import Footer from "../footer";
-import CardComment from "../commentary/card-comment";
 import CardComment2 from "../commentary/card-comment2";
 import CardShop from "../shop/card-shop";
 
@@ -78,7 +77,7 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
     useEffect(() => {
         const fetchAppartDetails = async () => {
             try {
-                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/${id}`);
+                const response = await fetch(`http://localhost:5001/apparts/${id}`);
                 if (!response.ok) {
                     throw new Error("Erreur lors de la récupération des détails de l'appartement");
                 }
@@ -94,7 +93,7 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
 
         const fetchUserInfo = async (userId: string) => {
             try {
-                const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/users/${userId}`);
+                const response = await fetch(`http://localhost:5001/users/${userId}`);
                 if (!response.ok) {
                     throw new Error("Erreur lors de la récupération des informations de l'utilisateur");
                 }
@@ -180,14 +179,16 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
                         </div>
                     </div>
                 </div>
-                <div className="hidden lg:flex lg:w-full lg:justify-center lg:items-center lg:p-20">
-                    <div className="flex flex-col gap-2 w-full h-full ">
+                <div className="hidden lg:flex lg:w-full h-full lg:items-center lg:p-20 bg-red-200">
+                    <div className="flex flex-col gap-2 w-full h-full justify-center items-center">
                         <div className="border border-solid border-primary p-8 flex flex-col gap-4 rounded-2xl">
                             <p className="font-bold text-[16px]">/ Description du logement</p>
-                            <p>Ce charmant appartement fonctionnel disposant d&apos;un balcon donnant côté cour est parfait pour découvrir Paris.
-                                 Dans un quartier animé (nombreux bars proches du canal) et avec de nombreux commerces, l&apos;appartement est 
-                                 pourtant parfaitement au calme. Idéalement situé, à deux pas du canal, du parc de la Villette. Dans un quartier animé 
-                                 (nombreux bars proches du canal) et avec de nombreux.</p>
+                            <p>
+                                Ce charmant appartement fonctionnel disposant d&apos;un balcon donnant côté cour est parfait pour découvrir Paris.
+                                Dans un quartier animé (nombreux bars proches du canal) et avec de nombreux commerces, l&apos;appartement est pourtant
+                                parfaitement au calme. Idéalement situé, à deux pas du canal, du parc de la Villette. Dans un quartier animé (nombreux
+                                bars proches du canal) et avec de nombreux.
+                            </p>
                         </div>
                         <div className="bg-[#F4F3EB] p-8 rounded-2xl flex flex-col gap-4 w-full h-full text-[14px]">
                             <p className="text-[24px] font-bold">/ Votre hôte</p>
@@ -219,8 +220,8 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
                         </h2>
                         <p className="opacity-75 lg:text-[16px]">
                             Ce charmant appartement fonctionnel disposant d&apos;un balcon donnant côté cour est parfait pour découvrir Paris. Dans un
-                            quartier animé (nombreux bars proches du canal) et avec de nombreux commerces, l&apos;appartement est pourtant parfaitement au
-                            calme.
+                            quartier animé (nombreux bars proches du canal) et avec de nombreux commerces, l&apos;appartement est pourtant
+                            parfaitement au calme.
                         </p>
                         <p className="text-[16px] lg:text-[20px]">
                             {data.localisation.address} {data.localisation.zip_code} {data.localisation.city}
@@ -232,12 +233,13 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
                 <div className="lg:p-20">
                     <div className="w-full h-full p-4 flex flex-col gap-1 rounded-2xl mb-10 lg:bg-[#F4F3EB] lg:mb-[-40px]">
                         <p className="text-[20px] my-10 lg:text-[36px]">
-                            Du chaos familial au <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">paradis</span> romantique.
-                            <span className="text-[14px] lg:text-[36px]"><br></br>Changer les couches pour des massages en duo !</span>
+                            Du chaos familial au <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">paradis</span>{" "}
+                            romantique.
+                            <span className="text-[14px] lg:text-[36px]">
+                                <br></br>Changer les couches pour des massages en duo !
+                            </span>
                         </p>
-                        <div className=" flex flex-col gap-1 lg:flex-row lg:justify-center lg:items-center lg:gap-4">
-                            {comments}
-                        </div>
+                        <div className=" flex flex-col gap-1 lg:flex-row lg:justify-center lg:items-center lg:gap-4">{comments}</div>
                     </div>
                 </div>
                 <div className="bg-transparent backdrop-blur-lg fixed flex justify-center items-center p-8 w-full bottom-0 left-0 lg:hidden">
