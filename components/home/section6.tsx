@@ -12,7 +12,6 @@ export default function Section6() {
     };
 
     const handleChangeMail = (e: any) => {
-        console.log(e.target.value);
         setEmail(e.target.value);
     };
 

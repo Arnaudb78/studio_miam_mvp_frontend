@@ -63,8 +63,6 @@ export default function Appart() {
         const userSession = sessionStorage.getItem("user");
         if (userSession) {
             const userObject = JSON.parse(userSession);
-            console.log(userObject.user);
-            console.log(userObject.user._id);
 
             if (userObject && userObject.user) {
                 checkIfUserHaveAppart(userObject.user);
@@ -89,7 +87,6 @@ export default function Appart() {
         if (response.ok && data.length > 0) {
             setAppart(true);
             setapparts(data);
-            console.log(data[0].localisation);
         }
     };
 

@@ -173,7 +173,7 @@ export default function CardShop({ id }: DetailsClientProps) {
                         </svg>
                         <h2 className="text-[20px] font-bold">Tentez par des petits extras ?</h2>
                     </div>
-                    <div className="w-full h-full flex flex-col gap-2">{extrasList}</div>
+                    <div className="w-full h-full flex flex-col gap-2 px-2">{extrasList}</div>
                 </div>
                 <div className="w-full h-full bg-[#F4F3EB] p-4 rounded-2xl flex flex-col gap-4 lg:w-4/5 lg:h-auto lg:p-8">
                     <div className="w-full flex flex-col gap-4">

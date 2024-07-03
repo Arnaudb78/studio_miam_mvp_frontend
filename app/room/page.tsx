@@ -115,7 +115,6 @@ export default function Room() {
                         </div>
                         <button className="bg-secondary-300 py-4 px-6 rounded-full text-secondary-200 ">Chercher</button>
                     </div>
-                    <div className="hidden lg:block lg:absolute lg:backdrop-blur-md lg:top-0 lg:right-0 lg:w-[545px] lg:h-[305px] xl:w-[635px] xl:h-[353px] rounded-2xl"></div>
                 </div>
                 <div className="flex flex-col gap-2 text-center text-[24px] lg:text-[36px]">
                     <p className="px-4">Vous voulez faire une pause des réunions Zoom ?</p>

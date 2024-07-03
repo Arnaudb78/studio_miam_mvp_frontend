@@ -31,7 +31,6 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
         }
 
         setPicUrl(url);
-        console.log(picUrl);
 
         if (!firstname || !lastname || !mail || !password || !confirmPassword || !rules || !newsletter) {
             alert("Veuillez remplir tous les champs obligatoires.");
@@ -64,7 +63,7 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
     };
 
     return (
-        <div className="bg-filter bg-opacity-75 backdrop-blur-md m-8 p-4 border border-solid border-secondary-200 text-secondary-200 text-[12px] rounded-2xl flex flex-col items-center lg:h-[565px] lg:m-0 ">
+        <div className="bg-filter bg-opacity-75 backdrop-blur-md m-8 p-4 text-secondary-200 text-[12px] rounded-2xl flex flex-col items-center lg:h-[565px] lg:m-0 ">
             <h2 className="font-bold p-4 text-[24px]">Création de compte</h2>
             <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 lg:gap-2">
                 <label className="flex flex-col gap-2">
