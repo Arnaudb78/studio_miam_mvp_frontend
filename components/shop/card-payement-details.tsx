@@ -76,6 +76,7 @@ export default function CardPayementDetails({ id }: DetailsClientProps) {
     const [users, setUsers] = useState<UsersProps | null>(null);
     const [paymentMethod, setPaymentMethod] = useState("");
     const [saveCard, setSaveCard] = useState(false);
+    const [count, setCount] = useState(0);
 
     useEffect(() => {
         const session = sessionStorage.getItem("user");
@@ -134,36 +135,46 @@ export default function CardPayementDetails({ id }: DetailsClientProps) {
             name: "Champagne",
             price: 30,
             icon: "/images/champagne.png",
+            logo_class: "",
         },
         {
             name: "Bouquet de fleurs",
             price: 50,
             icon: "/images/bouquet.png",
+            logo_class: "",
         },
         {
             name: "Pétales de roses",
             price: 10,
             icon: "/images/rose.png",
+            logo_class: "",
         },
         {
             name: "Petit déjeuner",
             price: 13,
             icon: "/images/coffee.png",
+            logo_class: "",
         },
         {
             name: "Objets surprises",
             price: 25,
             icon: "/images/cadeau.png",
+            logo_class: "",
         },
         {
             name: "Huile de massage",
             price: 15,
             icon: "/images/oil.png",
+            logo_class: "",
         },
     ];
 
+    const handleCountChange = (newCount: number) => {
+        setCount(newCount);
+    };
+
     const extrasList = extras.map((extra, index) => {
-        return <Extra key={index} name={extra.name} price={extra.price} icon={extra.icon} />;
+        return <Extra key={index} name={extra.name} price={extra.price} icon={extra.icon} logo_class={extra.logo_class} onCountChange={handleCountChange}/>;
     });
 
     const handleSaveCardChange = (event: any) => {
