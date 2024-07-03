@@ -96,7 +96,7 @@ export default function FormCreateAppart() {
         };
 
         try {
-            const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/", {
+            const response = await fetch("https://pacific-reaches-55510-1cc818501846.herok/apparts/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -412,14 +412,14 @@ export default function FormCreateAppart() {
                             <p className="text-[24px] text-center lg:text-[36px]">Dans quelle  <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block">catégorie</span> pourrait être votre bien ?</p>
                             <p className="text-center">Indiquez à vos visiteurs dans quelle ambiance ils seront.</p>
                         </div>
-                        <div className="w-full flex flex-wrap justify-center p-3 gap-1 lg:w-3/5 lg:gap-8">
+                        <div className="w-full flex flex-wrap justify-center p-3 gap-1 lg:w-4/5 lg:gap-8">
                             {categories.map(category => (
                                 <div
                                 key={category}
                                 className={`border-[1px] border-opacity-15 border-primary border-solid flex flex-col justify-center items-center gap-2 w-36 py-3 rounded-full cursor-pointer ${selectedCategories.includes(category) ? 'bg-gray-200' : ''}`}
                                 onClick={() => handleCategoryClick(category)}
                                 >
-                                <p className="font-bold">{category}</p>
+                                <p className="font-bold lg:text-[16px]">{category}</p>
                                 </div>
                             ))}
                         </div>
@@ -427,7 +427,7 @@ export default function FormCreateAppart() {
                     <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl lg:flex lg:justify-center lg:items-center lg:gap-8 lg:p-12">
                         <div className="flex flex-col gap-2 mb-2 lg:text-[24px]">
                             <p className="text-[24px] text-center lg:hidden">Choisissez un <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">titre</span> et une description</p>
-                            <p className="hidden lg:block lg:text-[36px]">Choisissez un <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">titre</span> et une <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">description</span></p>
+                            <p className="hidden lg:text-center lg:block lg:text-[36px]">Choisissez un <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">titre</span> et une <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">description</span></p>
                             <p className="text-center">Un titre accrocheur sera un plus pour vos potentiels visiteurs.</p>
                         </div>
                         <div className="w-full flex flex-col lg:text-[16px] lg:w-1/2">

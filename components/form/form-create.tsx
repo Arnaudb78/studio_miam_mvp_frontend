@@ -42,7 +42,7 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
             alert("Les mots de passe ne correspondent pas.");
             return;
         }
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/users/create", {
+        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herok/users/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

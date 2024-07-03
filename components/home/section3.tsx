@@ -3,11 +3,11 @@
 export default function Section3(){
     return (
         <>
-        <section className="relative w-full h-full p-2 flex flex-col justify-center items-center text-secondary-200 font-satoshi lg:p-8">
+        <section className="relative w-full h-fit p-2 flex flex-col justify-center items-center text-secondary-200 font-satoshi lg:p-8">
             <img className="lg:hidden" src="/images/brunch.png" alt="brunch du matin" />
-            <img className="hiddenn lg:flex" src="/images/flower_desk.png" alt="brunch du matin" />
+            <img className="hidden lg:block" src="/images/flower_desk.png" alt="brunch du matin" />
 
-            <div className="absolute bottom-0 w-[372px] h-fit bg-transparent backdrop-blur-lg rounded-2xl flex flex-col text-[13px] p-4 lg:top-8 lg:left-8 lg:backdrop-blur-xl lg:bg-black/30 lg:w-1/2 lg:p-8">
+            <div className="absolute bottom-0 w-[372px] h-fit bg-transparent backdrop-blur-lg rounded-2xl flex flex-col text-[13px] p-4 lg:top-8 lg:left-8 lg:backdrop-blur-xl lg:bg-black/30 lg:w-1/2 lg:p-8 xl:h-[89%]">
                     <h2 className="text-[18px] font-bold lg:text-[28px]">Réserver une chambre presque aussi vite que votre dernier rapport !</h2>
                     <div className="flex flex-col justify-start items-start p-8 gap-4 lg:text-[18px] lg:w-4/5 lg:gap-[38px]">
                         <div className="flex justify-evenly gap-3 lg:gap-6">

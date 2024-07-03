@@ -57,7 +57,7 @@ export default function Section2() {
     const [apparts, setapparts] = useState<AppartsProps[]>([]);
 
     const getData = async () => {
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts");
+        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herok/apparts");
         const data = await response.json();
         setapparts(data.slice(0, 3));
     };

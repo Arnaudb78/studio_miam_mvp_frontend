@@ -34,18 +34,21 @@ export default function Section4(){
             name: "Manon",
             description: "Je voulais surprendre mon partenaire et je suis tombée sur cette plateforme. La réservation a été très facile et la chambre était encore mieux que sur les photos. Tout était propre et les équipements, comme le jacuzzi, étaient top. Une expérience à renouveler.",
             date: "10h20 - 14 / 06 / 2024",
+            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-8 flex flex-col gap-4 lg:w-[30%]"
         },
         {
             pic: "images/lucien.png",
             name: "Lucien",
             description: "Nous avons réservé une loveroom pour notre anniversaire de mariage, et c'était tout simplement parfait. La chambre était décorée avec goût, très romantique.",
             date: "10h20 - 14 / 06 / 2024",
+            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-8 flex flex-col gap-4 lg:w-[30%]"
         },
         {
             pic: "images/enzo.png",
             name: "Enzo",
             description: "Nous avons réservé plusieurs fois sur cette application et nous avons toujours eu une super expériences. Les chambres sont propres et le système de boîte à clé.",
             date: "10h20 - 14 / 06 / 2024",
+            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-8 flex flex-col gap-4 lg:w-[30%]"
         },
     ];
 
@@ -54,7 +57,7 @@ export default function Section4(){
     })
 
     const comments2 = data2.map((comment, index) => {
-        return <CardComment key={index} pic={comment.pic} name={comment.name} description={comment.description} date={comment.date}/>
+        return <CardComment key={index} pic={comment.pic} name={comment.name} description={comment.description} date={comment.date} className={comment.className}/>
     })
     
     return (

@@ -13,7 +13,7 @@ export default function Form() {
 
         //http://localhost:5001
         //https://pacific-reaches-55510-1cc818501846.herokuapp.com
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/users", {
+        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herok/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

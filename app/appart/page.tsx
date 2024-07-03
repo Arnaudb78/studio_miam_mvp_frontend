@@ -77,7 +77,7 @@ export default function Appart() {
     const checkIfUserHaveAppart = async (user: object) => {
         //http://localhost:5001
         //https://pacific-reaches-55510-1cc818501846.herokuapp.com
-        const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/userAppart`, {
+        const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herok/apparts/userAppart`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -126,7 +126,7 @@ export default function Appart() {
                 )}
             </div>
             <div className="hidden lg:block lg:p-28">
-                <section className="w-full flex flex-col gap-8 lg:bg-secondary-400 p-8">
+                <section className="w-full flex flex-col gap-8 lg:bg-secondary-400 lg:rounded-2xl p-8">
                         <div className="flex justify-between items-center">
                             <p className="text-[36px]">Voici vos <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block">annonces</span></p>
                             <div className="border border-secondary-300 rounded-full p-2 text-[20px] flex items-center gap-2">
@@ -137,7 +137,7 @@ export default function Appart() {
                             </div>
                         </div>
                        <div className="w-full p-8 rounded-2xl">
-                            <div className="w-1/3">
+                            <div className="w-1/3 lg:flex lg:items-center lg:gap-8 lg:flex-nowrap">
                             {apparts.map((apparts, index) => (
                                     <CardAppart key={index} {...apparts} isProfil={isProfil} />
                                 ))}

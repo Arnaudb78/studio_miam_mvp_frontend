@@ -6,7 +6,7 @@ const CardArticleDetails: React.FC<{ id: string }> = ({ id }) => {
     const [article, setArticle] = useState<any>(null);
 
     useEffect(() => {
-        fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/articles/${id}`)
+        fetch(`https://pacific-reaches-55510-1cc818501846.herok/articles/${id}`)
             .then((response) => response.json())
             .then((data) => setArticle(data));
     }, [id]);
