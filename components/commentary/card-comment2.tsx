@@ -1,5 +1,7 @@
 "use client";
 
+const images = "/images/star.png";
+
 export default function CardComment2(props: any){
     return(
         <>
@@ -9,11 +11,11 @@ export default function CardComment2(props: any){
                     <div className="flex flex-col">
                         <p className="text-[20px] font-bold">{props.name}</p>
                         <div className="flex">
-                            <img className="w-5 h-auto" src="images/star.png" alt="stars" />
-                            <img className="w-5 h-auto" src="images/star.png" alt="stars" />
-                            <img className="w-5 h-auto" src="images/star.png" alt="stars" />
-                            <img className="w-5 h-auto" src="images/star.png" alt="stars" />
-                            <img className="w-5 h-auto" src="images/star.png" alt="stars" />
+                            <img className="w-5 h-auto" src={images} alt="stars" />
+                            <img className="w-5 h-auto" src={images} alt="stars" />
+                            <img className="w-5 h-auto" src={images} alt="stars" />
+                            <img className="w-5 h-auto" src={images} alt="stars" />
+                            <img className="w-5 h-auto" src={images} alt="stars" />
                         </div>
                     </div>
                </div>

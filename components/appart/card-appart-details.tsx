@@ -67,7 +67,7 @@ interface UsersProps {
     pic: string;
 }
 
-const defaultPic = "/inconnu.jpg";
+const profil = "/images/inconnu.jpg";
 
 export default function CardAppartDetails({ id }: DetailsClientProps) {
     const router = useRouter();
@@ -164,7 +164,7 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
                     <div className="bg-[#F4F3EB] p-4 rounded-2xl flex flex-col gap-4">
                         <p className="text-[16px] font-bold">/ Votre hôte</p>
                         <div className="w-full flex justify-start items-center gap-4">
-                            <img className="w-10 h-10 rounded-full"  src={users?.pic || defaultPic} alt="photo du profil" />
+                            <img className="w-10 h-10 rounded-full"  src={users?.pic || profil} alt="photo du profil" />
                             <div>
                                 <p>{data.hote}</p>
                                 <p>sur la plateforme depuis 2019</p>
@@ -195,7 +195,11 @@ export default function CardAppartDetails({ id }: DetailsClientProps) {
                         <div className="bg-[#F4F3EB] p-8 rounded-2xl flex flex-col gap-4 w-full h-full text-[14px]">
                             <p className="text-[24px] font-bold">/ Votre hôte</p>
                             <div className="w-full flex justify-start items-center gap-4">
-                                <img className="w-10 h-10 rounded-full" src={users?.pic} alt="photo du profil" />
+                                 { users?.pic ? (
+                                        <img className="w-12 h-12 rounded-full" src={users.pic} alt="photo du profil" />
+                                    ) : (
+                                        <img className="w-12 h-12 rounded-full" src={profil} alt="photo du profil" />
+                                    ) }
                                 <div>
                                     <p className="font-bold text-[22px]">{data.hote}</p>
                                     <p>sur la plateforme depuis 2019</p>
