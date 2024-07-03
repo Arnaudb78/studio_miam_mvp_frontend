@@ -66,7 +66,7 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
     return (
         <div className="bg-filter bg-opacity-75 backdrop-blur-md m-8 p-4 border border-solid border-secondary-200 text-secondary-200 text-[12px] rounded-2xl flex flex-col items-center lg:h-[565px] lg:m-0 ">
             <h2 className="font-bold p-4 text-[24px]">Création de compte</h2>
-            <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 lg:gap-0">
+            <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 lg:gap-2">
                 <label className="flex flex-col gap-2">
                     <p>Prénom</p>
                     <input
@@ -120,7 +120,7 @@ const FormCreate: React.FC<FormCreateProps> = ({ setShowSignup }) => {
                     <input type="checkbox" checked={newsletter} onChange={(event) => setNewsletter(event.target.checked)} className="mr-2" />
                     Je souhaite m&apos;abonner à la newsletter
                 </label>
-                <input type="file" name="file" className="border-2 border-gray-500 rounded-lg p-2 m-2" />
+                {/* <input type="file" name="file" className="border-2 border-gray-500 rounded-lg p-2 m-2" /> */}
                 <button className="bg-secondary-200 text-primary font-bold p-3 rounded-full" type="submit">
                     Créer un compte
                 </button>

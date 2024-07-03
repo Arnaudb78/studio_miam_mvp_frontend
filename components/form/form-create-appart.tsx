@@ -203,19 +203,19 @@ export default function FormCreateAppart() {
             name: "Lit",
             icon: "/images/logo_bed.png",
             price: null,
-            logo_class: "bg-[#E9E9E2]",
+             logo_class: "bg-[#E9E9E2] lg:w-10 lg:h-10 lg:p-2",
         },
         {
             name: "Salle de bain",
             icon: "/images/logo_shower.png",
             price: null,
-            logo_class: "bg-[#E9E9E2]",
+             logo_class: "bg-[#E9E9E2] lg:w-10 lg:h-10 lg:p-2",
         },
         {
             name: "Voyageurs",
             icon: "/images/logo_people.png",
             price: null,
-            logo_class: "bg-[#E9E9E2]",
+            logo_class: "bg-[#E9E9E2] lg:w-10 lg:h-10 lg:p-2",
         },
     ];
 
@@ -231,6 +231,7 @@ export default function FormCreateAppart() {
         'BDSM',
         'A thèmes',
         'Luxe',
+        'Ecologique',
         'Détente'
       ];
 
@@ -247,96 +248,99 @@ export default function FormCreateAppart() {
     return (
         <>
             <section className="w-full h-full p-2 font-satoshi">
-                <form className="flex flex-col justify-center items-center gap-4" onSubmit={handleSubmit}>
-                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl gap-4">
-                        <div className="flex flex-col gap-2 mb-2">
-                            <p className="text-[24px] text-center">Les infos <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block">pricipales</span></p>
-                            <p className="text-center">Pas de panique ! Vous pourrez ajouter d&apos;autres informations plus tard,
+                <form className="flex flex-col justify-center items-center gap-4 lg:p-28 lg:gap-10" onSubmit={handleSubmit}>
+                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl gap-4 lg:text-[24px] lg:justify-center lg:items-center lg:gap-8 lg:p-12">
+                        <div className="flex flex-col gap-2 mb-2 lg:w-4/5">
+                            <p className="text-[24px] text-center lg:text-[36px]">Les infos <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block">pricipales</span></p>
+                            <p className="text-center lg:hidden">Pas de panique ! Vous pourrez ajouter d&apos;autres informations plus tard,
                                 comme les types de lit par exemple.</p>
+                            <p className="hidden lg:block text-center">Pas de panique ! Vous pourrez ajouter d&apos;autres informations<br></br>plus tard,
+                            comme les types de lit par exemple.</p>
                         </div>
-                        <div className="flex flex-col gap-3 mb-4">
+                        <div className="flex flex-col gap-3 mb-4 lg:w-1/2 lg:gap-6">
                             {information}
                             <div className="w-full flex h-[0.5px] bg-primary bg-opacity-20 font-satoshi font-[13px] lg:text-[20px]"></div>
                         </div>
                     </div>
-                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl">
-                        <div className="flex flex-col gap-2 mb-2">
-                            <p className="text-[24px] text-center"><span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">Où</span> se situe votre logement ?</p>
-                            <p className="text-center">Pas de panique ! Vous pourrez ajouter d&apos;autres informations plus tard,
-                                comme les types de lit par exemple.</p>
+                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px]  p-4 rounded-2xl lg:gap-8 lg:p-12">
+                        <div className="flex flex-col gap-2 mb-2 lg:text-[24px]">
+                            <p className="text-[24px] text-center lg:text-[36px]"><span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">Où</span> se situe votre logement ?</p>
+                            <p className="text-center">Renseignez l&apos;endroit où se situe votre chambre. </p>
                         </div>
-                        <div className=" w-full flex flex-col gap-1 p-4">
-                            <input
-                            type="text"
-                            id="country"
-                            name="country"
-                            value={localisation.country}
-                            onChange={handleLocalisationChange}
-                            placeholder="Pays"
-                            className="border-[1px] border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2"
-                            />
-                            <input
-                            type="text"
-                            id="address"
-                            name="address"
-                            value={localisation.address}
-                            onChange={handleLocalisationChange}
-                            placeholder="Adresse"
-                            className="border-[1px] border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2"
-                            />
-                            <div className="flex w-full ">
+                        <div className="lg:flex lg:justify-center">
+                            <div className=" w-full flex flex-col gap-1 p-4 lg:text-[16px] lg:w-1/2 lg:flex lg:justify-center lg:items-center">
                                 <input
-                                    type="number"
-                                    id="zip_code"
-                                    name="zip_code"
-                                    value={localisation.zip_code}
-                                    onChange={(e) => setLocalisation({ ...localisation, zip_code: Number(e.target.value) })}
-                                    placeholder="Code postal"
-                                    className="border-[1px] border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2 w-2/3"
+                                type="text"
+                                id="country"
+                                name="country"
+                                value={localisation.country}
+                                onChange={handleLocalisationChange}
+                                placeholder="Pays"
+                                className="border-[1px] border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2 lg:w-full lg:w-full"
                                 />
                                 <input
                                 type="text"
-                                id="city"
-                                name="city"
-                                value={localisation.city}
+                                id="address"
+                                name="address"
+                                value={localisation.address}
                                 onChange={handleLocalisationChange}
-                                placeholder="Ville"
-                                className="border-[1px] border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2"
+                                placeholder="Adresse"
+                                className="border-[1px] border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2 lg:w-full"
+                                />
+                                <div className="flex w-full ">
+                                    <input
+                                        type="number"
+                                        id="zip_code"
+                                        name="zip_code"
+                                        value={localisation.zip_code}
+                                        onChange={(e) => setLocalisation({ ...localisation, zip_code: Number(e.target.value) })}
+                                        placeholder="Code postal"
+                                        className="border-[1px] border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2 lg:w-full w-2/3"
+                                    />
+                                    <input
+                                    type="text"
+                                    id="city"
+                                    name="city"
+                                    value={localisation.city}
+                                    onChange={handleLocalisationChange}
+                                    placeholder="Ville"
+                                    className="border-[1px] border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2 lg:w-full"
+                                    />
+                                </div>
+                            
+                                <input
+                                    type="text"
+                                    id="complementary_address"
+                                    name="complementary_address"
+                                    value={localisation.complementary_address}
+                                    onChange={handleLocalisationChange}
+                                    placeholder="Nom du batîment"
+                                    className="border-[1px] border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2 lg:w-full"
+                                />
+                                <input
+                                    type="text"
+                                    id="code"
+                                    name="code"
+                                    placeholder="Code d'entrée"
+                                    className="border-[1px] border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2 lg:w-full"
                                 />
                             </div>
-                        
-                            <input
-                                type="text"
-                                id="complementary_address"
-                                name="complementary_address"
-                                value={localisation.complementary_address}
-                                onChange={handleLocalisationChange}
-                                placeholder="Nom du batîment"
-                                className="border-[1px] border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2"
-                            />
-                            <input
-                                type="text"
-                                id="code"
-                                name="code"
-                                placeholder="Code d'entrée"
-                                className="border-[1px] border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2"
-                            />
                         </div>
                     </div>
-                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl">
-                        <div className="flex flex-col gap-2 mb-2">
-                            <p className="text-[24px] text-center">De quel type est votre lieu de <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block">retrouvailles </span>?</p>
+                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl lg:justify-center lg:items-center lg:gap-8 lg:p-12">
+                        <div className="flex flex-col gap-2 mb-2 lg:text-[24px]">
+                            <p className="text-[24px] text-center lg:text-[36px]">De quel type est votre lieu de <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block">retrouvailles </span>?</p>
                             <p className="text-center">Laquelle décrit le mieux votre logement ?</p>
                         </div>
-                        <div className="w-full flex flex-wrap justify-center p-3 gap-1">
+                        <div className="w-full flex flex-wrap justify-center p-3 gap-1 lg:w-3/5">
                             {optionsType.map(option => (
                                 <div
                                 key={option.value}
-                                className={`border-[1px] border-opacity-15 border-primary border-solid flex flex-col justify-center items-center gap-2 p-4 rounded-lg w-24 h-24 cursor-pointer ${type === option.value ? 'bg-gray-200' : ''}`}
+                                className={`border-[1px] border-opacity-15 border-primary border-solid flex flex-col justify-center items-center gap-2 p-4 rounded-lg w-24 h-24 cursor-pointer lg:w-36 ${type === option.value ? 'bg-gray-200' : ''}`}
                                 onClick={() => handleType(option.value)}
                                 >
-                                <img src={option.imgSrc} alt={option.label} className="w-10 h-10" />
-                                <p>{option.label}</p>
+                                    <img src={option.imgSrc} alt={option.label} className="w-10 h-10" />
+                                    <p>{option.label}</p>
                                 </div>
                             ))}
                         </div>
@@ -344,34 +348,34 @@ export default function FormCreateAppart() {
 
 
 
-                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl gap-4">
-                        <div className="flex flex-col gap-2 mb-2">
-                            <p className="text-[24px] text-center">A quoi aurons <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">accès</span> vos visiteurs ?</p>
+                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl gap-4 lg:gap-8 lg:p-12">
+                        <div className="flex flex-col gap-2 mb-2 lg:text-[24px]">
+                            <p className="text-[24px] text-center lg:text-[36px]">A quoi aurons <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">accès</span> vos visiteurs ?</p>
                             <p className="text-center">Ce qui sera à la disposition des visiteurs.</p>
                         </div>
                         <div className="flex justify-center gap-2 w-full">
                             {accessData.map(option => (
                                 <div
                                 key={option.value}
-                                className={`border-[1px] border-opacity-15 border-primary border-solid flex flex-col justify-center items-center gap-2 p-4 rounded-lg ${access === option.value ? 'bg-gray-200' : ''} cursor-pointer`}
+                                className={`border-[1px] border-opacity-15 border-primary border-solid flex flex-col justify-center items-center gap-2 p-4 rounded-lg lg:px-10 lg:py-16 ${access === option.value ? 'bg-gray-200' : ''} cursor-pointer`}
                                 onClick={() => handleAccess(option.value)}
                                 >
-                                <img src={option.imgSrc} alt={option.label} className="w-16 h-16" />
-                                <p>{option.label}</p>
+                                    <img src={option.imgSrc} alt={option.label} className="w-16 h-16 lg:w-20 lg:h-20" />
+                                    <p>{option.label}</p>
                                 </div>
                             ))}
                         </div>
                     </div>
-                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl gap-4">
-                        <div className="flex flex-col gap-2 mb-2">
-                            <p className="text-[24px] text-center">Quels <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block">équipements</span> seront à disposition ?</p>
+                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl gap-4 lg:justify-center lg:items-center lg:gap-8 lg:p-12">
+                        <div className="flex flex-col gap-2 mb-2 lg:text-[24px]">
+                            <p className="text-[24px] text-center lg:text-[36px]">Quels <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block">équipements</span> seront à disposition ?</p>
                             <p className="text-center">Renseignez les équipements qui seront à la disposition de vos visiteurs.</p>
                         </div>
-                        <div className="w-full flex flex-wrap justify-center p-3 gap-1">
+                        <div className="w-full flex flex-wrap justify-center p-3 gap-1 lg:w-3/5">
                             {equipementsData.map(option => (
                                 <div
                                 key={option.key}
-                                className={`border-[1px] border-opacity-15 border-primary border-solid flex flex-col justify-center items-center gap-2 p-4 rounded-lg w-24 h-24 cursor-pointer ${equipements[option.key] ? 'bg-gray-200' : ''}`}
+                                className={`border-[1px] border-opacity-15 border-primary border-solid flex flex-col justify-center items-center gap-2 p-4 rounded-lg w-24 h-24 cursor-pointer lg:w-36 ${equipements[option.key] ? 'bg-gray-200' : ''}`}
                                 onClick={() => handleEquipementClick(option.key)}
                                 >
                                 <img src={option.imgSrc} alt={option.label} className="w-10 h-10" />
@@ -380,9 +384,9 @@ export default function FormCreateAppart() {
                             ))}
                         </div>
                     </div>
-                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl">
-                        <div className="flex flex-col gap-2 mb-2">
-                            <p className="text-[24px] text-center">Aidez les à se <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">projeter</span></p>
+                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl lg:p-12">
+                        <div className="flex flex-col gap-2 mb-2 lg:text-[24px]">
+                            <p className="text-[24px] text-center lg:text-[36px]">Aidez les à se <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">projeter</span></p>
                             <p className="text-center">Ajouter des photos. Minimum 3.</p>
                         </div>
                         <div className="w-full flex flex-wrap justify-center p-3 gap-1">
@@ -391,14 +395,24 @@ export default function FormCreateAppart() {
                                 <input type="file" name="file" ref={fileInputRef} onChange={handleFileChange} className="bg-red-200 h-full" style={{ display: 'none' }} />
                                 {imageUrl ? <img src={imageUrl} alt="uploaded file" className="m-2" /> : null}
                             </div>
+                            <div onClick={handleClick} className="border-[1px] border-opacity-15 border-primary border-solid flex flex-col justify-center items-center gap-2 p-4 rounded-lg h-48 w-32">
+                                <img src="/images/logo_img.png" alt="logo image" />
+                                <input type="file" name="file" ref={fileInputRef} onChange={handleFileChange} className="bg-red-200 h-full" style={{ display: 'none' }} />
+                                {imageUrl ? <img src={imageUrl} alt="uploaded file" className="m-2" /> : null}
+                            </div>
+                            <div onClick={handleClick} className="border-[1px] border-opacity-15 border-primary border-solid flex flex-col justify-center items-center gap-2 p-4 rounded-lg h-48 w-32">
+                                <img src="/images/logo_img.png" alt="logo image" />
+                                <input type="file" name="file" ref={fileInputRef} onChange={handleFileChange} className="bg-red-200 h-full" style={{ display: 'none' }} />
+                                {imageUrl ? <img src={imageUrl} alt="uploaded file" className="m-2" /> : null}
+                            </div>
                         </div>
                     </div>
-                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl">
-                        <div className="flex flex-col gap-2 mb-2">
-                            <p className="text-[24px] text-center">Dans quelle  <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block">catégorie</span> pourrait être votre bien ?</p>
+                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl lg:justify-center lg:items-center lg:gap-8 lg:p-12">
+                        <div className="flex flex-col gap-2 mb-2 lg:text-[24px]">
+                            <p className="text-[24px] text-center lg:text-[36px]">Dans quelle  <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block">catégorie</span> pourrait être votre bien ?</p>
                             <p className="text-center">Indiquez à vos visiteurs dans quelle ambiance ils seront.</p>
                         </div>
-                        <div className="w-full flex flex-wrap justify-center p-3 gap-1">
+                        <div className="w-full flex flex-wrap justify-center p-3 gap-1 lg:w-3/5 lg:gap-8">
                             {categories.map(category => (
                                 <div
                                 key={category}
@@ -409,13 +423,14 @@ export default function FormCreateAppart() {
                                 </div>
                             ))}
                         </div>
-                    </div>
-                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl">
-                        <div className="flex flex-col gap-2 mb-2">
-                            <p className="text-[24px] text-center">Choisissez un <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">titre</span> et une description</p>
+                    </div> 
+                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl lg:flex lg:justify-center lg:items-center lg:gap-8 lg:p-12">
+                        <div className="flex flex-col gap-2 mb-2 lg:text-[24px]">
+                            <p className="text-[24px] text-center lg:hidden">Choisissez un <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">titre</span> et une description</p>
+                            <p className="hidden lg:block lg:text-[36px]">Choisissez un <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">titre</span> et une <span className="bg-secondary-100 text-secondary-200 rotate-3 inline-block">description</span></p>
                             <p className="text-center">Un titre accrocheur sera un plus pour vos potentiels visiteurs.</p>
                         </div>
-                        <div className="w-full flex flex-col">
+                        <div className="w-full flex flex-col lg:text-[16px] lg:w-1/2">
                             <input
                                 type="text"
                                 id="title"
@@ -435,19 +450,19 @@ export default function FormCreateAppart() {
                             />
                         </div>
                     </div>
-                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl">
-                        <div className="flex flex-col gap-2 mb-2">
-                            <p className="text-[24px] text-center">Quel sera le <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block">prix</span> de votre escapade ?</p>
+                    <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl lg:flex lg:justify-center lg:items-center lg:gap-8 lg:p-12">
+                        <div className="flex flex-col gap-2 mb-2 lg:text-[24px]">
+                            <p className="text-[24px] text-center lg:text-[36px]">Quel sera le <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block lg:bg-secondary-100">prix</span> de votre escapade ?</p>
                             <p className="text-center">Indiquez un prix semblable au marché.</p>
                         </div>
-                        <div className="relative inline-block">
+                        <div className="relative inline-block lg:text-[16px] lg:w-1/3">
                             <input
                                 type="number"
                                 id="price"
                                 name="price"
                                 value={price}
                                 onChange={(e) => setPrice(Number(e.target.value))}
-                                className="border border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2 pr-8 m-2 w-full"
+                                className="border border-opacity-15 border-primary border-solid bg-transparent rounded-lg p-2 pr-8 m-2 w-full lg:p-6"
                                 placeholder="0"
                             />
                             <span className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none font-bold text-[20px]">
@@ -455,8 +470,8 @@ export default function FormCreateAppart() {
                             </span>
                         </div>
                     </div>
-                    <button type="submit" className="w-full bg-secondary-100 text-white rounded-lg p-2 m-2">
-                        Créer
+                    <button type="submit" className="w-full bg-secondary-100 text-white rounded-lg p-2 m-2 lg:text-[20px] lg:bg-secondary-300 lg:w-1/5 lg:rounded-full lg:cursor-pointer">
+                        Publier l&apos;annonce
                     </button>
                 </form>
             </section>

@@ -64,7 +64,7 @@ export default function Navbar() {
                     <li><a className="cursor-pointer" href="/room">Chambres</a></li>
                     <li><a className="cursor-pointer" href="/articles">Blog</a></li>
                     <li><a className="cursor-pointer" href="/create">Mettre en Location</a></li>
-                    {isConnected ? <li><a className="lg:bg-secondary-300 lg:py-2 lg:px-4 lg:text-secondary-200 lg:rounded-full cursor-pointer" href="/account">Mon Compte</a></li> : ""}
+                    {isConnected ? <li><a className="lg:bg-secondary-300 lg:py-2 lg:px-4 lg:text-secondary-200 lg:rounded-full cursor-pointer" href="/account">Mon Compte</a></li> :  <li><a className="lg:bg-secondary-300 lg:py-2 lg:px-4 lg:text-secondary-200 lg:rounded-full cursor-pointer" href="/connect">Connexion</a></li>}
                     {isConnected ? <li><a onClick={clearStorage} className="lg:py-2 lg:px-4  lg:rounded-full cursor-pointer" href="/account">Déconnexion</a></li> : ""}
                 </ul>
             </div>

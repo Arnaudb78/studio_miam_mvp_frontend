@@ -57,12 +57,13 @@ export default function Room() {
     const router = useRouter();
     const [isProfil, setIsProfil] = useState(false);
     const [apparts, setapparts] = useState<AppartsProps[]>([]);
+    const [visibleCount, setVisibleCount] = useState(4);
     //http://localhost:5001
     //https://pacific-reaches-55510-1cc818501846.herokuapp.com
     const getData = async () => {
         const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts");
         const data = await response.json();
-        setapparts(data);
+        setapparts(data.slice(0, 3));
     };
 
     useEffect(() => {
