@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="h-full w-full p-2 lg:p-8">
+        <footer className="h-full w-full p-2 lg:p-8 font-satoshi">
             <div className="w-full h-full bg-[#F4F3EB] flex flex-col p-8 text-[12px] gap-4 rounded-2xl">
                 <div className="flex flex-col gap-2 lg:w-full h-full">
                     <img className="w-1/3 h-auto lg:w-24" src="/images/logo_footer.png" alt="logo vitfesse" />
