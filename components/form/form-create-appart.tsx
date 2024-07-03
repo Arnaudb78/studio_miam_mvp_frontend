@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState, useEffect, FormEventHandler, useRef } from "react";
+import { useState, useEffect, FormEventHandler, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { uploadFile } from "@/app/create/upload.action";
 import Extra from "../shop/extra";
@@ -96,7 +96,7 @@ export default function FormCreateAppart() {
         };
 
         try {
-            const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts", {
+            const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -131,27 +131,6 @@ export default function FormCreateAppart() {
             [e.target.name]: e.target.value,
         });
     };
-
-    // const handleTimeChange = (e: any) => {
-    //     const { name, checked } = e.target;
-    //     setTime((prevTime) => (checked ? [...prevTime, name] : prevTime.filter((timeSlot) => timeSlot !== name)));
-    // };
-
-    // const handleEquipementsChange = (e: any) => {
-    //     const { name, checked } = e.target;
-    //     setEquipements((prevState) => ({
-    //         ...prevState,
-    //         [name]: checked,
-    //     }));
-    // };
-
-    // const handleAccessoriesChange = (e: any) => {
-    //     const { name, checked } = e.target;
-    //     setAccessories((prevState) => ({
-    //         ...prevState,
-    //         [name]: checked,
-    //     }));
-    // };
 
     const handleClick = () => {
         if (fileInputRef.current) {
@@ -412,7 +391,6 @@ export default function FormCreateAppart() {
                                 <input type="file" name="file" ref={fileInputRef} onChange={handleFileChange} className="bg-red-200 h-full" style={{ display: 'none' }} />
                                 {imageUrl ? <img src={imageUrl} alt="uploaded file" className="m-2" /> : null}
                             </div>
-                                
                         </div>
                     </div>
                     <div className="bg-secondary-400 w-full h-full flex flex-col text-[12px] p-4 rounded-2xl">

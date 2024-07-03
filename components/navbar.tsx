@@ -80,7 +80,7 @@ export default function Navbar() {
                         <a href="/room">Chambres</a>
                     </li>
                     <li><a href="/articles">Blog</a></li>
-                    <li><a href="/articles">Mettre en Location</a></li>
+                    <li><a href="/create">Mettre en Location</a></li>
                     {isConnected ? <li><a href="/account">Mon Compte</a></li> : <li><a href="/account">Connexion</a></li>}
                     {isConnected ? <li><a onClick={clearStorage} href="/account">Déconnexion</a></li> : ""}
                 </ul>
