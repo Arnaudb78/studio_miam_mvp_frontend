@@ -40,7 +40,7 @@ const CardArticle: React.FC<ArticleProps> = ({ _id, title, description, content,
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-end px-28">
+                <div className="flex justify-end lg:px-28">
                     <button onClick={handleClick} className="py-2 px-4 rounded-full underline text-[10px] cursor-pointer lg:text-[16px]">
                         En lire plus
                     </button>
