@@ -65,6 +65,7 @@ export default function CardShop({ id }: DetailsClientProps) {
     const [selectedDate, setSelectedDate] = useState<string | null>(null);
     const [timeArrival, setTimeArrival] = useState<string | null>(null);
     const [timeDeparture, setTimeDeparture] = useState<string | null>(null);
+    const [count, setCount] = useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -82,36 +83,46 @@ export default function CardShop({ id }: DetailsClientProps) {
             name: "Champagne",
             price: 30,
             icon: "/images/champagne.png",
+            logo_class: "",
         },
         {
             name: "Bouquet de fleurs",
             price: 50,
             icon: "/images/bouquet.png",
+            logo_class: "",
         },
         {
             name: "Pétales de roses",
             price: 10,
             icon: "/images/rose.png",
+            logo_class: "",
         },
         {
             name: "Petit déjeuner",
             price: 13,
             icon: "/images/coffee.png",
+            logo_class: "",
         },
         {
             name: "Objets surprises",
             price: 25,
             icon: "/images/cadeau.png",
+            logo_class: "",
         },
         {
             name: "Huile de massage",
             price: 15,
             icon: "/images/oil.png",
+            logo_class: "",
         },
     ];
 
+    const handleCountChange = (newCount: number) => {
+        setCount(newCount);
+    };
+
     const extrasList = extras.map((extra, index) => {
-        return <Extra key={index} name={extra.name} price={extra.price} icon={extra.icon} />;
+        return <Extra key={index} name={extra.name} price={extra.price} icon={extra.icon} logo_class={extra.logo_class} onCountChange={handleCountChange}/>;
     });
 
     const handlePayement = () => {
