@@ -27,7 +27,7 @@ export default function Section5(){
                 </div>
                 <div className=" flex flex-col lg:flex lg:flex-row-reverse lg:w-full lg:h-fit gap-1">
                     <div className="flex gap-1 lg:w-full lg:h-full">
-                        <div className="bg-secondary-300 text-secondary-200 w-[49%] rounded-2xl p-4 flex flex-col gap-4 lg:w-full lg:h-full lg:p-8 lg:gap-12 lg:justify-between">
+                        <div className="bg-secondary-300 text-secondary-200 w-[49%] rounded-2xl p-4 flex flex-col gap-4 lg:w-full lg:h-full lg:p-8 lg:gap-12 lg:justify-between xl:h-[337px]">
                             <p className="font-bold lg:text-[20px]">Les prépartion secrète :</p>
                             <p className="lg:text-[16px]">Et si on vous aidait pour les préparatifs d&apos;une expérience inoubliable ?</p>
                             <div className="w-full flex justify-end gap-2">
@@ -37,7 +37,7 @@ export default function Section5(){
                         </div>
                         <div className="rounded-2xl flex flex-col w-[49%] h-fit lg:w-full lg:h-full">
                             <img className="lg:hidden" src="images/couple1.png" alt="couple dans une chambre buvant un café" />
-                            <img className="hidden lg:block lg:w-full lg:h-[285px]" src="images/couple1_desk.png" alt="couple dans une chambre" />
+                            <img className="hidden lg:block lg:w-full lg:h-full lg:object-cover lg:rounded-2xl xl:h-[337px]" src="images/couple1_desk.png" alt="couple dans une chambre buvant un café" />
                         </div>
                     </div>
                     <div className="relative w-full h-fit">

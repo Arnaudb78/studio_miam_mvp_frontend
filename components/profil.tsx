@@ -120,13 +120,17 @@ export default function Profil() {
                 <img className="hidden lg:block" src="/images/vector_desk.png" alt="design vector" />
             </div>
             <div className="flex absolute items-center top-24 left-2 lg:top-28 lg:left-6 lg:text-[20px]">
-                <img className="w-24 h-24 lg:w-48 lg:h-48 rounded-full" src={user.pic} alt="profil picture" />
+                {user.pic ? (
+                    <img className="w-24 h-24 lg:w-48 lg:h-48 rounded-full" src={user.pic} alt="profil picture" />
+                ) : (
+                    <img className="w-24 h-24 lg:w-48 lg:h-48 rounded-full" src="/images/inconnu.jpg" alt="profil picture" />
+                )}
                 <div className="w-full h-full flex flex-col mt-6 px-3">
                     <p className="font-bold text-[16px] lg:text-[28px]">{user.firstname} {user.lastname}</p>
                     <p>Voyageur</p>
                 </div>
             </div>
-            <div className="lg:flex lg:mt-36 lg:px-28 lg:justify-center lg:items-start gap-2">
+            <div className="lg:flex lg:mt-36 lg:px-28 lg:justify-center lg:items-start gap-2 xl:px-40">
                 <div className="p-2 lg:p-0 w-full h-fit">
                     <div className="bg-secondary-400 p-4 rounded-2xl mt-20 flex flex-col gap-4 lg:mt-0 lg:text-[14px] lg:p-8 lg:w-full">
                         <p className="font-bold text-[16px] lg:text-[24px]">/ Biographie</p>
@@ -158,7 +162,7 @@ export default function Profil() {
                     </div>
                 </div>
             </div>
-            <div className="p-2 lg:px-28">
+            <div className="p-2 lg:px-28 xl:px-40">
                 <div className="bg-secondary-400 p-4 rounded-2xl flex flex-col gap-4">
                     <p className="font-bold text-[16px] lg:text-[24px]">/ Tes commentaires</p>
                     <div className="flex flex-col gap-2 lg:flex-row lg:hidden">

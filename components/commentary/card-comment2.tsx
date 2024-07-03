@@ -8,7 +8,13 @@ export default function CardComment2(props: any){
                     <img className="w-12 h-12 rounded-full" src={props.pic} alt="photo profil" />
                     <div className="flex flex-col">
                         <p className="text-[20px] font-bold">{props.name}</p>
-                        <p>* * * * *</p>
+                        <div className="flex">
+                            <img className="w-5 h-auto" src="images/star.png" alt="stars" />
+                            <img className="w-5 h-auto" src="images/star.png" alt="stars" />
+                            <img className="w-5 h-auto" src="images/star.png" alt="stars" />
+                            <img className="w-5 h-auto" src="images/star.png" alt="stars" />
+                            <img className="w-5 h-auto" src="images/star.png" alt="stars" />
+                        </div>
                     </div>
                </div>
                <div className="text-start flex flex-col gap-4">

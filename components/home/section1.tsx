@@ -13,7 +13,7 @@ export default function Section1() {
     return (
         <>
             <section className="w-full h-full relative p-2 font-satoshi text-secondary-200 lg:hidden">
-                <Image src="/images/Union.png" alt="Union" />
+                <img src="/images/Union.png" alt="Union" />
                 <div className="w-[375px] absolute top-2 left-2 backdrop-blur-md p-6 flex flex-col gap-4 rounded-2xl">
                     <h2 className="text-[20px] font-bold">VIVEZ L&apos;EXPERIENCE D&apos;UNE INTIMITE RETROUVEE</h2>
                     <p className="text-[14px]">La première plateforme qui permet aux couples de se reconnecter.</p>
@@ -38,7 +38,7 @@ export default function Section1() {
                 </div>
             </section>
             <section className="hidden lg:relative lg:flex lg:w-full lg:h-full lg:mt-10 lg:p-8 lg:text-secondary-200">
-                <Image className="w-full" src="/images/bg_home_desk.png" alt="Union" />
+                <img className="w-full" src="/images/bg_home_desk.png" alt="Union" />
                 <div className="lg:absolute lg:top-8 lg:left-10 lg:w-3/6 lg:h-1/2 p-10">
                     <h2 className="text-[40px] font-bold">VIVEZ L&apos;EXPERIENCE D&apos;UNE INTIMITE RETROUVEE</h2>
                     <p className="text-[24px]">

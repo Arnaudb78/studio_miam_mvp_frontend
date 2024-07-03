@@ -6,49 +6,49 @@ export default function Section4(){
 
     const data = [
         {
-            pic: "images/profil1.png",
+            pic: "images/hugo.jpg",
             name: "Hugo",
             description: "Nous avons réservé plusieurs fois sur cette application et nous avons toujours eu une super expériences. Les chambres sont propres et le système de boîte à clé.",
             date: "10h20 - 14 / 06 / 2024",
-            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-8 flex flex-col gap-4 lg:w-[30%]"
+            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-10 flex flex-col gap-4 lg:w-[30%]"
         },
         {
-            pic: "images/profil2.png",
+            pic: "images/charlotte.jpg",
             name: "Charlotte",
             description: "La chambre était parfaite pour notre petite escapade en amoureux. L'accueil était chaleureux et discret, la chambre magnifique avec une ambiance très intime.",
             date: "10h20 - 14 / 06 / 2024",
-            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-8 flex flex-col gap-4 lg:w-[30%]"
+            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-10 flex flex-col gap-4 lg:w-[30%]"
         },
         {
-            pic: "images/profil3.png",
+            pic: "images/julie.jpg",
             name: "Julie",
-            description: "Cette plateforme est une vraie pépite pour les couples cherchant à se retrouver. La chambre était sublime, avec des installations de qualité. L'accueil était chaleureux et discret.",
+            description: "Cette plateforme est une vraie pépite pour les couples cherchant à se retrouver. La chambre était sublime, avec des installations de qualité.",
             date: "10h20 - 14 / 06 / 2024",
-            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-8 flex flex-col gap-4 lg:w-[30%]"
+            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-10 flex flex-col gap-4 lg:w-[30%]"
         },
     ];
 
     const data2 = [
         {
-            pic: "images/manon.png",
+            pic: "images/manon.jpg",
             name: "Manon",
             description: "Je voulais surprendre mon partenaire et je suis tombée sur cette plateforme. La réservation a été très facile et la chambre était encore mieux que sur les photos. Tout était propre et les équipements, comme le jacuzzi, étaient top. Une expérience à renouveler.",
             date: "10h20 - 14 / 06 / 2024",
-            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-8 flex flex-col gap-4 lg:w-[30%]"
+            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-10 flex flex-col gap-4 lg:w-[30%]"
         },
         {
-            pic: "images/lucien.png",
+            pic: "images/lucien.jpg",
             name: "Lucien",
             description: "Nous avons réservé une loveroom pour notre anniversaire de mariage, et c'était tout simplement parfait. La chambre était décorée avec goût, très romantique.",
             date: "10h20 - 14 / 06 / 2024",
-            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-8 flex flex-col gap-4 lg:w-[30%]"
+            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-10 flex flex-col gap-4 lg:w-[30%]"
         },
         {
             pic: "images/enzo.png",
             name: "Enzo",
             description: "Nous avons réservé plusieurs fois sur cette application et nous avons toujours eu une super expériences. Les chambres sont propres et le système de boîte à clé.",
             date: "10h20 - 14 / 06 / 2024",
-            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-8 flex flex-col gap-4 lg:w-[30%]"
+            className: "w-full h-full bg-secondary-400 text-[13px] rounded-2xl p-10 flex flex-col gap-4 lg:w-[30%]"
         },
     ];
 

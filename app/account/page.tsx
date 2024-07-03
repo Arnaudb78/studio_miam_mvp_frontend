@@ -36,7 +36,7 @@ export default function Account() {
             <Navbar />
             <Profil />
             <div className="w-full h-full flex justify-center items-center my-10">
-                <a className="bg-primary w-2/3 text-secondary-200 p-4 rounded-2xl text-center" href="/appart">
+                <a className="bg-primary w-2/3 text-secondary-200 p-4 rounded-2xl text-center lg:w-1/3 xl:w-1/4" href="/appart">
                     Mes locations
                 </a>
             </div>
