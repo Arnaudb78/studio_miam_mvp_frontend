@@ -37,7 +37,7 @@ const FormConnect: React.FC<FormConnectProps> = ({ setShowSignup }) => {
 
         setMail("");
         setPassword("");
-        router.push("/account");
+        router.push("/room");
     };
 
     return (
