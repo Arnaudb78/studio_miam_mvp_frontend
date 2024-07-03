@@ -61,7 +61,7 @@ export default function Room() {
     //http://localhost:5001
     //https://pacific-reaches-55510-1cc818501846.herokuapp.com
     const getData = async () => {
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts");
+        const response = await fetch("http://localhost:5001/apparts");
         const data = await response.json();
         setapparts(data.slice(0, 3));
     };
@@ -99,7 +99,7 @@ export default function Room() {
                             Chercher
                         </button>
                     </div>
-                    <div className="hidden lg:w-2/5 lg:absolute lg:bg-secondary-200 lg:rounded-full lg:bottom-10 lg:left-10 lg:flex lg:p-2 lg:text-[14px]">
+                    <div className="hidden lg:w-2/5 lg:absolute lg:bg-secondary-200 lg:rounded-full lg:bottom-10 lg:left-10 xl:left-20 2xl:left-32 lg:flex lg:p-2 lg:text-[14px]">
                         <div className="flex justify-start w-full gap-2 p-2">
                             <svg className="w-8 h-8 bg-primary p-2 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                 <path

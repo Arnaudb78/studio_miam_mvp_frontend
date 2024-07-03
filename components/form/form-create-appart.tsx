@@ -96,7 +96,7 @@ export default function FormCreateAppart() {
         };
 
         try {
-            const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/", {
+            const response = await fetch("http://localhost:5001/apparts/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -171,8 +171,8 @@ export default function FormCreateAppart() {
       };
 
     const accessData = [
-        { value: 'house', imgSrc: '/images/logo_house.png', label: 'Logement entier' },
-        { value: 'bed', imgSrc: '/images/logo_bed.png', label: 'Chambre' }
+        { value: 'house', imgSrc: '/images/house.png', label: 'Logement entier' },
+        { value: 'bed', imgSrc: '/images/bed.png', label: 'Chambre' }
       ];
 
     const handleAccess = (value: string) => {
@@ -357,7 +357,7 @@ export default function FormCreateAppart() {
                             {accessData.map(option => (
                                 <div
                                 key={option.value}
-                                className={`border-[1px] border-opacity-15 border-primary border-solid flex flex-col justify-center items-center gap-2 p-4 rounded-lg lg:px-10 lg:py-16 ${access === option.value ? 'bg-gray-200' : ''} cursor-pointer`}
+                                className={`border-[1px] border-opacity-15 border-primary border-solid flex flex-col justify-center items-center gap-2 px-8 py-10 rounded-lg lg:px-10 lg:py-16 ${access === option.value ? 'bg-gray-200' : ''} cursor-pointer`}
                                 onClick={() => handleAccess(option.value)}
                                 >
                                     <img src={option.imgSrc} alt={option.label} className="w-16 h-16 lg:w-20 lg:h-20" />
@@ -379,7 +379,7 @@ export default function FormCreateAppart() {
                                 onClick={() => handleEquipementClick(option.key)}
                                 >
                                 <img src={option.imgSrc} alt={option.label} className="w-10 h-10" />
-                                <p>{option.label}</p>
+                                <p className="text-center">{option.label}</p>
                                 </div>
                             ))}
                         </div>
@@ -395,12 +395,12 @@ export default function FormCreateAppart() {
                                 <input type="file" name="file" ref={fileInputRef} onChange={handleFileChange} className="bg-red-200 h-full" style={{ display: 'none' }} />
                                 {imageUrl ? <img src={imageUrl} alt="uploaded file" className="m-2" /> : null}
                             </div>
-                            <div onClick={handleClick} className="border-[1px] border-opacity-15 border-primary border-solid flex flex-col justify-center items-center gap-2 p-4 rounded-lg h-48 w-32">
+                            <div onClick={handleClick} className="hidden lg:border-[1px] lg:border-opacity-15 lg:border-primary lg:border-solid lg:flex lg:flex-col lg:justify-center lg:items-center lg:gap-2 lg:p-4 lg:rounded-lg lg:h-48 lg:w-32">
                                 <img src="/images/logo_img.png" alt="logo image" />
                                 <input type="file" name="file" ref={fileInputRef} onChange={handleFileChange} className="bg-red-200 h-full" style={{ display: 'none' }} />
                                 {imageUrl ? <img src={imageUrl} alt="uploaded file" className="m-2" /> : null}
                             </div>
-                            <div onClick={handleClick} className="border-[1px] border-opacity-15 border-primary border-solid flex flex-col justify-center items-center gap-2 p-4 rounded-lg h-48 w-32">
+                            <div onClick={handleClick} className="hidden lg:border-[1px] lg:border-opacity-15 lg:border-primary lg:border-solid lg:flex lg:flex-col lg:justify-center lg:items-center lg:gap-2 lg:p-4 lg:rounded-lg lg:h-48 lg:w-32">
                                 <img src="/images/logo_img.png" alt="logo image" />
                                 <input type="file" name="file" ref={fileInputRef} onChange={handleFileChange} className="bg-red-200 h-full" style={{ display: 'none' }} />
                                 {imageUrl ? <img src={imageUrl} alt="uploaded file" className="m-2" /> : null}

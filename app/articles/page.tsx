@@ -18,7 +18,7 @@ interface ArticlesProps {
 export default function ArticlesPage() {
     const [article, setArticle] = useState<ArticlesProps[]>([]);
     const getData = async () => {
-        const response = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/articles");
+        const response = await fetch("http://localhost:5001/articles");
         const data = await response.json();
 
         const articleImages = [

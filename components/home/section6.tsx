@@ -18,7 +18,7 @@ export default function Section6() {
     const handleClickMail = async (e: any) => {
         e.preventDefault();
         if (!email) return alert("Veuillez renseigner votre email");
-        const res = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/newsletter", {
+        const res = await fetch("http://localhost:5001/newsletter", {
             method: "POST",
             body: JSON.stringify({ email }),
             headers: {
