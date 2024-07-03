@@ -3,7 +3,7 @@
 export default function CardComment(props: any){
     return(
         <>
-            <div className="w-full h-full bg-[#F4F3EB] text-[13px] rounded-2xl p-8 flex flex-col gap-4 lg:w-[30%]">
+            <div className={props.className}>
                <div className="flex items-center gap-4">
                     <img className="w-12 h-12 rounded-full" src={props.pic} alt="photo profil" />
                     <div className="flex flex-col">

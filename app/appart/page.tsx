@@ -77,7 +77,7 @@ export default function Appart() {
     const checkIfUserHaveAppart = async (user: object) => {
         //http://localhost:5001
         //https://pacific-reaches-55510-1cc818501846.herokuapp.com
-        const response = await fetch(`https://pacific-reaches-55510-1cc818501846.herokuapp.com/apparts/userAppart`, {
+        const response = await fetch(`http://localhost:5001/apparts/userAppart`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -96,7 +96,7 @@ export default function Appart() {
     return (
         <>
             <Navbar />
-            <div className="bg-secondary-200 w-full h-full flex flex-col justify-start items-center p-4 gap-4 font-satoshi">
+            <div className="bg-secondary-200 w-full h-full flex flex-col justify-start items-center p-4 gap-4 font-satoshi lg:hidden">
                 {!appart ? (
                     <p className=""> Pas encore d&apos;appart ? Créez en un vitfesse!</p>
                 ) : (
@@ -110,7 +110,7 @@ export default function Appart() {
                                 </a>
                             </div>
                         </div>
-                       <div className="bg-[#F4F3EB] p-8 rounded-2xl">
+                       <div className="bg-[#F4F3EB] p-8 rounded-2xl flex flex-col gap-2">
                         {apparts.map((apparts, index) => (
                                 <CardAppart key={index} {...apparts} isProfil={isProfil} />
                             ))}
@@ -124,6 +124,26 @@ export default function Appart() {
                 ) : (
                     null
                 )}
+            </div>
+            <div className="hidden lg:block lg:p-28">
+                <section className="w-full flex flex-col gap-8 lg:bg-secondary-400 p-8">
+                        <div className="flex justify-between items-center">
+                            <p className="text-[36px]">Voici vos <span className="bg-secondary-300 text-secondary-200 rotate-3 inline-block">annonces</span></p>
+                            <div className="border border-secondary-300 rounded-full p-2 text-[20px] flex items-center gap-2">
+                                <svg className="bg-secondary-300 w-5 h-5 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#FFFFFF" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+                                <a className="text-secondary-300" href="/create">
+                                Nouvelle annonce
+                                </a>
+                            </div>
+                        </div>
+                       <div className="w-full p-8 rounded-2xl">
+                            <div className="w-1/3">
+                            {apparts.map((apparts, index) => (
+                                    <CardAppart key={index} {...apparts} isProfil={isProfil} />
+                                ))}
+                            </div>
+                       </div>
+                </section>
             </div>
             <Footer />
         </>

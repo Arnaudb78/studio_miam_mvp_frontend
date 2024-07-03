@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/navbar";
 import Profil from "@/components/profil";
+import Footer from "@/components/footer";
 
 function useIsClient() {
     const [isClient, setIsClient] = useState(false);
@@ -26,10 +27,6 @@ export default function Account() {
         }
     }, [isClient, router]);
 
-    function clearStorage() {
-        sessionStorage.clear();
-    }
-
     if (!isClient) {
         return null;
     }
@@ -37,31 +34,13 @@ export default function Account() {
     return (
         <>
             <Navbar />
-            <div className="w-full flex justify-between p-4 ">
-                <h1 className="font-bold">Mon Compte</h1>
-                <a className="bg-red-300 p-4 rounded-full" onClick={clearStorage} href="/">
-                    Déconnexion
+            <Profil />
+            <div className="w-full h-full flex justify-center items-center my-10">
+                <a className="bg-primary w-2/3 text-secondary-200 p-4 rounded-2xl text-center" href="/appart">
+                    Mes locations
                 </a>
             </div>
-            <div className="flex flex-col justify-center items-center p-8">
-                <h2>Mes Appart&apos; :</h2>
-                <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
-                <a className="bg-[#C2C2C2] p-4 rounded-full" href="/appart">
-                    Gérer mes appart&apos;
-                </a>
-            </div>
-            <div className="flex flex-col justify-center items-center p-8">
-                <h2>Mes Loc&apos; :</h2>
-                <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
-                <a className="bg-[#C2C2C2] p-4 rounded-full" href="/location">
-                    Gérer mes loc&apos;
-                </a>
-            </div>
-            <div className="flex flex-col justify-center items-center p-8">
-                <h2>Mes informations :</h2>
-                <div className="h-[0.5px] w-full bg-gray-500 m-4"></div>
-                <Profil />
-            </div>
+            <Footer />
         </>
     );
 }

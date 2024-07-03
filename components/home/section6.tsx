@@ -19,7 +19,7 @@ export default function Section6() {
     const handleClickMail = async (e: any) => {
         e.preventDefault();
         if (!email) return alert("Veuillez renseigner votre email");
-        const res = await fetch("https://pacific-reaches-55510-1cc818501846.herokuapp.com/newsletter", {
+        const res = await fetch("http://localhost:5001/newsletter", {
             method: "POST",
             body: JSON.stringify({ email }),
             headers: {
@@ -52,7 +52,7 @@ export default function Section6() {
                         <input
                             onChange={handleChangeMail}
                             value={email}
-                            className="w-full h-full p-4 text-primary"
+                            className="w-full h-full p-2 text-primary"
                             type="text"
                             name="mail"
                             id="mail"

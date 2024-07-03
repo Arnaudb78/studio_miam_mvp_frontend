@@ -40,6 +40,10 @@ export default function Navbar() {
         };
     }, [lastScrollY]);
 
+    function clearStorage() {
+        sessionStorage.clear();
+    }
+
     return (
         <>
         <nav
@@ -60,12 +64,13 @@ export default function Navbar() {
                     <li><a className="cursor-pointer" href="/room">Chambres</a></li>
                     <li><a className="cursor-pointer" href="/articles">Blog</a></li>
                     <li><a className="cursor-pointer" href="/create">Mettre en Location</a></li>
-                    <li><a className="lg:bg-secondary-300 lg:py-2 lg:px-4 lg:text-secondary-200 lg:rounded-full cursor-pointer" href="/account">Connexion</a></li>
+                    {isConnected ? <li><a className="lg:bg-secondary-300 lg:py-2 lg:px-4 lg:text-secondary-200 lg:rounded-full cursor-pointer" href="/account">Mon Compte</a></li> : ""}
+                    {isConnected ? <li><a onClick={clearStorage} className="lg:py-2 lg:px-4  lg:rounded-full cursor-pointer" href="/account">Déconnexion</a></li> : ""}
                 </ul>
             </div>
             <div
                 className={`w-fit  text-primary  flex flex-col justify-start items-end gap-2 overflow-hidden transition-all duration-300 lg:hidden ${
-                    menu ? "h-36" : "h-10"
+                    menu ? "h-45" : "h-10"
                 }`}>
                 <div onClick={toggleMenu}>
                     <FontAwesomeIcon icon={faBars} className="w-8 h-8 text-primary bg-slate-100 p-1 rounded-lg" />
@@ -76,7 +81,8 @@ export default function Navbar() {
                     </li>
                     <li><a href="/articles">Blog</a></li>
                     <li><a href="/articles">Mettre en Location</a></li>
-                    <li><a href="/account">Connexion</a></li>
+                    {isConnected ? <li><a href="/account">Mon Compte</a></li> : <li><a href="/account">Connexion</a></li>}
+                    {isConnected ? <li><a onClick={clearStorage} href="/account">Déconnexion</a></li> : ""}
                 </ul>
             </div>
            

@@ -10,6 +10,7 @@ const config: Config = {
                     100: "#F091FF",
                     200: "#FEFDF4",
                     300: "#FF6419",
+                    400: "#F4F3EB",
                 },
             },
             fontFamily: {
